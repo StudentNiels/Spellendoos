@@ -1,5 +1,0 @@
-C:\Users\Sneakyshrimp\OneDrive\Bureaublad\STENDEN\Jaar2\per4\C#2\Spellendoos\Spellendoos\Spellendoos\obj\Debug\Spellendoos.csprojAssemblyReference.cache
-C:\Users\Sneakyshrimp\OneDrive\Bureaublad\STENDEN\Jaar2\per4\C#2\Spellendoos\Spellendoos\Spellendoos\obj\Debug\Spellendoos_MarkupCompile.cache
-C:\Users\Sneakyshrimp\OneDrive\Bureaublad\STENDEN\Jaar2\per4\C#2\Spellendoos\Spellendoos\Spellendoos\obj\Debug\Spellendoos.Properties.Resources.resources
-C:\Users\Sneakyshrimp\OneDrive\Bureaublad\STENDEN\Jaar2\per4\C#2\Spellendoos\Spellendoos\Spellendoos\obj\Debug\Spellendoos.csproj.GenerateResource.cache
-C:\Users\Sneakyshrimp\OneDrive\Bureaublad\STENDEN\Jaar2\per4\C#2\Spellendoos\Spellendoos\Spellendoos\obj\Debug\Spellendoos.csproj.CoreCompileInputs.cache
