@@ -24,5 +24,10 @@ namespace Spellendoos
         {
             InitializeComponent();
         }
+
+        private void startButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Spelers { spelerNaam1.Text}, {spelerNaam2.Text}, {spelerNaam3.Text}, {spelerNaam4.Text} gaan een spel starten, Veel plezier!");
+        }
     }
 }
