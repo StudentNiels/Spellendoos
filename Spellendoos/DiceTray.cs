@@ -26,6 +26,7 @@ namespace Spellendoos
             foreach (Dice Dice in Dices) 
             {
                 diceResults[currentIndex] = Dice.RollDice();
+                currentIndex++;
             }
             return diceResults;
         } 
