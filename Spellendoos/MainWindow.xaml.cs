@@ -22,8 +22,10 @@ namespace Spellendoos
     {
         public MainWindow()
         {
-
+            SplashScreen sp = new SplashScreen("SplashScreen.jpg");
+            sp.Show(true);
             InitializeComponent();
+            
         }
 
         public void startButton_Click(object sender, RoutedEventArgs e)
