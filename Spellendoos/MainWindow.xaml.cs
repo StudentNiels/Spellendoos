@@ -32,6 +32,9 @@ namespace Spellendoos
         {
             
             MessageBox.Show($"Spelers {playerName1.Text}, {playerName2.Text}, {playerName3.Text}, {playerName4.Text} gaan een spel starten, Veel plezier!");
+            GameSelector gs = new GameSelector();
+            this.Visibility = Visibility.Hidden;
+            gs.Show();
         }
     }
 }
