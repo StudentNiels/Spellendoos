@@ -23,5 +23,15 @@ namespace Spellendoos
         {
             InitializeComponent();
         }
+
+        private void quit_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(1);
+        }
+
+        private void options_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
