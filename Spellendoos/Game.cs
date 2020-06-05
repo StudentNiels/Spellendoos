@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Spellendoos
 {
     class Game
     {
-        private List<Player> players; 
+        private List<Player> players;
 
         public Game()
         {
-            
-            List<Player> players = new List<Player>();
+            players = new List<Player>();
         }
     }
 }
