@@ -353,3 +353,7 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/visualstudio
+Spellendoos/Spellendoos.csproj
+Spellendoos/.vs/Spellendoos/v16/.suo
+Spellendoos/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.cache
