@@ -8,6 +8,11 @@ namespace Spellendoos
 {
     internal class Yahtzee : ChanceGame
     {
+        public Yahtzee(string name, List<Player> player, DiceTray dices) : base(name, player, dices)
+        {
+            name = "Yahtzee";
+        }
+
         public override void AddPlayer(Player player)
         {
             throw new NotImplementedException();

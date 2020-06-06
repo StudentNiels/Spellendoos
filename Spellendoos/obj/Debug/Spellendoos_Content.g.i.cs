@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("menu.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bin/debug/spellendoos.pdb")]
 
 

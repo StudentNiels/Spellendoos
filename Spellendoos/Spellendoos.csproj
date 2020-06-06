@@ -55,6 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChanceGame.cs" />
+    <Compile Include="Classes\Game.cs" />
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Score.cs" />
+    <Compile Include="Dice.cs" />
+    <Compile Include="DiceTray.cs" />
+    <Compile Include="Yahtzee.cs" />
+    <Page Include="GameSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,8 +74,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Game.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="GameSelector.xaml.cs">
+      <DependentUpon>GameSelector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -88,13 +100,28 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Spellendoos.exe.config" />
+    <None Include="Menu.ai" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="SplashScreen.ai" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Menu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SplashScreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Spellendoos.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
