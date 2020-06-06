@@ -39,7 +39,7 @@ namespace Spellendoos
 
         public void setWinScore(int winScore)
         {
-            this.points = winScore;
+            this.winScore = winScore;
         }
 
         public string getColour()

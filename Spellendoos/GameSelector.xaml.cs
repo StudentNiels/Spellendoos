@@ -33,5 +33,10 @@ namespace Spellendoos
         {
             
         }
+
+        private void start_Yahtzee_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
