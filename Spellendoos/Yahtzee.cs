@@ -6,31 +6,30 @@ using System.Threading.Tasks;
 
 namespace Spellendoos
 {
-    internal class Yahtzee : ChanceGame
+    class Yahtzee : ChanceGame
     {
-        public override void AddPlayer(Player player)
+
+        public Yahtzee(string name, List<Player> players,int diceAmount, int diceEyeAmount, int maxActionCount)
         {
-            throw new NotImplementedException();
+            this.name = name;
+            this.players = players;
+            //Create a dicetray with predetmined amount of dices
+            this.dices = new DiceTray(diceAmount, diceEyeAmount);
+            //Maximum amount of actions a player can take per turn
+            this.maxActionCount = maxActionCount;
+            this.score = new int[players.Count];
+            this.playerTurn = 0;
+        }
+
+        
+        public override void EndGame()
+        {
+            //Close the game.
         }
 
         public override string GetGameName()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void RemovePlayer(Player player)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void StartGame(string name, List<Player> PlayerList)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override DiceTray ThrowDice(DiceTray dices)
-        {
-            throw new NotImplementedException();
+            return name;
         }
     }
 }

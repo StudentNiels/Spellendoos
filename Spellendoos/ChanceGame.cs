@@ -1,35 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Spellendoos
 {
     abstract class ChanceGame
     {
-        private string name;
-        private List<Player> player;
-        private DiceTray dices;
-        private Score score;
+        //Name of the game.
+        public string name;
+        //List of players.
+        public List<Player> players;
+        //Dices in the game.
+        public DiceTray dices;
+        //Array of score in the game
+        public int[] score;
+        //Determines which player's turn it is.
+        public int playerTurn;
+        //Determines how many actions the player can perform in their turn
+        public int maxActionCount;
 
-        public string Name { get => name; set => name = value; }
-        public List<Player> Player { get => player; set => player = value; }
-        internal DiceTray Dices { get => dices; set => dices = value; }
-        public Score Score { get => score; set => score = value; }
-
-        protected ChanceGame(string name, List<Player> player, DiceTray dices, Score score)
-        {
-            this.name = name;
-            this.player = player;
-            this.dices = dices;
-            this.score = score;
-        }
-
-        public abstract void StartGame(String name, List<Player>);
-        public abstract void RemovePlayer(Player player);
-        public abstract void AddPlayer(Player player);
-        public abstract DiceTray ThrowDice(DiceTray dices);
+        public abstract void EndGame();
         public abstract string GetGameName();
     }
 }
