@@ -64,11 +64,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ChanceGame.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Yahtzee.cs" />
     <Compile Include="DiceTray.cs" />
     <Compile Include="Dice.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
