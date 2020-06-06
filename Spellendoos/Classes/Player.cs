@@ -11,14 +11,14 @@ namespace Spellendoos
     public class Player
     {
         public string playerName;
-        public int points;
+        public int winScore;
         public string colour;
 
 
-        public Player(String name)
+        public Player()
         {
-            this.playerName = name;
-            this.points = 0;
+            this.playerName = "";
+            this.winScore = 0;
             this.colour = "Empty";
         }
 
@@ -32,14 +32,14 @@ namespace Spellendoos
             this.playerName = playerName;
         }
 
-        public int getPoints()
+        public int getWinScore()
         {
-            return this.points;
+            return this.winScore;
         }
 
-        public void setPoints(int points)
+        public void setWinScore(int winScore)
         {
-            this.points = points;
+            this.points = winScore;
         }
 
         public string getColour()
