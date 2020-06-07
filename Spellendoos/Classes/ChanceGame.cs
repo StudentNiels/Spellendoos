@@ -17,7 +17,9 @@ namespace Spellendoos
         public int playerTurn;
         //Determines how many actions the player can perform in their turn
         public int maxActionCount;
-
+        //For checking whether or not the game is supposed to be active.
+        public bool active;
+        public abstract bool IsActive();
         public abstract void EndGame();
         public abstract string GetGameName();
     }
