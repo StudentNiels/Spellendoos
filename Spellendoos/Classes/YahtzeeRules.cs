@@ -11,10 +11,8 @@ namespace Spellendoos.Classes
     class YahtzeeRules
     {
         private List<string> rules;
-        private List<Dice> thrownDices;
-        public YahtzeeRules(List<Dice> thrownDices)
+        public YahtzeeRules()
         {
-            this.thrownDices = thrownDices;
             addRule("Drie gelijke");
             addRule("Vier gelijke");
             addRule("Kleine straat");
@@ -29,13 +27,13 @@ namespace Spellendoos.Classes
             this.rules.Add(rule);
         }
 
-        public void checkRules()
+        public List<string> checkRules(List<Dice> thrownDices)
         {
             int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
 
             List<string> ruleOptions = new List<string>();
 
-            foreach(Dice dice in this.thrownDices)
+            foreach(Dice dice in thrownDices)
             {
                 switch (dice.RollDice())
                 {
@@ -79,6 +77,54 @@ namespace Spellendoos.Classes
                     ruleOptions.Add("Yahtzee");
                 }
             }
+            else if(one == 1)
+            {
+                if(two == 1)
+                {
+                    if(three == 1)
+                    {
+                        if(four == 1)
+                        {
+                            ruleOptions.Add("Kleine straat");
+                            if(five == 1) 
+                            {
+                                ruleOptions.Add("Grote straat");
+                            }
+                        }
+                    }
+                }
+            }
+            else if (two == 1)
+            {
+                if (three == 1)
+                {
+                    if (four == 1)
+                    {
+                        if (five == 1)
+                        {
+                            ruleOptions.Add("Kleine straat");
+                            if (six == 1)
+                            {
+                                ruleOptions.Add("Grote straat");
+                            }
+                        }
+                    }
+                }
+            }
+            else if (three == 1)
+            {
+                if (four == 1)
+                {
+                    if (five == 1)
+                    {
+                        if (six == 1)
+                        {
+                            ruleOptions.Add("Kleine straat");
+                        }
+                    }
+                }
+            }
+            return ruleOptions;
         }
     }
 
