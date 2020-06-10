@@ -23,7 +23,6 @@ namespace Spellendoos
         public GameSelector(string p1, string p2, string p3, string p4)
         {
             InitializeComponent();
-            Console.WriteLine(p1, p2, p3, p4);
             this.game = new Game(p1, p2, p3, p4);
         }
 
@@ -39,8 +38,7 @@ namespace Spellendoos
 
         public void start_Yahtzee_Click(object sender, RoutedEventArgs e)
         {
-            Yahtzee Ytz = new Yahtzee("Yahtzee", game.players, 5, 6, 3);
-            Ytz.IsActive();
+            game.CreateYahtzee();
         }
     }
 }

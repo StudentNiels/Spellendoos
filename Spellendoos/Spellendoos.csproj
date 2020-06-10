@@ -74,6 +74,7 @@
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\Score.cs" />
     <Compile Include="Classes\Yahtzee.cs" />
+    <Compile Include="Classes\YahtzeeRules.cs" />
     <Compile Include="GameSelector.xaml.cs">
       <DependentUpon>GameSelector.xaml</DependentUpon>
     </Compile>

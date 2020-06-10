@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
@@ -11,7 +12,6 @@ namespace Spellendoos
     class Game 
     {
         public List<Player> players;
-
         public Game(string p1, string p2, string p3, string p4)
         {
             this.players = new List<Player>
@@ -31,7 +31,7 @@ namespace Spellendoos
             }
         }
 
-        public int getPlayerCount(List<Player> players)
+        public int GetPlayerCount(List<Player> players)
         {
             return players.Count;
         }
@@ -39,6 +39,12 @@ namespace Spellendoos
         public List<Player> getList()
         {
             return this.players;
+        }
+
+        public Yahtzee CreateYahtzee()
+        {
+            Yahtzee ytz = new Yahtzee("Yahtzee", players, 5, 6, 3);
+            return ytz;
         }
     }
 }
