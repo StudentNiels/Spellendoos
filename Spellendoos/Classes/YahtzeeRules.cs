@@ -11,6 +11,7 @@ namespace Spellendoos.Classes
     class YahtzeeRules
     {
         private List<string> rules;
+        private List<int> score_options;
         public YahtzeeRules()
         {
             addRule("Drie gelijke");
@@ -27,7 +28,7 @@ namespace Spellendoos.Classes
             this.rules.Add(rule);
         }
 
-        public List<string> checkRules(List<Dice> thrownDices)
+        public void checkRules(List<Dice> thrownDices)
         {
             int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
 
@@ -61,20 +62,24 @@ namespace Spellendoos.Classes
             if(one >= 3 || two >= 3 || three >= 3 || four >= 3 || five >= 3 || six >= 3)
             {
                 ruleOptions.Add("Drie gelijk");
+                score_options.Add(1 * one + 2 * two + 3 * three + 4 * four + 5 * five + 6 * six);
                 //checked if number appears more than three times and the others have the same value
                 if (one >= 2 || two >= 2 || three >= 2 || four >= 2 || five >= 2 || six >= 2)
                 {
                     ruleOptions.Add("Full house");
+                    score_options.Add(25);
                 }
                 //checked if number appears more than four times
                 if(one >= 4 || two >= 4 || three >= 4 || four >= 4 || five >= 4 || six >= 4)
                 {
-                    ruleOptions.Add("Kleine straat");
+                    ruleOptions.Add("Vier gelijk");
+                    score_options.Add(1 * one + 2 * two + 3 * three + 4 * four + 5 * five + 6 * six);
                 }
                 //checked if number appears five times
                 if (one == 5 || two == 5 || three == 5 || four == 5 || five == 5 || six == 5)
                 {
                     ruleOptions.Add("Yahtzee");
+                    score_options.Add(50);
                 }
             }
             else if(one == 1)
@@ -86,9 +91,11 @@ namespace Spellendoos.Classes
                         if(four == 1)
                         {
                             ruleOptions.Add("Kleine straat");
+                            score_options.Add(30);
                             if(five == 1) 
                             {
                                 ruleOptions.Add("Grote straat");
+                                score_options.Add(40);
                             }
                         }
                     }
@@ -103,9 +110,11 @@ namespace Spellendoos.Classes
                         if (five == 1)
                         {
                             ruleOptions.Add("Kleine straat");
+                            score_options.Add(30);
                             if (six == 1)
                             {
                                 ruleOptions.Add("Grote straat");
+                                score_options.Add(40);
                             }
                         }
                     }
@@ -120,11 +129,12 @@ namespace Spellendoos.Classes
                         if (six == 1)
                         {
                             ruleOptions.Add("Kleine straat");
+                            score_options.Add(30);
                         }
                     }
                 }
             }
-            return ruleOptions;
+            
         }
     }
 
