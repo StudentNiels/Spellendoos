@@ -27,6 +27,8 @@ namespace Spellendoos
             this.game = new Game(p1, p2, p3, p4);
         }
 
+        public GameSelector() { InitializeComponent(); }
+
         private void quit_Btn_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(1);
@@ -39,8 +41,15 @@ namespace Spellendoos
 
         public void start_Yahtzee_Click(object sender, RoutedEventArgs e)
         {
-            Yahtzee Ytz = new Yahtzee("Yahtzee", game.players, 5, 6, 3);
+            Yahtzee Ytz = new Yahtzee("Yahtzee", game.getList(), 5, 6, 3);
             Ytz.IsActive();
+        }
+
+        private void score_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            ScoreWindow sw = new ScoreWindow();
+            this.Visibility = Visibility.Hidden;
+            sw.Show();
         }
     }
 }
