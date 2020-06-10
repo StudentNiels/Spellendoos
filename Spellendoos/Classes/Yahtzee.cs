@@ -11,6 +11,7 @@ namespace Spellendoos
         public Yahtzee(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount)
         {
             this.name = name;
+            this.players = players;
             //Create a dicetray with predetermined amount of dices
             this.dices = new DiceTray(diceAmount, diceEyeAmount);
             //Maximum amount of actions a player can take per turn
@@ -18,7 +19,6 @@ namespace Spellendoos
             this.score = new int[players.Count];
             this.playerTurn = 0;
             this.active = true;
-            IsActive();
             Console.WriteLine(players.Count);
         }
 
@@ -36,6 +36,20 @@ namespace Spellendoos
                 return false;
             }
         }
+
+        public override void Turn()
+        {
+            //Check if turncount hasn't exceeded playercount, if it has reset it.
+            if (playerTurn >= players.Count - 1) 
+            {
+                playerTurn = 0;
+            }
+            Console.WriteLine($"It's {players[playerTurn].getPlayerName()}'s turn");
+            Console.WriteLine("Press any key to roll the dice");
+            Console.ReadKey();
+            Console.WriteLine("Boop");
+        }
+
         public override void EndGame()
         {
             //Close the game.

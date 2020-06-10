@@ -20,6 +20,9 @@ namespace Spellendoos
         //For checking whether or not the game is supposed to be active.
         public bool active;
         public abstract bool IsActive();
+
+        public abstract void Turn();
+
         public abstract void EndGame();
         public abstract string GetGameName();
     }
