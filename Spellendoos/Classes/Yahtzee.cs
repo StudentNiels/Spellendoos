@@ -18,6 +18,8 @@ namespace Spellendoos
             this.score = new int[players.Count];
             this.playerTurn = 0;
             this.active = true;
+            IsActive();
+            Console.WriteLine(players.Count);
         }
 
         public override bool IsActive()
@@ -26,12 +28,11 @@ namespace Spellendoos
             if(active == true)
             {
                 Console.WriteLine("Yahtzee is actief!");
-                Console.WriteLine(players.Count);
                 return true;
             }
             else
             {
-                Console.WriteLine("Yatzhee is niet actief.");
+                Console.WriteLine("Yahtzee is niet actief.");
                 return false;
             }
         }
