@@ -8,12 +8,10 @@ namespace Spellendoos
 {
     class Yahtzee : ChanceGame
     {
-
         public Yahtzee(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount)
         {
             this.name = name;
-            this.players = players;
-            //Create a dicetray with predetmined amount of dices
+            //Create a dicetray with predetermined amount of dices
             this.dices = new DiceTray(diceAmount, diceEyeAmount);
             //Maximum amount of actions a player can take per turn
             this.maxActionCount = maxActionCount;
@@ -27,7 +25,8 @@ namespace Spellendoos
             //This method is simply to check whether or not the game is currently active for testing purposes.
             if(active == true)
             {
-                Console.WriteLine("Yatzhee is actief!");
+                Console.WriteLine("Yahtzee is actief!");
+                Console.WriteLine(players.Count);
                 return true;
             }
             else

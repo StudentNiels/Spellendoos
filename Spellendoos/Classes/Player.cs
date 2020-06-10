@@ -17,7 +17,7 @@ namespace Spellendoos
 
         public Player()
         {
-            this.playerName = "";
+            this.playerName = "empty";
             this.winScore = 0;
             this.colour = "Empty";
         }

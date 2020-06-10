@@ -21,30 +21,29 @@ namespace Spellendoos
     public partial class MainWindow : Window
     {
         List<Player> players = new List<Player>();
+
         public MainWindow()
         {
+            InitializeComponent();
             SplashScreen sp = new SplashScreen("SplashScreen.jpg");
             sp.Show(true);
-            InitializeComponent();
-            
+           
         }
 
         public void startButton_Click(object sender, RoutedEventArgs e)
         {
+            string p1 = $"{playerName1}";
+            string p2 = $"{playerName2}";
+            string p3 = $"{playerName3}";
+            string p4 = $"{playerName4}";
+           
             //Check if there are 4 players
-            //Dit hoort waarschijnlijk te gaan via game.cs
-            String p1 = $"{playerName1}";
-            String p2 = $"{playerName2}"; ;
-            String p3 = $"{playerName3}"; ;
-            String p4 = $"{playerName4}"; ;
-            players.Add(new Player() { playerName = p1 });
-            players.Add(new Player() { playerName = p2 });
-            players.Add(new Player() { playerName = p3 });
-            players.Add(new Player() { playerName = p4 });
             MessageBox.Show($"Spelers {playerName1.Text}, {playerName2.Text}, {playerName3.Text}, {playerName4.Text} gaan een spel starten, Veel plezier!");
-            GameSelector gs = new GameSelector();
+            GameSelector gs = new GameSelector(p1, p2, p3, p4);
             this.Visibility = Visibility.Hidden;
             gs.Show();
         }
+
+
     }
 }

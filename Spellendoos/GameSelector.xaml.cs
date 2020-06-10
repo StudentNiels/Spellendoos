@@ -19,12 +19,12 @@ namespace Spellendoos
     /// </summary>
     public partial class GameSelector : Window
     {
-        //Lijst moet uiteindelijk doorgegeven worden aan de spellen, want die vraagt daar om
-        private List<Player> Players;
-
-        public GameSelector()
+        Game game;
+        public GameSelector(string p1, string p2, string p3, string p4)
         {
             InitializeComponent();
+            Console.WriteLine(p1, p2, p3, p4);
+            this.game = new Game(p1, p2, p3, p4);
         }
 
         private void quit_Btn_Click(object sender, RoutedEventArgs e)
@@ -37,11 +37,10 @@ namespace Spellendoos
             
         }
 
-        private void start_Yahtzee_Click(object sender, RoutedEventArgs e)
+        public void start_Yahtzee_Click(object sender, RoutedEventArgs e)
         {
-            Yahtzee Ytz = new Yahtzee("Yahtzee", Players, 5, 6, 3);
+            Yahtzee Ytz = new Yahtzee("Yahtzee", game.players, 5, 6, 3);
             Ytz.IsActive();
         }
-
     }
 }
