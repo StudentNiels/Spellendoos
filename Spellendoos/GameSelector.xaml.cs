@@ -24,7 +24,6 @@ namespace Spellendoos
         {
             InitializeComponent();
             Console.WriteLine(p1, p2, p3, p4);
-            this.game = new Game(p1, p2, p3, p4);
         }
 
         public GameSelector() { InitializeComponent(); }

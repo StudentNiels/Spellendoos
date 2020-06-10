@@ -27,7 +27,6 @@ namespace Spellendoos
             InitializeComponent();
             SplashScreen sp = new SplashScreen("SplashScreen.jpg");
             sp.Show(true);
-           
         }
 
         public void startButton_Click(object sender, RoutedEventArgs e)
@@ -39,6 +38,7 @@ namespace Spellendoos
            
             //Check if there are 4 players
             MessageBox.Show($"Spelers {playerName1.Text}, {playerName2.Text}, {playerName3.Text}, {playerName4.Text} gaan een spel starten, Veel plezier!");
+            Game g = new Game(p1, p2, p3, p4);
             GameSelector gs = new GameSelector(p1, p2, p3, p4);
             this.Visibility = Visibility.Hidden;
             gs.Show();
