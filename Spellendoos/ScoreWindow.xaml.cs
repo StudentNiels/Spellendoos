@@ -20,9 +20,12 @@ namespace Spellendoos
 
         public void printScore()
         {
-            foreach(Player p in players)
+            Label[] labelScores = new Label[4];
+            for(int i = 0; i < players.Count; i++)
             {
-                Console.WriteLine(p.getPlayerName() + ": " + p.getWinScore());
+                Player p = players[i];
+                labelScores[i].Content = p.getPlayerName() + ": " + p.getWinScore();
+                Panel.Children.Add(labelScores[i]);
             }
         }
 

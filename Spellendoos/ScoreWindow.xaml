@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Spellendoos"
         mc:Ignorable="d"
         Title="ScoreWindow" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="Panel">
         <Button x:Name="back_Btn" Content="Back" HorizontalAlignment="Left" Margin="22,360,0,0" VerticalAlignment="Top" Width="138" Height="35" Click="back_Btn_Click"/>
 
     </Grid>
