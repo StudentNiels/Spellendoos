@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Spellendoos
 {
@@ -24,8 +12,8 @@ namespace Spellendoos
 
         public MainWindow()
         {
-            InitializeComponent();
             SplashScreen sp = new SplashScreen("SplashScreen.jpg");
+            InitializeComponent();
             sp.Show(true);
         }
 
@@ -35,15 +23,22 @@ namespace Spellendoos
             string p2 = $"{playerName2}";
             string p3 = $"{playerName3}";
             string p4 = $"{playerName4}";
-           
+
+            Player pl1 = new Player(p1);
+            Player pl2 = new Player(p2);
+            Player pl3 = new Player(p3);
+            Player pl4 = new Player(p4);
+
+            this.players.Add(pl1);
+            this.players.Add(pl2);
+            this.players.Add(pl3);
+            this.players.Add(pl4);
+
             //Check if there are 4 players
             MessageBox.Show($"Spelers {playerName1.Text}, {playerName2.Text}, {playerName3.Text}, {playerName4.Text} gaan een spel starten, Veel plezier!");
-            Game g = new Game(p1, p2, p3, p4);
-            GameSelector gs = new GameSelector(p1, p2, p3, p4);
+            GameSelector gs = new GameSelector(players);
             this.Visibility = Visibility.Hidden;
             gs.Show();
         }
-
-
     }
 }
