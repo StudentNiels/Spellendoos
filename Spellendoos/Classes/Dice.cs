@@ -8,20 +8,13 @@ namespace Spellendoos
 {
     class Dice
     {
+        //Current defunct due to the nature of the Random object, might be used for mens erger je niet.
         //Determines the amount of eyes the dice has, while for the games we are doing the amount should be always 6. Its nice to  be able to determine these things.
         private int numberOfEyes;
-        //instance of the Random class to randomly do random things like rolling a dice.
-        private Random rand;
         public Dice(int numberOfEyes) 
         {
             this.numberOfEyes = numberOfEyes;  
-            rand = new Random();
         }
 
-        public int RollDice() 
-        {
-            //Add a one to the amount of eyes due to the way Next() works with indexes
-            return rand.Next(0, numberOfEyes + 1);
-        }
     }
 }

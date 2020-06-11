@@ -19,7 +19,6 @@ namespace Spellendoos
             this.score = new int[players.Count];
             this.playerTurn = 0;
             this.active = true;
-            Console.WriteLine(players.Count);
         }
 
         public override bool IsActive()
@@ -40,14 +39,25 @@ namespace Spellendoos
         public override void Turn()
         {
             //Check if turncount hasn't exceeded playercount, if it has reset it.
-            if (playerTurn >= players.Count - 1) 
+            if (playerTurn >= players.Count - 1)
             {
                 playerTurn = 0;
             }
-            Console.WriteLine($"It's {players[playerTurn].getPlayerName()}'s turn");
-            Console.WriteLine("Press any key to roll the dice");
+            //Get player name so we don't have to constantly call that method
+            string playerName = players[playerTurn].getPlayerName();
+            Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
             Console.ReadKey();
-            Console.WriteLine("Boop");
+            //Roll the pre-defined dices
+            int[] results = dices.RollDices();
+            int diceNumber = 1;
+            //Make a stringbuilder to get one neat string instead of 5 different console lines.
+            StringBuilder diceResults = new StringBuilder();
+            foreach (int result in results) 
+            {
+                diceResults.AppendLine($"Dice {diceNumber}'s result was {result}.");
+                diceNumber++;
+            }
+            Console.WriteLine(diceResults.ToString());
         }
 
         public override void EndGame()
