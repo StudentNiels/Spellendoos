@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="GameSelector" Height="450" Width="800">
     <Grid>
-        <Image Source="Menu.jpg" Stretch="Fill"/>
+        <Image Source="Assets/Menu.jpg" Stretch="Fill"/>
         <Button x:Name="options_Btn" Content="Options" HorizontalAlignment="Left" Margin="55,220,0,0" VerticalAlignment="Top" Width="118" Height="25" Click="options_Btn_Click"/>
         <Button x:Name="quit_Btn" Content="Quit Game" HorizontalAlignment="Left" Margin="55,265,0,0" VerticalAlignment="Top" Width="118" Height="25" Click="quit_Btn_Click"/>
         <Button x:Name="start_Yahtzee" Content="Start Yahtzee" Width="118" Height="25" Click="start_Yahtzee_Click" Margin="327,142,348.6,253"/>
