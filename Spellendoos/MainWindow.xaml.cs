@@ -12,7 +12,7 @@ namespace Spellendoos
 
         public MainWindow()
         {
-            SplashScreen sp = new SplashScreen("SplashScreen.jpg");
+            SplashScreen sp = new SplashScreen("Assets/SplashScreen.jpg");
             InitializeComponent();
             sp.Show(true);
         }
