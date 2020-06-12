@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Spellendoos
 {
@@ -17,7 +19,6 @@ namespace Spellendoos
             //Maximum amount of actions a player can take per turn
             this.maxActionCount = maxActionCount;
             this.score = new int[players.Count];
-            this.playerTurn = 0;
             this.active = true;
         }
 
@@ -36,7 +37,7 @@ namespace Spellendoos
             }
         }
 
-        public override void Turn()
+        public override void Turn(int playerTurn)
         {
             //Check if turncount hasn't exceeded playercount, if it has reset it.
             if (playerTurn >= players.Count - 1)
@@ -57,7 +58,36 @@ namespace Spellendoos
                 diceResults.AppendLine($"Dice {diceNumber}'s result was {result}.");
                 diceNumber++;
             }
+            diceResults.AppendLine("Do you wish to hold a few dices? Y/N");
             Console.WriteLine(diceResults.ToString());
+            bool isPressed = false;
+            while (isPressed == false)
+            {
+                if (Console.ReadKey().Key == ConsoleKey.Y)
+                {
+                    Console.WriteLine("Type down the number of the dices you wish to hold seperated by commas.");
+                    string input = Console.ReadLine().ToString();
+                    int[] heldDices = input.Split(',').Select(Int32.Parse).ToArray();
+                    int[] results2 = dices.RollDices(heldDices);
+                    diceNumber = 1;
+                    //Make a stringbuilder to get one neat string instead of 5 different console lines.
+                    StringBuilder diceResults2 = new StringBuilder();
+                    foreach (int result in results2)
+                    {
+                        diceResults2.AppendLine($"Dice {diceNumber}'s result was {result}.");
+                        diceNumber++;
+                    }
+                    Console.WriteLine(diceResults2.ToString());
+                    isPressed = true;
+                }
+                else if (Console.ReadKey().Key == ConsoleKey.N)
+                {
+                    Console.WriteLine("Noe");
+                    isPressed = true;
+                }
+            }
+            
+            
         }
 
         public override void EndGame()

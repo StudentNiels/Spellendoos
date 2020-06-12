@@ -44,7 +44,7 @@ namespace Spellendoos
         public Yahtzee CreateYahtzee()
         {
             Yahtzee ytz = new Yahtzee("Yahtzee", players, 5, 6, 3);
-            ytz.Turn();
+            ytz.Turn(1);
             return ytz;
         }
     }
