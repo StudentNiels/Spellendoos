@@ -49,5 +49,11 @@ namespace Spellendoos
             this.Visibility = Visibility.Hidden;
             sw.Show();
         }
+
+        private void start_MEJN_Click(object sender, RoutedEventArgs e)
+        {
+            MensErgerJeNiet MEJN = new MensErgerJeNiet("Mens erger je niet", players);
+            MensErgerJeNiet.IsActive();
+        }
     }
 }

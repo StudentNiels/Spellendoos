@@ -12,5 +12,6 @@
         <Button x:Name="quit_Btn" Content="Quit Game" HorizontalAlignment="Left" Margin="55,265,0,0" VerticalAlignment="Top" Width="118" Height="25" Click="quit_Btn_Click"/>
         <Button x:Name="start_Yahtzee" Content="Start Yahtzee" Width="118" Height="25" Click="start_Yahtzee_Click" Margin="327,142,348.6,253"/>
         <Button x:Name="score_Btn" Content="Score" HorizontalAlignment="Left" Margin="55,176,0,0" VerticalAlignment="Top" Width="118" Height="24" Click="score_Btn_Click"/>
+        <Button Content="Mens erger je niet" HorizontalAlignment="Left" Margin="566,142,0,0" VerticalAlignment="Top" Width="112" Height="35" Click="start_MEJN_Click"/>
     </Grid>
 </Window>

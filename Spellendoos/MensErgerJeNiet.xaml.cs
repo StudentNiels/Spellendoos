@@ -28,5 +28,10 @@ namespace Spellendoos
         {
 
         }
+
+        internal static void IsActive()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
