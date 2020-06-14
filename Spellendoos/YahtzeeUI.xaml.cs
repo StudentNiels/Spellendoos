@@ -10,31 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Spellendoos
 {
     /// <summary>
-    /// Interaction logic for YahtzeeUI
+    /// Interaction logic for YahtzeeUI.xaml
     /// </summary>
     public partial class YahtzeeUI : Window
     {
-
         public YahtzeeUI()
         {
             InitializeComponent();
-
         }
 
-        private void InitializeComponent()
+        private void YhtzRollDice_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void yhtzRollDice_Click(object sender, EventArgs e)
-        {
-
+            Console.WriteLine("hi");
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Spellendoos
             sp.Show(true);
         }
 
-        public void startButton_Click(object sender, RoutedEventArgs e)
+        public void StartButton_Click(object sender, RoutedEventArgs e)
         {
             string p1 = $"{playerName1}";
             string p2 = $"{playerName2}";

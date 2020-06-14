@@ -8,9 +8,9 @@
         Title="GameSelector" Height="450" Width="800">
     <Grid>
         <Image Source="Assets/Menu.jpg" Stretch="Fill"/>
-        <Button x:Name="options_Btn" Content="Options" HorizontalAlignment="Left" Margin="55,220,0,0" VerticalAlignment="Top" Width="118" Height="25" Click="options_Btn_Click"/>
-        <Button x:Name="quit_Btn" Content="Quit Game" HorizontalAlignment="Left" Margin="55,265,0,0" VerticalAlignment="Top" Width="118" Height="25" Click="quit_Btn_Click"/>
-        <Button x:Name="start_Yahtzee" Content="Start Yahtzee" Width="118" Height="25" Click="start_Yahtzee_Click" Margin="327,142,348.6,253"/>
-        <Button x:Name="score_Btn" Content="Score" HorizontalAlignment="Left" Margin="55,176,0,0" VerticalAlignment="Top" Width="118" Height="24" Click="score_Btn_Click"/>
+        <Button x:Name="options_Btn" Content="Options" HorizontalAlignment="Left" Margin="55,220,0,0" VerticalAlignment="Top" Width="118" Height="25" Click="Options_Btn_Click"/>
+        <Button x:Name="quit_Btn" Content="Quit Game" HorizontalAlignment="Left" Margin="55,265,0,0" VerticalAlignment="Top" Width="118" Height="25" Click="Quit_Btn_Click"/>
+        <Button x:Name="start_Yahtzee" Content="Start Yahtzee" Width="118" Height="25" Click="Start_Yahtzee_Click" Margin="327,142,348.6,253"/>
+        <Button x:Name="score_Btn" Content="Score" HorizontalAlignment="Left" Margin="55,176,0,0" VerticalAlignment="Top" Width="118" Height="24" Click="Score_Btn_Click"/>
     </Grid>
 </Window>

@@ -44,7 +44,7 @@
         <TextBlock Grid.Column="1" Grid.Row="7" FontWeight="SemiBold" Text="Spelernaam 4:" FontFamily="Segoe UI"/>
         <TextBox x:Name="playerName4" Grid.Column="2" Grid.Row="7" Width="150"/>
 
-        <Button x:Name="startButton" Content="start" Grid.Column="4" Grid.Row="8"  Grid.ColumnSpan="1" Width="100" Height="25" Click="startButton_Click"/>
+        <Button x:Name="startButton" Content="start" Grid.Column="4" Grid.Row="8"  Grid.ColumnSpan="1" Width="100" Height="25" Click="StartButton_Click"/>
 
     </Grid>
 </Window>

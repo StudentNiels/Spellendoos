@@ -93,8 +93,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="YahtzeeUI.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +133,8 @@
     <Resource Include="Assets\dob4.png" />
     <Resource Include="Assets\dob5.png" />
     <Resource Include="Assets\dob6.png" />
+    <Resource Include="Assets\SplashScreen.jpg" />
+    <Resource Include="Assets\MEJNboard.png" />
     <Content Include="bin\Debug\Spellendoos.pdb" />
     <Resource Include="Assets\Menu.jpg" />
     <Resource Include="SplashScreen.jpg" />
