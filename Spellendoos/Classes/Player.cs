@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Spellendoos
 {
@@ -12,14 +14,16 @@ namespace Spellendoos
     {
         public string playerName;
         public int winScore;
-        public string colour;
+        public Color[] colors = new Color[6];
+        public Color colour;
+        public int random;
 
 
         public Player(String name)
         {
             this.playerName = name;
             this.winScore = 0;
-            this.colour = "Empty";
+            setColour();
         }
 
         public string getPlayerName()
@@ -42,14 +46,21 @@ namespace Spellendoos
             this.winScore = winScore;
         }
 
-        public string getColour()
+        public Color getColour()
         {
             return this.colour;
         }
 
-        public void setColour(string colour)
+        public void setColour()
         {
-            this.colour = colour;
+            this.colors[0] = Color.FromRgb(255, 165, 0);
+            this.colors[1] = Color.FromRgb(255, 0, 0);
+            this.colors[2] = Color.FromRgb(0, 0, 128);
+            this.colors[3] = Color.FromRgb(50, 205, 50);
+            this.colors[4] = Color.FromRgb(255, 0, 255);
+            Random randomGenerator = new Random();
+            this.random = randomGenerator.Next(0, 4);
+            this.colour = colors[this.random];
         }
     }
 }
