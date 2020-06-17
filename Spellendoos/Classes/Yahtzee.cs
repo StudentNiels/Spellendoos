@@ -1,16 +1,18 @@
-﻿using System;
+﻿using Spellendoos.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Spellendoos
 {
     class Yahtzee : ChanceGame
     {
-        public Yahtzee(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount)
+        public Yahtzee(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount, int maxRounds)
         {
             this.name = name;
             this.players = players;
@@ -20,6 +22,9 @@ namespace Spellendoos
             this.maxActionCount = maxActionCount;
             this.score = new int[players.Count];
             this.active = true;
+            this.maxRounds = maxRounds;
+            this.rules = new YahtzeeRules();
+            this.gameScore = new Dictionary<string, int>();
         }
 
         public override bool IsActive()
@@ -37,57 +42,113 @@ namespace Spellendoos
             }
         }
 
-        public override void Turn(int playerTurn)
+        public override int Turn(int playerTurn)
         {
-            //Check if turncount hasn't exceeded playercount, if it has reset it.
-            if (playerTurn >= players.Count - 1)
-            {
-                playerTurn = 0;
-            }
             //Get player name so we don't have to constantly call that method
             string playerName = players[playerTurn].getPlayerName();
-            Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
-            Console.ReadKey();
-            //Roll the pre-defined dices
-            int[] results = dices.RollDices();
+            //Amount of actions player can still perform
+            int actionCount = 0;
+            //int for displaying dice number
             int diceNumber = 1;
-            //Make a stringbuilder to get one neat string instead of 5 different console lines.
+            //StringBuilder for neat string creation
             StringBuilder diceResults = new StringBuilder();
-            foreach (int result in results) 
+            //Score for the player
+            int score = 0;
+            //int list to store the scores the player selects in.
+            List<int> pointStorage = new List<int>();
+            while (actionCount < maxActionCount)
             {
-                diceResults.AppendLine($"Dice {diceNumber}'s result was {result}.");
-                diceNumber++;
-            }
-            diceResults.AppendLine("Do you wish to hold a few dices? Y/N");
-            Console.WriteLine(diceResults.ToString());
-            bool isPressed = false;
-            while (isPressed == false)
-            {
-                if (Console.ReadKey().Key == ConsoleKey.Y)
+                
+                if (actionCount == 0)
                 {
-                    Console.WriteLine("Type down the number of the dices you wish to hold seperated by commas.");
-                    string input = Console.ReadLine().ToString();
-                    int[] heldDices = input.Split(',').Select(Int32.Parse).ToArray();
-                    int[] results2 = dices.RollDices(heldDices);
-                    diceNumber = 1;
-                    //Make a stringbuilder to get one neat string instead of 5 different console lines.
-                    StringBuilder diceResults2 = new StringBuilder();
-                    foreach (int result in results2)
+                    Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
+                    Console.ReadKey();
+                    //Roll the pre-defined dices
+                    int[] results = dices.RollDices();
+                    diceResults.AppendLine("The following results came from the dice rolls:");
+                    foreach (int result in results)
                     {
-                        diceResults2.AppendLine($"Dice {diceNumber}'s result was {result}.");
+                        diceResults.AppendLine($"Dice {diceNumber}'s result was {result}.");
                         diceNumber++;
                     }
-                    Console.WriteLine(diceResults2.ToString());
-                    isPressed = true;
+                    diceResults.AppendLine("And the following options are possible:");
+                    Dictionary<string, int> options = rules.checkRules(results);
+                    foreach(KeyValuePair<string, int> option in options) 
+                    {
+                        diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
+                    }
+                    Console.WriteLine(diceResults.ToString());
+                    diceResults.Clear();
+                    actionCount++;
                 }
-                else if (Console.ReadKey().Key == ConsoleKey.N)
+                else
                 {
-                    Console.WriteLine("Noe");
-                    isPressed = true;
+                    Console.WriteLine("Do you wish to continue rolling or end the turn? Y/N");
+                    if (Console.ReadKey().Key == ConsoleKey.Y)
+                    {
+                        Console.WriteLine("Type down the indexes of the dices you wish to hold seperated by commas.");
+                        string input = Console.ReadLine().ToString();
+                        int[] heldDices = input.Split(',').Select(Int32.Parse).ToArray();
+                        int[] results = dices.RollDices(heldDices);
+                        diceNumber = 1;
+                        diceResults.AppendLine("The following results came from the dice rolls:");
+                        foreach (int result in results)
+                        {
+                            diceResults.AppendLine($"Dice {diceNumber}'s result was {result}.");
+                            diceNumber++;
+                        }
+                        diceResults.AppendLine("And the following options are possible:");
+                        Dictionary<string, int> options = rules.checkRules(results);
+                        int optionIndex = 0;
+                        foreach (KeyValuePair<string, int> option in options)
+                        {
+                            diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
+                            pointStorage[optionIndex] = option.Value;
+                            optionIndex++;
+                        }
+                        Console.WriteLine(diceResults.ToString());
+                        diceResults.Clear();
+                        actionCount++;
+                    }
+                    else if (Console.ReadKey().Key == ConsoleKey.N)
+                    {
+                        Console.WriteLine("Select the index of the score you wish to keep.");
+                        string input = Console.ReadLine().ToString();
+                        score = pointStorage[Int32.Parse(input)];
+                        actionCount++;
+                    }
                 }
             }
-            
-            
+            if (score == 0) 
+            {
+                Console.WriteLine("LAST CHANCE, Select the index of the score you wish to keep.");
+                string input = Console.ReadLine().ToString();
+                score = pointStorage[Int32.Parse(input)];
+            }
+            Console.WriteLine("Turn End.");
+            return score;
+        }
+
+        public override void PlayGame()
+        {
+            int roundCount = 1;
+            int currentTurn = 0;
+            while (roundCount < maxRounds + 1)
+            { 
+                if (currentTurn > (players.Count - 1))
+                {
+                    currentTurn = 0;
+                    roundCount++;
+                }
+                //Prevent roundcount from overflowing
+                if (roundCount < maxRounds + 1)
+                {
+                    Console.Write($"Round {roundCount}");
+                    Turn(currentTurn);
+                    currentTurn++;
+                }
+            }
+            Console.WriteLine("Game has Ended.");
         }
 
         public override void EndGame()
@@ -99,6 +160,11 @@ namespace Spellendoos
         public override string GetGameName()
         {
             return name;
+        }
+
+        public override int GetMaxRounds()
+        {
+            return maxRounds;
         }
     }
 }
