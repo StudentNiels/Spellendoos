@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Spellendoos.Classes;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Spellendoos
 {
@@ -10,24 +9,17 @@ namespace Spellendoos
     /// </summary>
     public partial class ScoreWindow : Window
     {
-        public List<Player> players;
+        private List<Player> players;
+        private Score score;
         public ScoreWindow(List<Player> players)
         {
             InitializeComponent();
             this.players = players;
-            printScore();
+            score = new Score(this.players);
+            score.printScore();
         }
 
-        public void printScore()
-        {
-            Label[] labelScores = new Label[4];
-            for(int i = 0; i < players.Count; i++)
-            {
-                Player p = players[i];
-                labelScores[i].Content = p.getPlayerName() + ": " + p.getWinScore();
-                Panel.Children.Add(labelScores[i]);
-            }
-        }
+        public ScoreWindow() { }
 
         private void back_Btn_Click(object sender, RoutedEventArgs e)
         {

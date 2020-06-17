@@ -19,10 +19,10 @@ namespace Spellendoos
 
         public void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            string p1 = $"{playerName1}";
-            string p2 = $"{playerName2}";
-            string p3 = $"{playerName3}";
-            string p4 = $"{playerName4}";
+            string p1 = $"{playerName1.Text}";
+            string p2 = $"{playerName2.Text}";
+            string p3 = $"{playerName3.Text}";
+            string p4 = $"{playerName4.Text}";
 
             Player pl1 = new Player(p1);
             Player pl2 = new Player(p2);
