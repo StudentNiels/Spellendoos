@@ -16,10 +16,10 @@ namespace Spellendoos
         {
             this.players = new List<Player>
             {
-                new Player() { playerName = p1 },
-                new Player() { playerName = p2 },
-                new Player() { playerName = p3 },
-                new Player() { playerName = p4 }
+                new Player(p1),
+                new Player(p2),
+                new Player(p3),
+                new Player(p4)
             };
         }
 
