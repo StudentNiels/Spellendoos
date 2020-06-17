@@ -26,7 +26,7 @@ namespace Spellendoos
         public Dictionary<string, int> gameScore;
         public abstract bool IsActive();
 
-        public abstract int Turn(int playerTurn);
+        public abstract void Turn(int playerTurn);
 
         public abstract void PlayGame();
         public abstract void EndGame();
