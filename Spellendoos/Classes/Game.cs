@@ -1,27 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿using System.Collections.Generic;
 
 namespace Spellendoos
 {
     class Game 
     {
         public List<Player> players;
-        public Game(string p1, string p2, string p3, string p4)
+
+        public Game(List<Player> players)
         {
-            this.players = new List<Player>
-            {
-                new Player(p1),
-                new Player(p2),
-                new Player(p3),
-                new Player(p4)
-            };
+            this.players = players;
         }
+
 
         public void GetPlayersNames(List<Player> players)
         {
@@ -31,7 +20,7 @@ namespace Spellendoos
             }
         }
 
-        public int GetPlayerCount(List<Player> players)
+        public int getPlayerCount(List<Player> players)
         {
             return players.Count;
         }
@@ -39,13 +28,6 @@ namespace Spellendoos
         public List<Player> getList()
         {
             return this.players;
-        }
-
-        public Yahtzee CreateYahtzee()
-        {
-            Yahtzee ytz = new Yahtzee("Yahtzee", players, 5, 6, 3, 5);
-            ytz.PlayGame();
-            return ytz;
         }
     }
 }
