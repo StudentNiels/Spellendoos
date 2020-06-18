@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spellendoos.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,26 +18,27 @@ namespace Spellendoos
     /// <summary>
     /// Interaction logic for MensErgerJeNiet.xaml
     /// </summary>
-    public partial class MensErgerJeNiet : Window
+    public partial class MensErgerJeNietUI : Window  
     {
-        public MensErgerJeNiet(string name, List<Player> players)
+        public MensErgerJeNietUI(string name, List<Player> players)
         {
             InitializeComponent();
         }
 
-        private void ThrowDice(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        internal static void IsActive()
+        private void InitializeComponent()
         {
             throw new NotImplementedException();
         }
 
+
         private void quit_Click(object sender, RoutedEventArgs e)
         {
+            throw new NotImplementedException();
+        }
 
+        private static void EndGame()
+        {
+            throw new NotImplementedException();
         }
 
         private void Throw_dice_Click(object sender, RoutedEventArgs e)

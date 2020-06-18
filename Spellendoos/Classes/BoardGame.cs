@@ -10,8 +10,10 @@ namespace Spellendoos.Classes
     {
         //Name of the game.
         public string name;
+        //Dices in the game.
+        public DiceTray dices;
         //Is the game active
-        public bool Active;
+        public bool active;
         //Number of turns.
         public int MaxActionCount;
         public int PlayerTurn;
@@ -23,5 +25,16 @@ namespace Spellendoos.Classes
         public int[] score;
         //Grid of the board
         public LinkedList<int> Grid;
+
+        public abstract bool IsActive();
+
+        public abstract void SetGrid(int horizontal, int vertical);
+
+        public abstract LinkedList<int> GetGrid();
+
+        public abstract string GetGameName();
+
+        public abstract void EndGame();
+
     }
 }
