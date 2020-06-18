@@ -7,8 +7,10 @@
         mc:Ignorable="d"
         Title="MensErgerJeNiet" Height="450" Width="800">
     <Grid Margin="0,0,375.6,0">
-        <Image HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="435" Source="MEJNboard.png" Margin="0,0,-17,0"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="515,348,-317,0" VerticalAlignment="Top" Width="220" Height="37" Click="Button_Click"/>
+        <Image HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="435" Source="assets/MEJNboard.png" Margin="0,0,-17,0"/>
+        <Button Content="Throw dice" HorizontalAlignment="Left" Margin="515,348,-317,0" VerticalAlignment="Top" Width="220" Height="37" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="515,62,-317,0" TextWrapping="Wrap" Text="Speler 1" VerticalAlignment="Top" Width="220" Height="27" Name="player" TextAlignment="Center"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="574,140,-256,0" VerticalAlignment="Top" Width="100" Source="assets/dob1.png"/>
 
     </Grid>
 </Window>

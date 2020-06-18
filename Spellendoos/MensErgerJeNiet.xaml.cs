@@ -38,5 +38,10 @@ namespace Spellendoos
         {
 
         }
+
+        private void quit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
