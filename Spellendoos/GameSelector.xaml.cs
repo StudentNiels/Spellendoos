@@ -50,7 +50,7 @@ namespace Spellendoos
             sw.Show();
         }
 
-        private void start_MEJN_Click(object sender, RoutedEventArgs e)
+        private void Start_MEJN_Click(object sender, RoutedEventArgs e)
         {
             MensErgerJeNiet MEJN = new MensErgerJeNiet("Mens erger je niet", players);
             MensErgerJeNiet.IsActive();
