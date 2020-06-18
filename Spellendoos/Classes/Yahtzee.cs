@@ -25,6 +25,10 @@ namespace Spellendoos
             this.maxRounds = maxRounds;
             this.rules = new YahtzeeRules();
             this.gameScore = new Dictionary<string, int>();
+            foreach (Player player in players)
+            {
+                gameScore.Add(player.playerName, 0);
+            }
         }
 
         public override bool IsActive()
@@ -42,7 +46,7 @@ namespace Spellendoos
             }
         }
 
-        public override int Turn(int playerTurn)
+        public override void Turn(int playerTurn)
         {
             //Get player name so we don't have to constantly call that method
             string playerName = players[playerTurn].getPlayerName();
@@ -56,6 +60,12 @@ namespace Spellendoos
             int score = 0;
             //int list to store the scores the player selects in.
             List<int> pointStorage = new List<int>();
+            //Index for options
+            int optionIndex = 0;
+            foreach (KeyValuePair<string, int> gameScore in gameScore) 
+            {
+                Console.WriteLine($"Score for {gameScore.Key} is {gameScore.Value}");
+            }
             while (actionCount < maxActionCount)
             {
                 
@@ -73,9 +83,12 @@ namespace Spellendoos
                     }
                     diceResults.AppendLine("And the following options are possible:");
                     Dictionary<string, int> options = rules.checkRules(results);
-                    foreach(KeyValuePair<string, int> option in options) 
+                    pointStorage.Clear();
+                    foreach (KeyValuePair<string, int> option in options)
                     {
                         diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
+                        pointStorage.Add(option.Value);
+                        optionIndex++;
                     }
                     Console.WriteLine(diceResults.ToString());
                     diceResults.Clear();
@@ -99,11 +112,12 @@ namespace Spellendoos
                         }
                         diceResults.AppendLine("And the following options are possible:");
                         Dictionary<string, int> options = rules.checkRules(results);
-                        int optionIndex = 0;
+                        optionIndex = 0;
+                        pointStorage.Clear();
                         foreach (KeyValuePair<string, int> option in options)
                         {
                             diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
-                            pointStorage[optionIndex] = option.Value;
+                            pointStorage.Add(option.Value);
                             optionIndex++;
                         }
                         Console.WriteLine(diceResults.ToString());
@@ -115,7 +129,7 @@ namespace Spellendoos
                         Console.WriteLine("Select the index of the score you wish to keep.");
                         string input = Console.ReadLine().ToString();
                         score = pointStorage[Int32.Parse(input)];
-                        actionCount++;
+                        actionCount += maxActionCount;
                     }
                 }
             }
@@ -125,8 +139,8 @@ namespace Spellendoos
                 string input = Console.ReadLine().ToString();
                 score = pointStorage[Int32.Parse(input)];
             }
+            gameScore[playerName] += score;
             Console.WriteLine("Turn End.");
-            return score;
         }
 
         public override void PlayGame()
