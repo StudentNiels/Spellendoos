@@ -20,14 +20,27 @@ namespace Spellendoos.Classes
         public void printScore()
         {
             List<Label> labelScores = new List<Label>();
-            Label[] labels = new Label[4];
-            labelScores.AddRange(labels);
+            for(int i = 0; i < 4; i ++)
+            {
+                Label label = new Label();
+                labelScores.Add(label);
+            }
             for (int i = 0; i < players.Count; i++)
             {
                 Player p = new Player(players[i].getPlayerName());
-                labelScores[i].Content = p.getPlayerName() + ": " + p.getWinScore().ToString();
-                sw.Panel.Children.Add(labelScores[i]);
+                labelScores[i].Content += p.getPlayerName() + ": " + p.getWinScore().ToString();
             }
+
+            sw.score_1 = new Label();
+            sw.score_2 = new Label();
+            sw.score_3 = new Label();
+            sw.score_4 = new Label();
+
+
+            sw.score_1.Content = labelScores[0].Content;
+            sw.score_2.Content = labelScores[1].Content;
+            sw.score_3.Content = labelScores[2].Content;
+            sw.score_4.Content = labelScores[3].Content;
         }
     }
 }
