@@ -160,6 +160,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\MEJNboard.png" />
+    <Resource Include="Assets\yahtzeeBG.jpg" />
     <Content Include="bin\Debug\Spellendoos.pdb" />
     <Resource Include="Assets\Menu.jpg" />
   </ItemGroup>
