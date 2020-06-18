@@ -28,29 +28,5 @@ namespace Spellendoos
         {
             Console.WriteLine("hi");
         }
-
-        private void HoldBtn1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void HoldBtn2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void HoldBtn3(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void HoldBtn4(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void HoldBtn5(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
