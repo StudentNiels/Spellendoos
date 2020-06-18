@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MensErgerJeNiet.xaml.cs">
+      <DependentUpon>MensErgerJeNiet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ScoreWindow.xaml.cs">
       <DependentUpon>ScoreWindow.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MensErgerJeNiet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ScoreWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,6 +134,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="MEJNboard.png" />
     <Resource Include="Assets\dob1.png" />
     <Resource Include="Assets\dob2.png" />
     <Resource Include="Assets\dob3.png" />
@@ -137,7 +145,6 @@
     <Resource Include="Assets\MEJNboard.png" />
     <Content Include="bin\Debug\Spellendoos.pdb" />
     <Resource Include="Assets\Menu.jpg" />
-    <Resource Include="SplashScreen.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
