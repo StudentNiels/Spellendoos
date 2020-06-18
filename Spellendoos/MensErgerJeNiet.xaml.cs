@@ -19,7 +19,7 @@ namespace Spellendoos
     /// </summary>
     public partial class MensErgerJeNiet : Window
     {
-        public MensErgerJeNiet()
+        public MensErgerJeNiet(string name, List<Player> players)
         {
             InitializeComponent();
         }
@@ -32,6 +32,11 @@ namespace Spellendoos
         internal static void IsActive()
         {
             throw new NotImplementedException();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
