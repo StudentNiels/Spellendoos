@@ -34,12 +34,12 @@ namespace Spellendoos
             throw new NotImplementedException();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void quit_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void quit_Click(object sender, RoutedEventArgs e)
+        private void Throw_dice_Click(object sender, RoutedEventArgs e)
         {
 
         }

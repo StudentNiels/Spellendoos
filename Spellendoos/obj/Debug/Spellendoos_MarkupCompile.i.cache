@@ -1,20 +1,20 @@
 ﻿Spellendoos
 
 
-exe
+winexe
 C#
 .cs
-D:\Projects\C# Klas\Spellendoos\Spellendoos\obj\Debug\
+C:\Users\Sneakyshrimp\OneDrive\Bureaublad\STENDEN\Jaar2\per4\C#2\Spellendoos\Spellendoos\obj\Debug\
 Spellendoos
 none
 false
 DEBUG;TRACE
-D:\Projects\C# Klas\Spellendoos\Spellendoos\App.xaml
-21024043076
+C:\Users\Sneakyshrimp\OneDrive\Bureaublad\STENDEN\Jaar2\per4\C#2\Spellendoos\Spellendoos\App.xaml
+52140293010
 11889961204
-15507163179
+18584667090
 13-1505183044
-GameSelector.xaml;MainWindow.xaml;
+GameSelector.xaml;MainWindow.xaml;MensErgerJeNiet.xaml;ScoreWindow.xaml;YahtzeeUI.xaml;
 
-True
+False
 
