@@ -8,9 +8,11 @@
         Title="MensErgerJeNiet" Height="450" Width="800">
     <Grid Margin="0,0,375.6,0">
         <Image HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="435" Source="assets/MEJNboard.png" Margin="0,0,-17,0"/>
-        <Button Content="Throw dice" HorizontalAlignment="Left" Margin="515,348,-317,0" VerticalAlignment="Top" Width="220" Height="37" Click="Button_Click"/>
+        <Button x:Name="Throw_dice" Content="Throw dice" HorizontalAlignment="Left" Margin="476,348,-169,0" VerticalAlignment="Top" Width="111" Height="37" Click="Throw_dice_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="515,62,-317,0" TextWrapping="Wrap" Text="Speler 1" VerticalAlignment="Top" Width="220" Height="27" Name="player" TextAlignment="Center"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="574,140,-256,0" VerticalAlignment="Top" Width="100" Source="assets/dob1.png"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="476,142,-158,0" VerticalAlignment="Top" Width="100" Source="assets/dob1.png"/>
+        <Button x:Name="quit" Content="Stop game" HorizontalAlignment="Left" Margin="654,348,-336,0" VerticalAlignment="Top" Width="100" Height="37" AutomationProperties.Name="Quit" Click="quit_Click"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="654,142,-336,0" VerticalAlignment="Top" Width="100" Source="Assets/dob1.png"/>
 
     </Grid>
 </Window>
