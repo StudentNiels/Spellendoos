@@ -53,10 +53,10 @@ namespace Spellendoos
 
         public void setColour()
         {
-            this.colors[0] = Color.FromRgb(255, 165, 0);
-            this.colors[1] = Color.FromRgb(255, 0, 0);
-            this.colors[2] = Color.FromRgb(0, 0, 128);
-            this.colors[3] = Color.FromRgb(50, 205, 50);
+            this.colors[0] = Color.FromRgb(255, 0, 0);
+            this.colors[1] = Color.FromRgb(255, 255, 0);
+            this.colors[2] = Color.FromRgb(0, 0, 255);
+            this.colors[3] = Color.FromRgb(0, 128, 0);
             this.colors[4] = Color.FromRgb(255, 0, 255);
             Random randomGenerator = new Random();
             this.random = randomGenerator.Next(0, 4);
