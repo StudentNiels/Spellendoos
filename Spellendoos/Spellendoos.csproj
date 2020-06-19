@@ -72,8 +72,12 @@
     </ApplicationDefinition>
     <Compile Include="Classes\BoardGame.cs" />
     <Compile Include="Classes\MensErgerJeNiet.cs" />
+    <Compile Include="Classes\Score.cs" />
     <Compile Include="MensErgerJeNietUI.xaml.cs">
       <DependentUpon>MensErgerJeNietUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScoreWindow.xaml.cs">
+      <DependentUpon>ScoreWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="YahtzeeUI.xaml.cs">
       <DependentUpon>YahtzeeUI.xaml</DependentUpon>
@@ -108,6 +112,10 @@
     <Page Include="MensErgerJeNietUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ScoreWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="YahtzeeUI.xaml">
       <SubType>Designer</SubType>
