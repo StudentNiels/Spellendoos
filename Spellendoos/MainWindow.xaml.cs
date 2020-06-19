@@ -9,10 +9,6 @@ namespace Spellendoos
     public partial class MainWindow : Window
     {
         List<Player> players = new List<Player>();
-        Player player1;
-        Player player2;
-        Player player3;
-        Player player4;
 
 
         public MainWindow()
