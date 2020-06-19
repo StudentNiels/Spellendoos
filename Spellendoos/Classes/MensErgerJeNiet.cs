@@ -16,7 +16,7 @@ namespace Spellendoos.Classes
             this.players = players;
             this.active = true;
             //this.numberOfFields = 44;
-            this.Grid = new LinkedList<int>;
+            this.Grid = new LinkedList<int>();
         }
 
         public override void EndGame()

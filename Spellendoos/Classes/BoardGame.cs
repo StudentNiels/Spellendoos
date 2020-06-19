@@ -20,7 +20,7 @@ namespace Spellendoos.Classes
         //List of players.
         public List<Player> players;
         //Dices in the game.
-        public Dice dices;
+        public Dice dice;
         //Array of score in the game
         public int[] score;
         //Grid of the board

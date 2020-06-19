@@ -9,6 +9,11 @@ namespace Spellendoos
     public partial class MainWindow : Window
     {
         List<Player> players = new List<Player>();
+        Player player1;
+        Player player2;
+        Player player3;
+        Player player4;
+
 
         public MainWindow()
         {
@@ -39,6 +44,14 @@ namespace Spellendoos
             GameSelector gs = new GameSelector(players);
             this.Visibility = Visibility.Hidden;
             gs.Show();
+        }
+
+        public static List<Player> getPlayers()
+        {
+            MainWindow mw = new MainWindow();
+            List<Player> players = mw.players;
+
+            return players;
         }
     }
 }

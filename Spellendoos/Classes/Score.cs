@@ -1,46 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Documents;
 
 namespace Spellendoos.Classes
 {
-    class Score
+    public class Score : INotifyPropertyChanged
     {
-        private readonly List<Player> players;
-        private ScoreWindow sw = new ScoreWindow();
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public Score(List<Player> players)
+        private List<Player> players;
+        private Player selectedPlayer;
+
+        public Score()
         {
-            this.players = players;
+            players = MainWindow.getPlayers();
         }
 
-        public void printScore()
+        public List<Player> PlayerList
         {
-            List<Label> labelScores = new List<Label>();
-            for(int i = 0; i < 4; i ++)
-            {
-                Label label = new Label();
-                labelScores.Add(label);
+            get { return players; }
+            set { players = value;
+                NotifyPropertyChanged();
             }
-            for (int i = 0; i < players.Count; i++)
-            {
-                Player p = new Player(players[i].getPlayerName());
-                labelScores[i].Content += p.getPlayerName() + ": " + p.getWinScore().ToString();
+        }
+
+        public Player SelectedPlayer
+        {
+            get { return selectedPlayer; }
+            set { selectedPlayer = value;
+                NotifyPropertyChanged();
             }
+        }
 
-            sw.score_1 = new Label();
-            sw.score_2 = new Label();
-            sw.score_3 = new Label();
-            sw.score_4 = new Label();
-
-
-            sw.score_1.Content = labelScores[0].Content;
-            sw.score_2.Content = labelScores[1].Content;
-            sw.score_3.Content = labelScores[2].Content;
-            sw.score_4.Content = labelScores[3].Content;
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

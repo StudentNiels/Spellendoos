@@ -39,7 +39,7 @@ namespace Spellendoos
 
         public void Start_Yahtzee_Click(object sender, RoutedEventArgs e)
         {
-            Yahtzee Ytz = new Yahtzee("Yahtzee", players, 5, 6, 3);
+            Yahtzee Ytz = new Yahtzee("Yahtzee", players, 5, 6, 3, 13);
             Ytz.IsActive();
         }
 
@@ -52,8 +52,14 @@ namespace Spellendoos
 
         private void Start_MEJN_Click(object sender, RoutedEventArgs e)
         {
-            MensErgerJeNiet MEJN = new MensErgerJeNiet("Mens erger je niet", players);
-            MensErgerJeNiet.IsActive();
+            Classes.MensErgerJeNiet MEJN = new Classes.MensErgerJeNiet("Mens erger je niet",
+                                                       players);
+            MEJN.IsActive();
+        }
+
+        public List<Player> GetPlayers()
+        {
+            return players;
         }
     }
 }

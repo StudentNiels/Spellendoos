@@ -1,7 +1,17 @@
-﻿using System;
+﻿using Spellendoos.Classes;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace Spellendoos
 {
@@ -10,30 +20,10 @@ namespace Spellendoos
     /// </summary>
     public partial class ScoreWindow : Window
     {
-        public List<Player> players;
         public ScoreWindow(List<Player> players)
         {
             InitializeComponent();
-            this.players = players;
-            printScore();
-        }
-
-        public void printScore()
-        {
-            Label[] labelScores = new Label[4];
-            for(int i = 0; i < players.Count; i++)
-            {
-                Player p = players[i];
-                labelScores[i].Content = p.getPlayerName() + ": " + p.getWinScore();
-                Panel.Children.Add(labelScores[i]);
-            }
-        }
-
-        private void back_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            GameSelector gs = new GameSelector(players);
-            this.Visibility = Visibility.Hidden;
-            gs.Show();
+            this.DataContext = new Score();
         }
     }
 }
