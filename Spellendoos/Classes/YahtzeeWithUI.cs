@@ -10,10 +10,10 @@ using System.Windows.Input;
 
 namespace Spellendoos
 {
-    class Yahtzee : ChanceGame
+    class YahtzeeWithUI : ChanceGame
     {
-        //Yahtzee version for Command line.
-        public Yahtzee(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount, int maxRounds)
+        //Yahtzee version for User Interface
+        public YahtzeeWithUI(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount, int maxRounds)
         {
             this.name = name;
             this.players = players;
@@ -65,7 +65,6 @@ namespace Spellendoos
             int optionIndex = 0;
             foreach (KeyValuePair<string, int> gameScore in gameScore) 
             {
-                //Print to a gamescore UI
                 Console.WriteLine($"Score for {gameScore.Key} is {gameScore.Value}");
             }
             while (actionCount < maxActionCount)
@@ -73,12 +72,10 @@ namespace Spellendoos
                 
                 if (actionCount == 0)
                 {
-                    //Write to a section of the main game ui where it shows who's turn it is.
                     Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
                     Console.ReadKey();
                     //Roll the pre-defined dices
                     int[] results = dices.RollDices();
-                    //This entire thing should be changed to show the results and options in the UI
                     diceResults.AppendLine("The following results came from the dice rolls:");
                     foreach (int result in results)
                     {
@@ -100,7 +97,6 @@ namespace Spellendoos
                 }
                 else
                 {
-                    //This entire thing should be changed to show the results and options in the UI
                     Console.WriteLine("Do you wish to continue rolling or end the turn? Y/N");
                     if (Console.ReadKey().Key == ConsoleKey.Y)
                     {
@@ -138,7 +134,6 @@ namespace Spellendoos
                     }
                 }
             }
-            //This would be removed as ideally there'd be a check for selecting something in the ui.
             if (score == 0) 
             {
                 Console.WriteLine("LAST CHANCE, Select the index of the score you wish to keep.");
@@ -163,7 +158,6 @@ namespace Spellendoos
                 //Prevent roundcount from overflowing
                 if (roundCount < maxRounds + 1)
                 {
-                    //Display the roundcount in the UI
                     Console.Write($"Round {roundCount}");
                     Turn(currentTurn);
                     currentTurn++;
