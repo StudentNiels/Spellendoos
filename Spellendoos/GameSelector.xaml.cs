@@ -53,7 +53,7 @@ namespace Spellendoos
 
         private void Start_MEJN_Click(object sender, RoutedEventArgs e)
         {
-            MensErgerJeNiet MEJN = new Classes.MensErgerJeNiet("Mens erger je niet", players);
+            MensErgerJeNiet MEJN = new MensErgerJeNiet("Mens erger je niet", players);
             MEJN.playGame();
         }
 

@@ -173,7 +173,7 @@ namespace Spellendoos.Classes
                                 else if (playerPosition4[0] < 41)
                                 {
                                     Console.WriteLine("Er komt een nieuwe pion in het spel voor speler " + numberOfPlayer);
-                                    playerPosition[0] = playerPosition2[0] + newResults[0];
+                                    playerPosition4[0] = playerPosition4[0] + newResults[0];
                                     Console.WriteLine("Dobbelstenen zijn gegooid en de pion mag " + newResults[0] + " stappen vooruit. Deze pion staat nu op vakje " + playerPosition4[0]);
                                     j = 4;
                                 }
