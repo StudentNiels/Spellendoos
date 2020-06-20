@@ -7,6 +7,8 @@ namespace Spellendoos
     /// </summary>
     public partial class MensErgerJeNietUI : Window
     {
+        private string playerName;
+
         public MensErgerJeNietUI()
         {
             playerName = "test";
