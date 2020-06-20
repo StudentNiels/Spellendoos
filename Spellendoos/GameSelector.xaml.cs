@@ -40,10 +40,8 @@ namespace Spellendoos
 
         public void Start_Yahtzee_Click(object sender, RoutedEventArgs e)
         {
-            
-            YahtzeeUI ytzUI = new YahtzeeUI(players);
-            this.Visibility = Visibility.Hidden;
-            ytzUI.Show();
+            Yahtzee Ytz = new Yahtzee("Yahtzee", players, 5, 6, 3, 13);
+            Ytz.PlayGame();
         }
 
         private void Score_Btn_Click(object sender, RoutedEventArgs e)

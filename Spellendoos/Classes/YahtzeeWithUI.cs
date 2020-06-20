@@ -1,13 +1,11 @@
 ﻿using Spellendoos.Classes;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace Spellendoos
@@ -71,17 +69,14 @@ namespace Spellendoos
             }
             while (actionCount < maxActionCount)
             {
+                
                 if (actionCount == 0)
                 {
-                    if(DialogResult.OK== System.Windows.Forms.MessageBox.Show("Player 1 may start"))
-                    {
-                        //Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
-                        //Console.ReadKey();
-                        //Roll the pre-defined dices
-                    }
+                    Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
+                    Console.ReadKey();
+                    //Roll the pre-defined dices
                     int[] results = dices.RollDices();
-                        diceResults.AppendLine("The following results came from the dice rolls:");
-                    
+                    diceResults.AppendLine("The following results came from the dice rolls:");
                     foreach (int result in results)
                     {
                         diceResults.AppendLine($"Dice {diceNumber}'s result was {result}.");
@@ -103,8 +98,7 @@ namespace Spellendoos
                 else
                 {
                     Console.WriteLine("Do you wish to continue rolling or end the turn? Y/N");
-                    DialogResult yesORno = System.Windows.Forms.MessageBox.Show("Yes", "No", MessageBoxButtons.YesNo);
-                    if (yesORno == DialogResult.Yes)
+                    if (Console.ReadKey().Key == ConsoleKey.Y)
                     {
                         Console.WriteLine("Type down the indexes of the dices you wish to hold seperated by commas.");
                         string input = Console.ReadLine().ToString();
@@ -131,10 +125,9 @@ namespace Spellendoos
                         diceResults.Clear();
                         actionCount++;
                     }
-                    else if (yesORno == DialogResult.No)
+                    else if (Console.ReadKey().Key == ConsoleKey.N)
                     {
                         Console.WriteLine("Select the index of the score you wish to keep.");
-                        //Het vermijden van op de ui knop drukken lukt via messageboxes maar de scores moeten op de juiste plek komen. Stap 2
                         string input = Console.ReadLine().ToString();
                         score = pointStorage[Int32.Parse(input)];
                         actionCount += maxActionCount;
