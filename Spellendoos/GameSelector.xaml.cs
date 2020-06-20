@@ -45,9 +45,9 @@ namespace Spellendoos
 
         private void Score_Btn_Click(object sender, RoutedEventArgs e)
         {
-            /*ScoreWindow sw = new ScoreWindow(players);
+            ScoreWindow sw = new ScoreWindow();
             this.Visibility = Visibility.Hidden;
-            sw.Show();*/
+            sw.Show();
         }
 
         private void Start_MEJN_Click(object sender, RoutedEventArgs e)
