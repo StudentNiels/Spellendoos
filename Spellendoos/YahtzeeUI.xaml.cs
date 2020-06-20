@@ -19,14 +19,19 @@ namespace Spellendoos
     /// </summary>
     public partial class YahtzeeUI : Window
     {
-        public YahtzeeUI()
+        public List<Player> players;
+        public YahtzeeUI(List<Player> players)
         {
             InitializeComponent();
+            this.players = players;
+            YahtzeeWithUI YtzWUI = new YahtzeeWithUI("Yahtzee", players, 5, 6, 3, 5);
+            YtzWUI.PlayGame();
+
         }
 
-        private void YhtzRollDice_Click(object sender, RoutedEventArgs e)
+        public void YhtzRollDice_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("hi");
+            
         }
 
         private void HoldBtn1(object sender, RoutedEventArgs e)
