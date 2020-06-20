@@ -20,10 +20,15 @@ namespace Spellendoos
     /// </summary>
     public partial class MensErgerJeNietUI : Window  
     {
+        public string playerName;
         public MensErgerJeNietUI(string name, List<Player> players)
         {
+            playerName = "test";
+           
             InitializeComponent();
         }
+
+
 
         private void InitializeComponent()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace Spellendoos.Classes
     class MensErgerJeNiet : BoardGame
     {
         private int numberOfFields;
+        private DiceTray dices = new DiceTray(1, 6);
 
         public MensErgerJeNiet(string name, List<Player> players)
         {
@@ -16,7 +18,8 @@ namespace Spellendoos.Classes
             this.players = players;
             this.active = true;
             //this.numberOfFields = 44;
-            this.Grid = new LinkedList<int>;
+            this.Grid = new LinkedList<int>();
+
         }
 
         public override void EndGame()
