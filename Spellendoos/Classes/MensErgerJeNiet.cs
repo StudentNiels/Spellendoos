@@ -19,7 +19,6 @@ namespace Spellendoos.Classes
             this.active = true;
             //this.numberOfFields = 44;
             this.Grid = new LinkedList<int>();
-
         }
 
         public override void EndGame()
