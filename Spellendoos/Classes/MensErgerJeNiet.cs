@@ -10,6 +10,10 @@ namespace Spellendoos.Classes
     class MensErgerJeNiet : BoardGame
     {
         private int numberOfFields;
+        private int[] playerPosition1 = new int[4];
+        private int[] playerPosition2 = new int[4];
+        private int[] playerPosition3 = new int[4];
+        private int[] playerPosition4 = new int[4];
         private int i, j;
 
         public MensErgerJeNiet(string name, List<Player> players)
@@ -56,10 +60,7 @@ namespace Spellendoos.Classes
 
         public void playGame()
         {
-            int[] playerPosition1 = new int[4];
-            int[] playerPosition2 = new int[4];
-            int[] playerPosition3 = new int[4];
-            int[] playerPosition4 = new int[4];
+            
             bool onGoing = true;
             //voor als positie is toegevoegd als alle pionen op een positie tussen de 41 en 44 staan dan heeft de speler gewonnen
             for (i = 0; i <= 6; i++)
