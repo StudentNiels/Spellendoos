@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spellendoos.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,9 +53,8 @@ namespace Spellendoos
 
         private void Start_MEJN_Click(object sender, RoutedEventArgs e)
         {
-            Classes.MensErgerJeNiet MEJN = new Classes.MensErgerJeNiet("Mens erger je niet",
-                                                       players);
-            MEJN.IsActive();
+            MensErgerJeNiet MEJN = new Classes.MensErgerJeNiet("Mens erger je niet", players);
+            MEJN.playGame();
         }
 
         public List<Player> GetPlayers()

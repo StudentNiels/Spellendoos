@@ -14,13 +14,9 @@ namespace Spellendoos.Classes
         public DiceTray dices;
         //Is the game active
         public bool active;
-        //Number of turns.
-        public int MaxActionCount;
-        public int PlayerTurn;
+        //public int PlayerTurn;
         //List of players.
         public List<Player> players;
-        //Dices in the game.
-        public Dice dice;
         //Array of score in the game
         public int[] score;
         //Grid of the board
