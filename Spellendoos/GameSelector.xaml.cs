@@ -40,7 +40,7 @@ namespace Spellendoos
         public void Start_Yahtzee_Click(object sender, RoutedEventArgs e)
         {
             Yahtzee Ytz = new Yahtzee("Yahtzee", players, 5, 6, 3, 13);
-            Ytz.IsActive();
+            Ytz.PlayGame();
         }
 
         private void Score_Btn_Click(object sender, RoutedEventArgs e)
