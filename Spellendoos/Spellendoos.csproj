@@ -52,6 +52,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,8 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MensErgerJeNiet.xaml.cs">
-      <DependentUpon>MensErgerJeNiet.xaml</DependentUpon>
+    <Compile Include="Classes\BoardGame.cs" />
+    <Compile Include="Classes\MensErgerJeNiet.cs" />
+    <Compile Include="MensErgerJeNietUI.xaml.cs">
+      <DependentUpon>MensErgerJeNietUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="ScoreWindow.xaml.cs">
       <DependentUpon>ScoreWindow.xaml</DependentUpon>
@@ -107,7 +110,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MensErgerJeNiet.xaml">
+    <Page Include="MensErgerJeNietUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -139,18 +142,15 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="bin\Debug\Spellendoos.exe.config" />
-    <None Include="Menu.ai" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="SplashScreen.ai" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="MEJNboard.png" />
     <Resource Include="Assets\dob1.png" />
     <Resource Include="Assets\dob2.png" />
     <Resource Include="Assets\dob3.png" />
