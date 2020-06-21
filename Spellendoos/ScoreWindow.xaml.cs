@@ -23,7 +23,6 @@ namespace Spellendoos
         public ScoreWindow(List<Player> players)
         {
             InitializeComponent();
-            this.DataContext = new Score();
         }
     }
 }

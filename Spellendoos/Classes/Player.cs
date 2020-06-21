@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace Spellendoos
@@ -26,31 +19,37 @@ namespace Spellendoos
             setColour();
         }
 
+        //return player name
         public string getPlayerName()
         {
             return this.playerName;
         }
 
+        //set the players name
         public void setPlayerName(string playerName)
         {
             this.playerName = playerName;
         }
 
+        //return how many times a player has won
         public int getWinScore()
         {
             return this.winScore;
         }
 
+        //set the score for a player
         public void setWinScore(int winScore)
         {
             this.winScore = winScore;
         }
 
+        //return the players colour
         public Color getColour()
         {
             return this.colour;
         }
 
+        //set the players colour
         public void setColour()
         {
             this.colors[0] = Color.FromRgb(255, 0, 0);
