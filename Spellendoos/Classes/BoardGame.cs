@@ -23,6 +23,10 @@ namespace Spellendoos.Classes
         public LinkedList<int> Grid;
 
         public abstract bool IsActive();
+        //Return a boolean if the game is finished
+        public abstract bool Turn(int playerTurn);
+
+        public abstract void PlayGame();
 
         public abstract void SetGrid(int horizontal, int vertical);
 

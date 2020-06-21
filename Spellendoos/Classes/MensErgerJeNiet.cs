@@ -10,21 +10,24 @@ namespace Spellendoos.Classes
     class MensErgerJeNiet : BoardGame
     {
         private int numberOfFields;
-        private int[] playerPosition1 = new int[4];
-        private int[] playerPosition2 = new int[4];
-        private int[] playerPosition3 = new int[4];
-        private int[] playerPosition4 = new int[4];
-        private int i, j;
+        //String is the player, int[] the array of pawn positions
+        private Dictionary<string, int[]> pawnPositions;
 
-        public MensErgerJeNiet(string name, List<Player> players)
+        public MensErgerJeNiet(string name, List<Player> players, int numberOfFields)
         {
             this.name = name;
             this.dices = new DiceTray(1, 6);
             this.players = players;
 
             this.active = true;
-            //this.numberOfFields = 44;
+            this.numberOfFields = numberOfFields;
             this.Grid = new LinkedList<int>();
+            pawnPositions = new Dictionary<string, int[]>();
+            //Fill in the dictionairy
+            foreach (Player player in players) 
+            {
+                pawnPositions.Add(player.playerName, new int[4]);
+            }
         }
 
         public override void EndGame()
@@ -58,139 +61,121 @@ namespace Spellendoos.Classes
             }
         }
 
-        public void playGame()
+        public override bool Turn(int playerTurn)
         {
-            
-            bool onGoing = true;
-            //voor als positie is toegevoegd als alle pionen op een positie tussen de 41 en 44 staan dan heeft de speler gewonnen
-            for (i = 0; i <= 6; i++)
+            //Get player name so we don't have to constantly call that method
+            string playerName = players[playerTurn].getPlayerName();
+            //StringBuilder for neat string creation
+            StringBuilder sb = new StringBuilder();
+            int[] playerPositions = pawnPositions[playerName];
+            Console.WriteLine($"It's player {playerName}'s turn");
+            //All checks all elements in the playerpositions Array whether they're all 0.
+            if (playerPositions.All(i => i == 0))
             {
-                int numberOfPlayer = 1;
-                foreach (Player currentPlayer in players)
+                Console.WriteLine("No pawns are on the field, roll a 6 to get a pawn onto the field.");
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
+                //Roll the pre-defined dices
+                int result = dices.RollDices()[0];
+                Console.WriteLine($"You rolled a {result}");
+                //Once the player rolls a 6, a pawn is moved onto the board and they can play proper
+                if (result == 6)
                 {
-                    int[] results = dices.RollDices();
-                    foreach (int result in results)
-                    {
-                        Console.WriteLine("Dobbelstenen zijn gegooid en de waarde is: " + result);
-                        int[] newResults = dices.RollDices();
-                        //speler 1
-                        if (numberOfPlayer == 1)
-                        {
-                            
-                                if (playerPosition1[0] == 0)
-                                {
-                                    if (result == 6)
-                                    {
-                                        Console.WriteLine("Er komt een nieuwe pion in het spel voor speler " + numberOfPlayer);
-                                        playerPosition1[0] = +newResults[0];
-                                        Console.WriteLine("Dobbelstenen zijn gegooid en de pion mag " + newResults[0] + " stappen vooruit. Deze pion staat nu op vakje " + playerPosition1[0]);
-                                        j = 4;
-                                    }
-                                    else
-                                    {
-                                        j = 4;
-                                    }
-                                }
-                                else if (playerPosition2[0] > 41)
-                                {
-                                    Console.WriteLine("deze pion is al binnen");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Er komt een nieuwe pion in het spel voor speler " + numberOfPlayer);
-                                    playerPosition1[0] = playerPosition2[0] + newResults[0];
-                                    Console.WriteLine("Dobbelstenen zijn gegooid en de pion mag " + newResults[0] + " stappen vooruit. Deze pion staat nu op vakje " + playerPosition1[0]);
-                                    
-                            }
-                        }
-                        //speler 2
-                        else if (numberOfPlayer == 2)
-                        {
-                            {
-                                if (playerPosition2[0] == 0)
-                                {
-                                    if (result == 6)
-                                    {
-                                        Console.WriteLine("Er komt een nieuwe pion in het spel voor speler 2");
-                                        playerPosition2[0] = playerPosition2[0] + newResults[0];
-                                        Console.WriteLine("Dobbelstenen zijn gegooid en de pion mag " + newResults[0] + " stappen vooruit. Deze pion staat nu op vakje " + playerPosition2[0]);
-                                    }
-                                }
-                                else if (playerPosition2[0] > 41)
-                                {
-                                    Console.WriteLine("deze pion is al binnen");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Er komt een nieuwe pion in het spel voor speler 2" + numberOfPlayer);
-                                    playerPosition2[0] = playerPosition2[0] + newResults[0];
-                                    Console.WriteLine("Dobbelstenen zijn gegooid en de pion mag " + newResults[0] + " stappen vooruit. Deze pion staat nu op vakje " + playerPosition2[0]);
-                                }
-                            }
-                        }
-                        //speler 3
-                        else if (numberOfPlayer == 3)
-                        {
-                                if (playerPosition3[0] == 0)
-                                {
-                                    if (result == 6)
-                                    {
-                                        Console.WriteLine("Er komt een nieuwe pion in het spel voor speler " + numberOfPlayer);
-                                        playerPosition3[0] = playerPosition3[0] + newResults[0];
-                                        Console.WriteLine("Dobbelstenen zijn gegooid en de pion mag " + newResults[0] + " stappen vooruit. Deze pion staat nu op vakje " + playerPosition3[0]);
-                                        
-                                    }
-                                }
-                                else if (playerPosition3[0] > 41)
-                                {
-                                    Console.WriteLine("deze pion is al binnen");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Er komt een nieuwe pion in het spel voor speler " + numberOfPlayer);
-                                    playerPosition3[0] = playerPosition2[0] + newResults[0];
-                                    Console.WriteLine("Dobbelstenen zijn gegooid en de pion mag " + newResults[0] + " stappen vooruit. Deze pion staat nu op vakje " + playerPosition3[0]);
-                                    j = 4;
-                                }
-                            }
-                        
-                        //speler 4
-                        else if (numberOfPlayer == 4)
-                        {
-                                if (playerPosition4[0] == 0)
-                                {
-                                    if (result == 6)
-                                    {
-                                        Console.WriteLine("Er komt een nieuwe pion in het spel voor speler " + numberOfPlayer);
-                                        playerPosition4[0] = playerPosition4[0] + newResults[0];
-                                        Console.WriteLine("Dobbelstenen zijn gegooid en de pion mag " + newResults[0] + " stappen vooruit. Deze pion staat nu op vakje " + playerPosition4[0]);
-                                    }
-                                    else
-                                    {
-                                        j = 4;
-                                    }
-                                }
-                                else if (playerPosition4[0] < 41)
-                                {
-                                    Console.WriteLine("Er komt een nieuwe pion in het spel voor speler " + numberOfPlayer);
-                                    playerPosition4[0] = playerPosition4[0] + newResults[0];
-                                    Console.WriteLine("Dobbelstenen zijn gegooid en de pion mag " + newResults[0] + " stappen vooruit. Deze pion staat nu op vakje " + playerPosition4[0]);
-                                    j = 4;
-                                }
-                            }
-
-                        }
-                        numberOfPlayer++;
-                    }
-                    Console.WriteLine("next turn");
-                    numberOfPlayer++;
+                    pawnPositions[playerName][0] = 1;
+                    Console.WriteLine("Pawn is on the board. Press a key to roll again and move it.");
+                    Console.ReadKey();
+                    int moveresult = dices.RollDices()[0];
+                    pawnPositions[playerName][0] += moveresult;
+                    Console.WriteLine($"You rolled a {moveresult}");
+                    Console.WriteLine($"Pawn has moved {moveresult} spaces.");
                 }
-        Console.WriteLine("end game");
+                else
+                {
+                    Console.WriteLine("Better luck next time!");
+                }
+            }
+            else 
+            {
+                sb.AppendLine("You currently have the following pawns on these positions:");
+                foreach (int pos in playerPositions)
+                {
+                    sb.AppendLine(pos.ToString());
+                }
+                sb.AppendLine("Press any key to roll the dice.");
+                sb.ToString();
+                sb.Clear();
+                Console.ReadKey();
+                int result = dices.RollDices()[0];
+                //If a player rolls a 6 and not all pawns are on the board, they put another one on it and are forced to play it.
+                if (result == 6 && playerPositions.Any(i => i == 0)) 
+                {
+                    int currentPawn = 0;
+                    foreach(int pawn in playerPositions)
+                    {
+                        if (pawn == 0)
+                        {
+                            break;
+                        }
+                        else 
+                        {
+                            currentPawn++;
+                        }
+                    }
+                    Console.WriteLine("You rolled a 6, a new pawn is on the board. Press a key to roll again and move it.");
+                    Console.ReadKey();
+                    int moveresult = dices.RollDices()[0];
+                    pawnPositions[playerName][currentPawn] += moveresult;
+                    Console.WriteLine($"You rolled a {moveresult}");
+                    Console.WriteLine($"Pawn {currentPawn} has moved {moveresult} spaces.");
+                }
+                else
+                {
+                    Console.WriteLine($"You rolled a {result}");
+                    Console.WriteLine($"Type down which pawn you wish to move {result} spaces");
+                    int selectedPawn = Int32.Parse(Console.ReadLine());
+                    pawnPositions[playerName][selectedPawn] += result;
+                    Console.WriteLine($"You rolled a {result}");
+                    Console.WriteLine($"Pawn {selectedPawn} has moved {result} spaces.");
+                }
+            }
+            //No clue why, but stringbuilder is not working here.
+            Console.WriteLine("These are all the pawns currently in the field:");
+            foreach (string name in pawnPositions.Keys) 
+            {
+                Console.WriteLine($"{name}'s pawns:");
+                foreach (int pawnPos in pawnPositions[name]) 
+                {
+                    if (pawnPos != 0)
+                    {
+                        Console.WriteLine(pawnPos.ToString());
+                    }
+                }
+            }
+            return false;
         }
 
-        private static void NewMethod()
+        public override void PlayGame()
         {
-            Console.WriteLine("test 1");
+            bool onGoing = true;
+            int currentTurn = 0;
+            
+            while (onGoing)
+            {
+                if (currentTurn > (players.Count - 1))
+                {
+                    currentTurn = 0;
+                }
+                //Check if turn return false, if it does continue game.
+                if (Turn(currentTurn) == false)
+                {
+                    currentTurn++;
+                }
+                else
+                {
+                    onGoing = false;
+                }
+            }
+            Console.WriteLine("Game has Ended.");
         }
 
         public override void SetGrid(int horizontal, int vertical)
