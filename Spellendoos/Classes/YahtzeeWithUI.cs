@@ -69,7 +69,6 @@ namespace Spellendoos
             }
             while (actionCount < maxActionCount)
             {
-                
                 if (actionCount == 0)
                 {
                     Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
@@ -82,6 +81,7 @@ namespace Spellendoos
                         diceResults.AppendLine($"Dice {diceNumber}'s result was {result}.");
                         diceNumber++;
                     }
+                    //Gives the current player the points that can be earned with the current dicethrow
                     diceResults.AppendLine("And the following options are possible:");
                     Dictionary<string, int> options = rules.checkRules(results);
                     pointStorage.Clear();
@@ -97,6 +97,7 @@ namespace Spellendoos
                 }
                 else
                 {
+                    //Gives the current player the option to keep rollin or end the turn, if the player wants to keep rolling the player can insert which dice to hold
                     Console.WriteLine("Do you wish to continue rolling or end the turn? Y/N");
                     if (Console.ReadKey().Key == ConsoleKey.Y)
                     {
@@ -144,6 +145,10 @@ namespace Spellendoos
             Console.WriteLine("Turn End.");
         }
 
+        /// <summary>
+        /// Method continues the game untill all the rounds (usually 5) are completed
+        /// This method calls the turn() method to to activate gameplay
+        /// </summary>
         public override void PlayGame()
         {
             int roundCount = 1;
