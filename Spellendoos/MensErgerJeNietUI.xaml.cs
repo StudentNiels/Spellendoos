@@ -4,6 +4,7 @@ namespace Spellendoos
 {
     /// <summary>
     /// Interaction logic for MensErgerJeNietUI.xaml
+    /// This XAML file is not used at the moment but is intended for later usage
     /// </summary>
     public partial class MensErgerJeNietUI : Window
     {
