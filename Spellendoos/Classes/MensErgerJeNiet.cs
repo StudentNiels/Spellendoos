@@ -88,6 +88,7 @@ namespace Spellendoos.Classes
                     pawnPositions[playerName][0] += moveresult;
                     Console.WriteLine($"You rolled a {moveresult}");
                     Console.WriteLine($"Pawn has moved {moveresult} spaces.");
+                    StrikeCheck(playerTurn, 0);
                 }
                 else
                 {
@@ -127,6 +128,7 @@ namespace Spellendoos.Classes
                     pawnPositions[playerName][currentPawn] += moveresult;
                     Console.WriteLine($"You rolled a {moveresult}");
                     Console.WriteLine($"Pawn {currentPawn} has moved {moveresult} spaces.");
+                    StrikeCheck(playerTurn, currentPawn);
                 }
                 else
                 {
@@ -136,6 +138,7 @@ namespace Spellendoos.Classes
                     pawnPositions[playerName][selectedPawn] += result;
                     Console.WriteLine($"You rolled a {result}");
                     Console.WriteLine($"Pawn {selectedPawn} has moved {result} spaces.");
+                    StrikeCheck(playerTurn, selectedPawn);
                 }
             }
             //No clue why, but stringbuilder is not working here.
@@ -150,8 +153,43 @@ namespace Spellendoos.Classes
                         Console.WriteLine(pawnPos.ToString());
                     }
                 }
+                if (pawnPositions[name].All(i => i > numberOfFields)) 
+                {
+                    Console.WriteLine($"Player {name} has won");
+                    return true;
+                }
             }
             return false;
+        }
+
+        public void StrikeCheck(int playerTurn, int selectedPawn) 
+        {
+            string playerName = players[playerTurn].getPlayerName();
+            int currentPos = pawnPositions[playerName][selectedPawn];
+            //Check whether or not the currently moved pawn can strike an already existing pawn.
+            foreach (string name in pawnPositions.Keys) 
+            {
+                //For every int[] in pawnPositions except the players, check for same spaces
+                //Though for only the player's int[], check for same spaces except for the selected pawn.
+                int index = 0;
+                foreach (int pawnPos in pawnPositions[name])
+                {
+                    //Check if name is the same as playername and whether or not the index and selected pawn are the same
+                    if (name == playerName && selectedPawn == index)
+                    {
+                    }
+                    //Check if pawnpos is not 0 and the same.. the 0 & greater than check is mostly in case the program does freak out on same space where the pawns aren't technically
+                    //on the same space on the board.
+                    else if (pawnPos != 0 && pawnPos == currentPos && pawnPos < numberOfFields)
+                    {
+
+                        Console.Write($"Player {name}'s pawn {index + 1} occupied the same space and has been reset.");
+                        //Reset the hit pawn
+                        pawnPositions[name][index] = 0;
+                    }
+                    index++;
+                }
+            }
         }
 
         public override void PlayGame()
