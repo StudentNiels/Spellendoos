@@ -8,12 +8,8 @@ namespace Spellendoos
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Start the creation of the List of players which will be used in the games
         List<Player> players = new List<Player>();
-        Player player1;
-        Player player2;
-        Player player3;
-        Player player4;
-
 
         public MainWindow()
         {
@@ -22,6 +18,9 @@ namespace Spellendoos
             sp.Show(true);
         }
 
+        /// <summary>
+        /// Use the text 'from the UI's textboxes to fill in the list of players
+        /// </summary>
         public void StartButton_Click(object sender, RoutedEventArgs e)
         {
             string p1 = $"{playerName1}";
@@ -39,7 +38,7 @@ namespace Spellendoos
             this.players.Add(pl3);
             this.players.Add(pl4);
 
-            //Check if there are 4 players
+            //Show the players participating and go to the gameselector screen
             MessageBox.Show($"Spelers {playerName1.Text}, {playerName2.Text}, {playerName3.Text}, {playerName4.Text} gaan een spel starten, Veel plezier!");
             GameSelector gs = new GameSelector(players);
             this.Visibility = Visibility.Hidden;

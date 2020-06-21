@@ -63,7 +63,7 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="Yahtzee" Grid.ColumnSpan="2" Margin="0,0,0,10"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="Yahtzee" Grid.ColumnSpan="2" Margin="0,0,0,10" Foreground="White" />
 
         <TextBlock Grid.Column="13" Grid.Row="1" FontWeight="SemiBold" Text="Player1" FontFamily="Segoe UI" Margin="5,0,5,0" x:Name="player1Field" Background="#FF6EB727"/>
         <TextBlock Grid.Column="14" Grid.Row="1" FontWeight="SemiBold" Text="Player2" FontFamily="Segoe UI" Margin="5,0,5,0" x:Name="player2Field" Background="#FF6EB727"/>
