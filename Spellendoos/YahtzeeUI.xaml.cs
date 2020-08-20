@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace Spellendoos
 {
     /// <summary>
-    /// Interaction logic for YahtzeeUI.xaml
+    /// YahtzeeUI is not yet combined together with YahtzeeWithUI.
     /// </summary>
     public partial class YahtzeeUI : Window
     {
@@ -54,7 +54,6 @@ namespace Spellendoos
         {
 
         }
-
         private void startYhtzBtn_Click(object sender, RoutedEventArgs e)
         {
             this.y.PlayGame();
