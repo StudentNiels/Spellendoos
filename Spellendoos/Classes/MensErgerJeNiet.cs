@@ -10,7 +10,7 @@ namespace Spellendoos.Classes
     class MensErgerJeNiet : BoardGame
     {
         private int numberOfFields;
-        //String is the player, int[] the array of pawn positions
+        ///String is the player, int[] the array of pawn positions
         private Dictionary<string, int[]> pawnPositions;
 
         public MensErgerJeNiet(string name, List<Player> players, int numberOfFields)
@@ -32,7 +32,7 @@ namespace Spellendoos.Classes
 
         public override void EndGame()
         {
-            //Close the game.
+            ///Close the game.
             active = false;
         }
 
@@ -48,7 +48,7 @@ namespace Spellendoos.Classes
 
         public override bool IsActive()
         {
-            //This method is simply to check whether or not the game is currently active for testing purposes.
+            ///This method is simply to check whether or not the game is currently active for testing purposes.
             if (active == true)
             {
                 Console.WriteLine("Mens erger je niet is actief!");
@@ -63,22 +63,22 @@ namespace Spellendoos.Classes
 
         public override bool Turn(int playerTurn)
         {
-            //Get player name so we don't have to constantly call that method
+            ///Get player name so we don't have to constantly call that method
             string playerName = players[playerTurn].getPlayerName();
-            //StringBuilder for neat string creation
+            ///StringBuilder for neat string creation
             StringBuilder sb = new StringBuilder();
             int[] playerPositions = pawnPositions[playerName];
             Console.WriteLine($"It's player {playerName}'s turn");
-            //All checks all elements in the playerpositions Array whether they're all 0.
+            ///All checks all elements in the playerpositions Array whether they're all 0.
             if (playerPositions.All(i => i == 0))
             {
                 Console.WriteLine("No pawns are on the field, roll a 6 to get a pawn onto the field.");
                 Console.WriteLine("Press any key to continue.");
                 Console.ReadKey();
-                //Roll the pre-defined dices
+                ///Roll the pre-defined dices
                 int result = dices.RollDices()[0];
                 Console.WriteLine($"You rolled a {result}");
-                //Once the player rolls a 6, a pawn is moved onto the board and they can play proper
+                ///Once the player rolls a 6, a pawn is moved onto the board and they can play proper
                 if (result == 6)
                 {
                     pawnPositions[playerName][0] = 1;
@@ -107,7 +107,7 @@ namespace Spellendoos.Classes
                 sb.Clear();
                 Console.ReadKey();
                 int result = dices.RollDices()[0];
-                //If a player rolls a 6 and not all pawns are on the board, they put another one on it and are forced to play it.
+                ///If a player rolls a 6 and not all pawns are on the board, they put another one on it and are forced to play it.
                 if (result == 6 && playerPositions.Any(i => i == 0)) 
                 {
                     int currentPawn = 0;
@@ -141,7 +141,7 @@ namespace Spellendoos.Classes
                     StrikeCheck(playerTurn, selectedPawn);
                 }
             }
-            //No clue why, but stringbuilder is not working here.
+            ///No clue why, but stringbuilder is not working here.
             Console.WriteLine("These are all the pawns currently in the field:");
             foreach (string name in pawnPositions.Keys) 
             {
@@ -166,25 +166,25 @@ namespace Spellendoos.Classes
         {
             string playerName = players[playerTurn].getPlayerName();
             int currentPos = pawnPositions[playerName][selectedPawn];
-            //Check whether or not the currently moved pawn can strike an already existing pawn.
+            ///Check whether or not the currently moved pawn can strike an already existing pawn.
             foreach (string name in pawnPositions.Keys) 
             {
-                //For every int[] in pawnPositions except the players, check for same spaces
-                //Though for only the player's int[], check for same spaces except for the selected pawn.
+                ///For every int[] in pawnPositions except the players, check for same spaces
+                ///Though for only the player's int[], check for same spaces except for the selected pawn.
                 int index = 0;
                 foreach (int pawnPos in pawnPositions[name])
                 {
-                    //Check if name is the same as playername and whether or not the index and selected pawn are the same
+                    ///Check if name is the same as playername and whether or not the index and selected pawn are the same
                     if (name == playerName && selectedPawn == index)
                     {
                     }
-                    //Check if pawnpos is not 0 and the same.. the 0 & greater than check is mostly in case the program does freak out on same space where the pawns aren't technically
-                    //on the same space on the board.
+                    ///Check if pawnpos is not 0 and the same.. the 0 & greater than check is mostly in case the program does freak out on same space where the pawns aren't technically
+                    ///on the same space on the board.
                     else if (pawnPos != 0 && pawnPos == currentPos && pawnPos < numberOfFields)
                     {
 
                         Console.Write($"Player {name}'s pawn {index + 1} occupied the same space and has been reset.");
-                        //Reset the hit pawn
+                        ///Reset the hit pawn
                         pawnPositions[name][index] = 0;
                     }
                     index++;
@@ -203,7 +203,7 @@ namespace Spellendoos.Classes
                 {
                     currentTurn = 0;
                 }
-                //Check if turn return false, if it does continue game.
+                ///Check if turn return false, if it does continue game.
                 if (Turn(currentTurn) == false)
                 {
                     currentTurn++;

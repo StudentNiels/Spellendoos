@@ -12,14 +12,14 @@ namespace Spellendoos
 {
     class YahtzeeWithUI : ChanceGame
     {
-        //Yahtzee version for User Interface
+        ///Yahtzee version for User Interface
         public YahtzeeWithUI(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount, int maxRounds)
         {
             this.name = name;
             this.players = players;
-            //Create a dicetray with predetermined amount of dices
+            ///Create a dicetray with predetermined amount of dices
             this.dices = new DiceTray(diceAmount, diceEyeAmount);
-            //Maximum amount of actions a player can take per turn
+            ///Maximum amount of actions a player can take per turn
             this.maxActionCount = maxActionCount;
             this.score = new int[players.Count];
             this.active = true;
@@ -34,8 +34,8 @@ namespace Spellendoos
 
         public override bool IsActive()
         {
-            //This method is simply to check whether or not the game is currently active for testing purposes.
-            if(active == true)
+            ///This method is simply to check whether or not the game is currently active for testing purposes.
+            if (active == true)
             {
                 Console.WriteLine("Yahtzee is actief!");
                 return true;
@@ -49,19 +49,19 @@ namespace Spellendoos
 
         public override void Turn(int playerTurn)
         {
-            //Get player name so we don't have to constantly call that method
+            ///Get player name so we don't have to constantly call that method
             string playerName = players[playerTurn].getPlayerName();
-            //Amount of actions player can still perform
+            ///Amount of actions player can still perform
             int actionCount = 0;
-            //int for displaying dice number
+            ///int for displaying dice number
             int diceNumber = 1;
-            //StringBuilder for neat string creation
+            ///StringBuilder for neat string creation
             StringBuilder diceResults = new StringBuilder();
-            //Score for the player
+            ///Score for the player
             int score = 0;
-            //int list to store the scores the player selects in.
+            ///int list to store the scores the player selects in.
             List<int> pointStorage = new List<int>();
-            //Index for options
+            ///Index for options
             int optionIndex = 0;
             foreach (KeyValuePair<string, int> gameScore in gameScore) 
             {
@@ -74,7 +74,7 @@ namespace Spellendoos
                 {
                     Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
                     Console.ReadKey();
-                    //Roll the pre-defined dices
+                    ///Roll the pre-defined dices
                     int[] results = dices.RollDices();
                     diceResults.AppendLine("The following results came from the dice rolls:");
                     foreach (int result in results)
@@ -155,7 +155,7 @@ namespace Spellendoos
                     currentTurn = 0;
                     roundCount++;
                 }
-                //Prevent roundcount from overflowing
+                ///Prevent roundcount from overflowing
                 if (roundCount < maxRounds + 1)
                 {
                     Console.Write($"Round {roundCount}");
@@ -168,7 +168,7 @@ namespace Spellendoos
 
         public override void EndGame()
         {
-            //Close the game.
+            ///Close the game.
             active = false;
         }
 
