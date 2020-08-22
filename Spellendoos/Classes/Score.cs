@@ -17,7 +17,7 @@ namespace Spellendoos.Classes
             players = MainWindow.getPlayers();
         }
 
-        //get and set the player list
+        ///get and set the player list
         public List<Player> PlayerList
         {
             get { return players; }
@@ -26,7 +26,7 @@ namespace Spellendoos.Classes
             }
         }
 
-        //get the selected player
+        ///get the selected player
         public Player SelectedPlayer
         {
             get { return selectedPlayer; }
