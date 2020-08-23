@@ -76,6 +76,7 @@
     </ApplicationDefinition>
     <Compile Include="Classes\BoardGame.cs" />
     <Compile Include="Classes\MensErgerJeNiet.cs" />
+    <Compile Include="Classes\MensErgerJeNietWithUI.cs" />
     <Compile Include="MensErgerJeNietUI.xaml.cs">
       <DependentUpon>MensErgerJeNietUI.xaml</DependentUpon>
     </Compile>
@@ -165,6 +166,7 @@
     </Resource>
     <Resource Include="Assets\MEJNboard.png" />
     <Resource Include="Assets\yahtzeeBG.jpg" />
+    <Resource Include="Assets\Red-pawn.png" />
     <Content Include="bin\Debug\Spellendoos.pdb" />
     <Resource Include="Assets\Menu.jpg" />
   </ItemGroup>
