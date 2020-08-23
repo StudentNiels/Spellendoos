@@ -1,4 +1,5 @@
 ﻿using Spellendoos.Classes;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -17,6 +18,11 @@ namespace Spellendoos
             InitializeComponent();
             this.MEIJN = new MensErgerJeNietWithUI("Mens erger je niet", players);
 
+        }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
         }
 
         private void Throw_dice_Click(object sender, RoutedEventArgs e)
