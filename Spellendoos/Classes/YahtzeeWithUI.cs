@@ -57,10 +57,8 @@ namespace Spellendoos
             //int for displaying dice number
             int diceNumber = 1;
 
-            Console.WriteLine("The following results came from the dice rolls:");
             foreach (int result in results)
             {
-                Console.WriteLine($"Dice {diceNumber}'s result was {result}.");
                 diceNumber++;
                 
             }
@@ -94,15 +92,13 @@ namespace Spellendoos
             //int optionIndex = 0;
             foreach (KeyValuePair<string, int> gameScore in gameScore) 
             {
-                Console.WriteLine($"Score for {gameScore.Key} is {gameScore.Value}");
+                //Show stuff
             }
             while (actionCount < maxActionCount)
             {
                 if (actionCount == 0)
                 {
 
-                    Console.WriteLine($"It's {playerName}'s turn. Press START to begin");
-                    Console.ReadKey();
                     //Roll the pre-defined dices
                     int [] results = RollDice();
                     //Gives the current player the points that can be earned with the current dicethrow

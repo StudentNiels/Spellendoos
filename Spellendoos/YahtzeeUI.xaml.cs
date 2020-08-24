@@ -57,7 +57,12 @@ namespace Spellendoos
 
         private void YhtzRollDice_Click(object sender, RoutedEventArgs e)
         {
-            Y.RollDice();
+            int[] results = Y.RollDice();
+            diceImage1.Source = new BitmapImage(new Uri($"Assets/dob{results[0]}.png"));
+            diceImage2.Source = new BitmapImage(new Uri($"Assets/dob{results[1]}.png"));
+            diceImage3.Source = new BitmapImage(new Uri($"Assets/dob{results[2]}.png"));
+            diceImage4.Source = new BitmapImage(new Uri($"Assets/dob{results[3]}.png"));
+            diceImage5.Source = new BitmapImage(new Uri($"Assets/dob{results[4]}.png"));
         }
 
         private void HoldBtn1(object sender, RoutedEventArgs e)
