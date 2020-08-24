@@ -78,6 +78,7 @@ namespace Spellendoos.Classes
             return new int[] { one, two, three, four, five, six };
             
         }
+
         public void checkPairs(int[] dieCombo) {
             ///checked if number appears more than three times
             if (dieCombo[0] >= 3 || dieCombo[1] >= 3 || dieCombo[2] >= 3 || dieCombo[3] >= 3
