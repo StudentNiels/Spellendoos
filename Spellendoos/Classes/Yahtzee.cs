@@ -86,14 +86,14 @@ namespace Spellendoos
                         diceNumber++;
                     }
                     diceResults.AppendLine("And the following options are possible:");
-                    Dictionary<string, int> options = rules.checkRules(results);
+                    //Dictionary<string, int> options = rules.checkRules(results);
                     pointStorage.Clear();
-                    foreach (KeyValuePair<string, int> option in options)
-                    {
-                        diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
-                        pointStorage.Add(option.Value);
-                        optionIndex++;
-                    }
+                    //foreach (KeyValuePair<string, int> option in options)
+                    //{
+                    //    diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
+                    //    pointStorage.Add(option.Value);
+                    //    optionIndex++;
+                    //}
                     Console.WriteLine(diceResults.ToString());
                     diceResults.Clear();
                     actionCount++;
@@ -116,15 +116,15 @@ namespace Spellendoos
                             diceNumber++;
                         }
                         diceResults.AppendLine("And the following options are possible:");
-                        Dictionary<string, int> options = rules.checkRules(results);
+                        //Dictionary<string, int> options = rules.checkRules(results);
                         optionIndex = 0;
                         pointStorage.Clear();
-                        foreach (KeyValuePair<string, int> option in options)
-                        {
-                            diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
-                            pointStorage.Add(option.Value);
-                            optionIndex++;
-                        }
+                        //foreach (KeyValuePair<string, int> option in options)
+                        //{
+                        //    diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
+                        //    pointStorage.Add(option.Value);
+                        //    optionIndex++;
+                        //}
                         Console.WriteLine(diceResults.ToString());
                         diceResults.Clear();
                         actionCount++;
