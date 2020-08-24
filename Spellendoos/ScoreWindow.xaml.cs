@@ -41,7 +41,7 @@ namespace Spellendoos
             players = this.players;
             players.Reverse();
 
-            first_place.Content = players[0].getPlayerName();
+            /*first_place.Content = players[0].getPlayerName();
             string str1 = first_place.Content.ToString();
             char[] spearator1 = { ' ' };
             String[] splitStr1 = str1.Split(spearator1);
@@ -52,22 +52,24 @@ namespace Spellendoos
             string str2 = second_place.Content.ToString();
             char[] spearator2 = { ' ' };
             String[] splitStr2 = str2.Split(spearator2);
-            second_place.Content = splitStr2[1];
+            second_place.Content = splitStr2;
             players[1].setPlayerName(second_place.Content.ToString());
 
             third_place.Content = players[2].getPlayerName();
             string str3 = third_place.Content.ToString();
             char[] spearator3 = { ' ' };
             String[] splitStr3 = str3.Split(spearator3);
-            third_place.Content = splitStr3[1];
+            third_place.Content = splitStr3;
             players[2].setPlayerName(third_place.Content.ToString());
 
             fourth_place.Content = players[3].getPlayerName();
             string str4 = fourth_place.Content.ToString();
             char[] spearator4 = { ' ' };
             String[] splitStr4 = str4.Split(spearator4);
-            fourth_place.Content = splitStr4[1];
-            players[3].setPlayerName(fourth_place.Content.ToString());
+            fourth_place.Content = splitStr4;
+            players[3].setPlayerName(fourth_place.Content.ToString());*/
+
+            first_place.Content = players[0].getPlayerName();
 
             first_placepoints.Content = players[0].getWinScore();
             second_placepoints.Content = players[1].getWinScore();

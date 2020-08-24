@@ -12,15 +12,13 @@
         <Image x:Name="score" Height="135" Margin="272,158,271.6,0" VerticalAlignment="Top" Source="score.png"/>
         <Image x:Name="_4th_place" HorizontalAlignment="Left" Height="100" Margin="556,241,0,0" VerticalAlignment="Top" Width="100" Source="4th_place.png"/>
         <Label x:Name="window_titel" Content="Score" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="White" FontSize="72"/>
-        <Label x:Name="first_place" Content="Label" HorizontalAlignment="Left" Margin="377,132,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
-        <Label x:Name="second_place" Content="Label" HorizontalAlignment="Left" Margin="286,158,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
-        <Label x:Name="third_place" Content="Label" HorizontalAlignment="Left" Margin="459,177,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
-        <Label x:Name="fourth_place" Content="Label" HorizontalAlignment="Left" Margin="564,204,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
-        <Label x:Name="first_placepoints" Content="Label" HorizontalAlignment="Left" Margin="359,271,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Label x:Name="second_placepoints" Content="Label" HorizontalAlignment="Left" Margin="286,271,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Label x:Name="third_placepoints" Content="Label" HorizontalAlignment="Left" Margin="439,271,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-        <Label x:Name="fourth_placepoints" Content="Label" HorizontalAlignment="Left" Margin="564,341,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-
-
+        <Label x:Name="first_place" Content="Label" HorizontalAlignment="Left" Margin="377,132,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="56"/>
+        <Label x:Name="second_place" Content="Label" HorizontalAlignment="Left" Margin="286,158,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="56"/>
+        <Label x:Name="third_place" Content="Label" HorizontalAlignment="Left" Margin="459,177,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="56"/>
+        <Label x:Name="fourth_place" Content="Label" HorizontalAlignment="Left" Margin="564,204,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="56"/>
+        <Label x:Name="first_placepoints" Content="Label" HorizontalAlignment="Left" Margin="359,271,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="56"/>
+        <Label x:Name="second_placepoints" Content="Label" HorizontalAlignment="Left" Margin="286,271,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="56"/>
+        <Label x:Name="third_placepoints" Content="Label" HorizontalAlignment="Left" Margin="439,271,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="56"/>
+        <Label x:Name="fourth_placepoints" Content="Label" HorizontalAlignment="Left" Margin="564,341,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="56"/>
     </Grid>
 </Window>
