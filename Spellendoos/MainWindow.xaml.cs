@@ -27,18 +27,15 @@ namespace Spellendoos
         public void StartButton_Click(object sender, RoutedEventArgs e)
         {
 
-            string p1 = $"{playerName1}";
-            string p2 = $"{playerName2}";
-            string p3 = $"{playerName3}";
-            string p4 = $"{playerName4}";
+            string p1 = playerName1.Text;
+            string p2 = playerName2.Text;
+            string p3 = playerName3.Text;
+            string p4 = playerName4.Text;
 
             string[] playernames = new string[] { p1, p2, p3, p4 };
 
             if (playernames.All(playername => isInvalidName(playername))) 
             {
-                MessageBox.Show("Niet alle namen bevatten alleen letters of nummers!");
-            }
-            else {
                 Player pl1 = new Player(p1);
                 Player pl2 = new Player(p2);
                 Player pl3 = new Player(p3);
@@ -54,6 +51,9 @@ namespace Spellendoos
                 GameSelector gs = new GameSelector(players);
                 this.Visibility = Visibility.Hidden;
                 gs.Show();
+            }
+            else {
+                MessageBox.Show("Niet alle namen bevatten alleen letters of nummers!");
             }
         }
 
