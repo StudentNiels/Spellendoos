@@ -71,6 +71,12 @@ namespace Spellendoos
 
         }
 
+        //Make known what options the player has to choose from
+        public void giveOptions()
+        {
+
+        }
+
         public override void Turn(int playerTurn)
         {
             
@@ -83,7 +89,7 @@ namespace Spellendoos
             //int list to store the scores the player selects in.
             List<int> pointStorage = new List<int>();
             //Index for options
-            int optionIndex = 0;
+            //int optionIndex = 0;
             foreach (KeyValuePair<string, int> gameScore in gameScore) 
             {
                 //Show stuff
@@ -97,15 +103,15 @@ namespace Spellendoos
                     int [] results = RollDice();
                     //Gives the current player the points that can be earned with the current dicethrow
                     
-                    Dictionary<string, int> options = rules.checkRules(results);
+                    //Dictionary<string, int> options = rules.checkRules(results);
                     pointStorage.Clear();
-                    foreach (KeyValuePair<string, int> option in options)
-                    {
-                        Console.WriteLine(option.Key);
-                        Console.WriteLine(option.Value);
-                        pointStorage.Add(option.Value);
-                        optionIndex++;
-                    }
+                    //foreach (KeyValuePair<string, int> option in options)
+                    //{
+                    //    Console.WriteLine(option.Key);
+                    //    Console.WriteLine(option.Value);
+                    //    pointStorage.Add(option.Value);
+                    //    optionIndex++;
+                    //}
                     Console.WriteLine(results.ToString());
                     actionCount++;
                 }
@@ -127,16 +133,16 @@ namespace Spellendoos
                             diceNumber++;
                         }
                         Console.WriteLine("And the following options are possible:");
-                        Dictionary<string, int> options = rules.checkRules(results);
-                        optionIndex = 0;
+                        //Dictionary<string, int> options = rules.checkRules(results);
+                        //optionIndex = 0;
                         pointStorage.Clear();
-                        foreach (KeyValuePair<string, int> option in options)
-                        {
-                            Console.WriteLine(option.Key);
-                            Console.WriteLine(option.Value);
-                            pointStorage.Add(option.Value);
-                            optionIndex++;
-                        }
+                        //foreach (KeyValuePair<string, int> option in options)
+                        //{
+                        //   Console.WriteLine(option.Key);
+                        //    Console.WriteLine(option.Value);
+                        //    pointStorage.Add(option.Value);
+                        //    optionIndex++;
+                        //}
                         Console.WriteLine(results.ToString());
                         actionCount++;
                     }
