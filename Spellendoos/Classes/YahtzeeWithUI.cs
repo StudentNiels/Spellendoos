@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
-using MessageBox = System.Windows.MessageBox;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Spellendoos
 {
@@ -121,8 +121,7 @@ namespace Spellendoos
                 {
                     //Gives the current player the option to keep rollin or end the turn, if the player wants to keep rolling the player can insert which dice to hold
                     
-                    Console.WriteLine("Do you wish to continue rolling or end the turn? Y/N");
-                    DialogResult dialogR = MessageBox.Show("Do you wish to continue rolling or end the turn?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialogR = MessageBox.Show("Do you wish to continue rolling or end the turn?", "Keep rolling", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogR == DialogResult.Yes)
                     {
                         Console.WriteLine("Type down the indexes of the dices you wish to hold seperated by commas.");
