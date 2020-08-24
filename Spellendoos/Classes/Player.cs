@@ -19,37 +19,37 @@ namespace Spellendoos
             setColour();
         }
 
-        //return player name
+        ///return player name
         public string getPlayerName()
         {
             return this.playerName;
         }
 
-        //set the players name
+        ///set the players name
         public void setPlayerName(string playerName)
         {
             this.playerName = playerName;
         }
 
-        //return how many times a player has won
+        ///return how many times a player has won
         public int getWinScore()
         {
             return this.winScore;
         }
 
-        //set the score for a player
+        ///set the score for a player
         public void setWinScore(int winScore)
         {
             this.winScore = winScore;
         }
 
-        //return the players colour
+        ///return the players colour
         public Color getColour()
         {
             return this.colour;
         }
 
-        //set the players colour
+        ///set the players colour
         public void setColour()
         {
             this.colors[0] = Color.FromRgb(255, 0, 0);

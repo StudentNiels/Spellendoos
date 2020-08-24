@@ -1,6 +1,7 @@
 ﻿using Spellendoos.Classes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -12,6 +13,7 @@ namespace Spellendoos
 {
     class YahtzeeWithUI : ChanceGame
     {
+
         //Yahtzee version for User Interface
         public YahtzeeWithUI(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount, int maxRounds)
         {
@@ -26,10 +28,12 @@ namespace Spellendoos
             this.maxRounds = maxRounds;
             this.rules = new YahtzeeRules();
             this.gameScore = new Dictionary<string, int>();
+
             foreach (Player player in players)
             {
                 gameScore.Add(player.playerName, 0);
             }
+            
         }
 
         public override bool IsActive()
@@ -47,52 +51,68 @@ namespace Spellendoos
             }
         }
 
+        public int[] RollDice()
+        {
+            int[] results = dices.RollDices();
+            //int for displaying dice number
+            int diceNumber = 1;
+
+            foreach (int result in results)
+            {
+                diceNumber++;
+                
+            }
+            return results;
+        }
+
+        //method to color the playername of the player who is currently rolling
+        public void playerColor(string playerName)
+        {
+
+        }
+
+        //Make known what options the player has to choose from
+        public void giveOptions()
+        {
+
+        }
+
         public override void Turn(int playerTurn)
         {
+            
             //Get player name so we don't have to constantly call that method
             string playerName = players[playerTurn].getPlayerName();
             //Amount of actions player can still perform
             int actionCount = 0;
-            //int for displaying dice number
-            int diceNumber = 1;
-            //StringBuilder for neat string creation
-            StringBuilder diceResults = new StringBuilder();
             //Score for the player
             int score = 0;
             //int list to store the scores the player selects in.
             List<int> pointStorage = new List<int>();
             //Index for options
-            int optionIndex = 0;
+            //int optionIndex = 0;
             foreach (KeyValuePair<string, int> gameScore in gameScore) 
             {
-                Console.WriteLine($"Score for {gameScore.Key} is {gameScore.Value}");
+                //Show stuff
             }
             while (actionCount < maxActionCount)
             {
                 if (actionCount == 0)
                 {
-                    Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
-                    Console.ReadKey();
+
                     //Roll the pre-defined dices
-                    int[] results = dices.RollDices();
-                    diceResults.AppendLine("The following results came from the dice rolls:");
-                    foreach (int result in results)
-                    {
-                        diceResults.AppendLine($"Dice {diceNumber}'s result was {result}.");
-                        diceNumber++;
-                    }
+                    int [] results = RollDice();
                     //Gives the current player the points that can be earned with the current dicethrow
-                    diceResults.AppendLine("And the following options are possible:");
-                    Dictionary<string, int> options = rules.checkRules(results);
+                    
+                    //Dictionary<string, int> options = rules.checkRules(results);
                     pointStorage.Clear();
-                    foreach (KeyValuePair<string, int> option in options)
-                    {
-                        diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
-                        pointStorage.Add(option.Value);
-                        optionIndex++;
-                    }
-                    Console.WriteLine(diceResults.ToString());
-                    diceResults.Clear();
+                    //foreach (KeyValuePair<string, int> option in options)
+                    //{
+                    //    Console.WriteLine(option.Key);
+                    //    Console.WriteLine(option.Value);
+                    //    pointStorage.Add(option.Value);
+                    //    optionIndex++;
+                    //}
+                    Console.WriteLine(results.ToString());
                     actionCount++;
                 }
                 else
@@ -105,25 +125,25 @@ namespace Spellendoos
                         string input = Console.ReadLine().ToString();
                         int[] heldDices = input.Split(',').Select(Int32.Parse).ToArray();
                         int[] results = dices.RollDices(heldDices);
-                        diceNumber = 1;
-                        diceResults.AppendLine("The following results came from the dice rolls:");
+                        int diceNumber = 1;
+                        Console.WriteLine("The following results came from the dice rolls:");
                         foreach (int result in results)
                         {
-                            diceResults.AppendLine($"Dice {diceNumber}'s result was {result}.");
+                            Console.WriteLine($"Dice {diceNumber}'s result was {result}.");
                             diceNumber++;
                         }
-                        diceResults.AppendLine("And the following options are possible:");
-                        Dictionary<string, int> options = rules.checkRules(results);
-                        optionIndex = 0;
+                        Console.WriteLine("And the following options are possible:");
+                        //Dictionary<string, int> options = rules.checkRules(results);
+                        //optionIndex = 0;
                         pointStorage.Clear();
-                        foreach (KeyValuePair<string, int> option in options)
-                        {
-                            diceResults.AppendLine($"{option.Key} with a score of {option.Value}.");
-                            pointStorage.Add(option.Value);
-                            optionIndex++;
-                        }
-                        Console.WriteLine(diceResults.ToString());
-                        diceResults.Clear();
+                        //foreach (KeyValuePair<string, int> option in options)
+                        //{
+                        //   Console.WriteLine(option.Key);
+                        //    Console.WriteLine(option.Value);
+                        //    pointStorage.Add(option.Value);
+                        //    optionIndex++;
+                        //}
+                        Console.WriteLine(results.ToString());
                         actionCount++;
                     }
                     else if (Console.ReadKey().Key == ConsoleKey.N)
@@ -163,7 +183,7 @@ namespace Spellendoos
                 //Prevent roundcount from overflowing
                 if (roundCount < maxRounds + 1)
                 {
-                    Console.Write($"Round {roundCount}");
+                    Console.Write($"Round {roundCount} ");
                     Turn(currentTurn);
                     currentTurn++;
                 }

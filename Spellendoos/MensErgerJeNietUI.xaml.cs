@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using Spellendoos.Classes;
+using System;
+using System.Collections.Generic;
+using System.Windows;
 
 namespace Spellendoos
 {
@@ -8,13 +11,20 @@ namespace Spellendoos
     /// </summary>
     public partial class MensErgerJeNietUI : Window
     {
+        private MensErgerJeNietWithUI MEJN;
         private string playerName;
 
-        public MensErgerJeNietUI()
+        public MensErgerJeNietUI(List<Player> players)
         {
+            //this
             playerName = "test";
-           
+
             InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
         }
 
         private void Throw_dice_Click(object sender, RoutedEventArgs e)

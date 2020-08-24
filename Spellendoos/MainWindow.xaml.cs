@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Linq;
 
 namespace Spellendoos
 {
@@ -23,26 +26,48 @@ namespace Spellendoos
         /// </summary>
         public void StartButton_Click(object sender, RoutedEventArgs e)
         {
+
             string p1 = $"{playerName1}";
             string p2 = $"{playerName2}";
             string p3 = $"{playerName3}";
             string p4 = $"{playerName4}";
 
-            Player pl1 = new Player(p1);
-            Player pl2 = new Player(p2);
-            Player pl3 = new Player(p3);
-            Player pl4 = new Player(p4);
+            string[] playernames = new string[] { p1, p2, p3, p4 };
 
-            this.players.Add(pl1);
-            this.players.Add(pl2);
-            this.players.Add(pl3);
-            this.players.Add(pl4);
+            if (playernames.All(playername => isInvalidName(playername))) 
+            {
+                MessageBox.Show("Niet alle namen bevatten alleen letters of nummers!");
+            }
+            else {
+                Player pl1 = new Player(p1);
+                Player pl2 = new Player(p2);
+                Player pl3 = new Player(p3);
+                Player pl4 = new Player(p4);
 
-            //Show the players participating and go to the gameselector screen
-            MessageBox.Show($"Spelers {playerName1.Text}, {playerName2.Text}, {playerName3.Text}, {playerName4.Text} gaan een spel starten, Veel plezier!");
-            GameSelector gs = new GameSelector(players);
-            this.Visibility = Visibility.Hidden;
-            gs.Show();
+                this.players.Add(pl1);
+                this.players.Add(pl2);
+                this.players.Add(pl3);
+                this.players.Add(pl4);
+
+                //Show the players participating and go to the gameselector screen
+                MessageBox.Show($"Spelers {playerName1.Text}, {playerName2.Text}, {playerName3.Text}, {playerName4.Text} gaan een spel starten, Veel plezier!");
+                GameSelector gs = new GameSelector(players);
+                this.Visibility = Visibility.Hidden;
+                gs.Show();
+            }
+        }
+
+        public bool isInvalidName(string playername) 
+        {
+            //Check whether the player name is invalid, as in it uses more than letters and characters
+            if (Regex.IsMatch(playername, @"^[a-zA-Z0-9]+$"))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
         }
 
         public static List<Player> getPlayers()

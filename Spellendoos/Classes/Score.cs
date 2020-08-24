@@ -8,5 +8,6 @@ namespace Spellendoos.Classes
 {
     class Score
     {
+
     }
 }
