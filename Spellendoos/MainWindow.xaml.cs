@@ -62,11 +62,11 @@ namespace Spellendoos
             //Check whether the player name is invalid, as in it uses more than letters and characters
             if (Regex.IsMatch(playername, @"^[a-zA-Z0-9]+$"))
             {
-                return false;
+                return true;
             }
             else 
             {
-                return true;
+                return false;
             }
         }
 
