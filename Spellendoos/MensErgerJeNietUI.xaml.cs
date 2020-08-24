@@ -11,13 +11,15 @@ namespace Spellendoos
     /// </summary>
     public partial class MensErgerJeNietUI : Window
     {
-        private MensErgerJeNietWithUI MEIJN;
+        private MensErgerJeNietWithUI MEJN;
+        private string playerName;
 
-        public MensErgerJeNietUI(string name, List<Player> players)
+        public MensErgerJeNietUI(List<Player> players)
         {
-            InitializeComponent();
-            this.MEIJN = new MensErgerJeNietWithUI("Mens erger je niet", players);
+            //this
+            playerName = "test";
 
+            InitializeComponent();
         }
 
         private void InitializeComponent()
