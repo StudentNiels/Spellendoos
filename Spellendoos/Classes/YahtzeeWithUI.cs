@@ -121,7 +121,7 @@ namespace Spellendoos
                 {
                     //Gives the current player the option to keep rollin or end the turn, if the player wants to keep rolling the player can insert which dice to hold
                     
-                    DialogResult dialogR = MessageBox.Show("Do you wish to continue rolling or end the turn?", "Keep rolling", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialogR = MessageBox.Show("Do you wish to continue rolling (yes), or end the turn (no)", "Keep rolling", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogR == DialogResult.Yes)
                     {
                         Console.WriteLine("Type down the indexes of the dices you wish to hold seperated by commas.");
