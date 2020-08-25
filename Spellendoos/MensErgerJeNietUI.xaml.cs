@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Spellendoos
 {
@@ -44,14 +47,23 @@ namespace Spellendoos
             String[] splitStr4 = str4.Split(spearator4);
             player4Field.Text = splitStr4[1];
             players[3].setPlayerName(player4Field.Text);
-
             
+        }
+
+        private Image CreateImage(string imgSource)
+        {
+            Image pawn = new Image();
+            pawn.Width = 36;
+            pawn.Height = 38;
+            ImageSource pawnImage = new BitmapImage(new Uri(imgSource));
+            pawn.Source = pawnImage;
+            return pawn;
         }
 
         private void InitializeComponent(string gameName, List<Player> players)
         {
             this.MEJN = new MensErgerJeNietWithUI("Mens erger je niet", players);
-            
+            Image img = CreateImage("Assets/Red-pawn.png");
         }
 
         private void Throw_dice_Click(object sender, RoutedEventArgs e)
