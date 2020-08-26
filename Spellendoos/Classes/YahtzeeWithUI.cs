@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -191,13 +192,23 @@ namespace Spellendoos
                     currentTurn++;
                 }
             }
-            Console.WriteLine("Game has Ended.");
-        }
+            DialogResult DialogOK = MessageBox.Show("The game is finished press OK to return to the menu.", "finish!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (DialogOK == DialogResult.OK)
+                {
+                    EndGame();
+                }
+                else if (DialogOK != DialogResult.OK)
+                {
+                    EndGame();
+                }
+            }
 
         public override void EndGame()
         {
             //Close the game.
             active = false;
+            GameSelector gs = new GameSelector(players);
+            gs.Show();
         }
 
         public override string GetGameName()
