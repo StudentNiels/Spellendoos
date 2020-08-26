@@ -10,6 +10,9 @@ namespace Spellendoos.Classes
     {
         private Dictionary<string, int> gameScore;
 
+        ///String is the player, int[] the array of pawn positions
+        private Dictionary<string, int[]> pawnPositions;
+
         public MensErgerJeNietWithUI(string name, List<Player> players)
         {
             this.name = name;
@@ -17,11 +20,24 @@ namespace Spellendoos.Classes
             this.score = new int[players.Count];
             this.active = true;
             this.gameScore = new Dictionary<string, int>();
-
+            //Fill in the dictionairy
             foreach (Player player in players)
             {
                 gameScore.Add(player.playerName, 0);
             }
+
+            this.dices = new DiceTray(1, 6);
+            this.players = players;
+
+            this.active = true;
+            this.Grid = new LinkedList<int>();
+            pawnPositions = new Dictionary<string, int[]>();
+            //Fill in the dictionairy
+            foreach (Player player in players)
+            {
+                pawnPositions.Add(player.playerName, new int[4]);
+            }
+
         }
 
         public override void EndGame()

@@ -8,40 +8,73 @@
         Title="MensErgerJeNietUI" Height="450" Width="800">
     <Grid x:Name="background" Margin="0,0,3.6,0" ShowGridLines="True" Background="#FFF4F4F4">
         <Grid x:Name="board" Margin="0,0,392,0" ShowGridLines="True" HorizontalAlignment="Right" Width="396" Height="418" VerticalAlignment="Top">
-            <Grid.Background>
-                <ImageBrush ImageSource="Assets/MEJNboard.png"/>
-            </Grid.Background>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="col1" Width="36"/>
-                <ColumnDefinition x:Name="col2" Width="36" />
-                <ColumnDefinition x:Name="col3" Width="36" />
-                <ColumnDefinition x:Name="col4" Width="36" />
-                <ColumnDefinition x:Name="col5" Width="36" />
-                <ColumnDefinition x:Name="col6" Width="36" />
-                <ColumnDefinition x:Name="col7" Width="36" />
-                <ColumnDefinition x:Name="col8" Width="36" />
-                <ColumnDefinition x:Name="col9" Width="36" />
-                <ColumnDefinition x:Name="col10" Width="36" />
-                <ColumnDefinition x:Name="col11" Width="36" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition x:Name="row1" Height="38" />
-                <RowDefinition x:Name="row2" Height="38" />
-                <RowDefinition x:Name="row3" Height="38" />
-                <RowDefinition x:Name="row4" Height="38" />
-                <RowDefinition x:Name="row5" Height="38" />
-                <RowDefinition x:Name="row6" Height="38" />
-                <RowDefinition x:Name="row7" Height="38" />
-                <RowDefinition x:Name="row8" Height="38" />
-                <RowDefinition x:Name="row9" Height="38" />
-                <RowDefinition x:Name="row10" Height="38" />
-                <RowDefinition x:Name="row11" Height="38" />
-            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <DataTemplate DataType="x: Type Pawn">
+                    <Rectangle Fill="{Binding Fill}"
+                           Width="50"
+                           Height="50" />
+                </DataTemplate>
+                <Style TargetType="{x:Type ContentPresenter}">
+                    <Setter Property="Grid.Row"
+                        Value="{Binding Row}" />
+                    <Setter Property="Grid.Column"
+                        Value="{Binding Column}" />
+                </Style>
+            </Grid.Resources>
+            <Border BorderBrush="Black"
+                BorderThickness="1">
+                <ItemsControl x:Name="Board"
+                          ItemsSource="{Binding}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid>
+                                <Grid.Background>
+                                <ImageBrush ImageSource="Assets/MEJNboard.png"/>
+                            </Grid.Background>
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="col1" Width="36"/>
+                                <ColumnDefinition x:Name="col2" Width="36" />
+                                <ColumnDefinition x:Name="col3" Width="36" />
+                                <ColumnDefinition x:Name="col4" Width="36" />
+                                <ColumnDefinition x:Name="col5" Width="36" />
+                                <ColumnDefinition x:Name="col6" Width="36" />
+                                <ColumnDefinition x:Name="col7" Width="36" />
+                                <ColumnDefinition x:Name="col8" Width="36" />
+                                <ColumnDefinition x:Name="col9" Width="36" />
+                                <ColumnDefinition x:Name="col10" Width="36" />
+                                <ColumnDefinition x:Name="col11" Width="36" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition x:Name="row1" Height="38" />
+                                <RowDefinition x:Name="row2" Height="38" />
+                                <RowDefinition x:Name="row3" Height="38" />
+                                <RowDefinition x:Name="row4" Height="38" />
+                                <RowDefinition x:Name="row5" Height="38" />
+                                <RowDefinition x:Name="row6" Height="38" />
+                                <RowDefinition x:Name="row7" Height="38" />
+                                <RowDefinition x:Name="row8" Height="38" />
+                                <RowDefinition x:Name="row9" Height="38" />
+                                <RowDefinition x:Name="row10" Height="38" />
+                                <RowDefinition x:Name="row11" Height="38" />
+                            </Grid.RowDefinitions>
+                            </Grid>
+                            
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Border>
+
+            
         </Grid>
         <Button x:Name="Throw_dice" Content="Throw dice" HorizontalAlignment="Left" Margin="476,348,-169,0" VerticalAlignment="Top" Width="111" Height="37" Click="Throw_dice_Click"/>
-        <TextBlock x:Name="playerName" HorizontalAlignment="Left" Margin="476,62,-336,0" TextWrapping="Wrap" Text="(playerName)" VerticalAlignment="Top" Width="278" Height="27" Name="playerNameField" TextAlignment="Center"/>
+        
         <Image HorizontalAlignment="Left" Height="100" Margin="476,142,-158,0" VerticalAlignment="Top" Width="100" Source="assets/dob1.png"/>
         <Button x:Name="quit" Content="Stop game" HorizontalAlignment="Left" Margin="654,348,-336,0" VerticalAlignment="Top" Width="100" Height="37" AutomationProperties.Name="Quit" Click="quit_Click"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="654,142,-336,0" VerticalAlignment="Top" Width="100" Source="Assets/dob1.png"/>
+        <TextBox x:Name="player1Field" HorizontalAlignment="Left" Height="23" Margin="476,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="Red"/>
+        <TextBox x:Name="player2Field" HorizontalAlignment="Left" Height="23" Margin="476,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF0600FF"/>
+        <TextBox x:Name="player3Field" HorizontalAlignment="Left" Height="23" Margin="634,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFD0FF00"/>
+        <TextBox x:Name="player4Field" HorizontalAlignment="Left" Height="23" Margin="634,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FF2CA229"/>
     </Grid>
 </Window>
