@@ -31,7 +31,7 @@
                                 <Grid.Background>
                                 <ImageBrush ImageSource="Assets/MEJNboard.png"/>
                             </Grid.Background>
-
+                            
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition x:Name="col1" Width="36"/>
                                 <ColumnDefinition x:Name="col2" Width="36" />
