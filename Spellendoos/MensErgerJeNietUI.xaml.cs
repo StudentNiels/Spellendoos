@@ -1,6 +1,7 @@
 ﻿using Spellendoos.Classes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -47,7 +48,20 @@ namespace Spellendoos
             String[] splitStr4 = str4.Split(spearator4);
             player4Field.Text = splitStr4[1];
             players[3].setPlayerName(player4Field.Text);
-            
+
+            ///add pawns to board
+            ObservableCollection<Pawn> pieces = new ObservableCollection<Pawn>();
+            pieces.Add(
+                new Pawn { Row = 0, Column = 0, Fill = new SolidColorBrush(Colors.BlanchedAlmond) });
+            pieces.Add(
+                new Pawn { Row = 7, Column = 7, Fill = new SolidColorBrush(Colors.RosyBrown) });
+            pieces.Add(
+                new Pawn { Row = 3, Column = 4, Fill = new SolidColorBrush(Colors.BlueViolet) });
+            pieces.Add(
+                new Pawn { Row = 5, Column = 4, Fill = new SolidColorBrush(Colors.Orange) });
+
+            board.DataContext = pieces;
+
         }
 
         private Image CreateImage(string imgSource)
@@ -64,6 +78,8 @@ namespace Spellendoos
         {
             this.MEJN = new MensErgerJeNietWithUI("Mens erger je niet", players);
             Image img = CreateImage("Assets/Red-pawn.png");
+
+            
         }
 
         private void Throw_dice_Click(object sender, RoutedEventArgs e)
