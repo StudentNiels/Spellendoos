@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Xml.XPath;
 using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Spellendoos
 {
     class YahtzeeWithUI : ChanceGame
     {
+        YahtzeeRules YRules = new YahtzeeRules();
 
         //Yahtzee version for User Interface
         public YahtzeeWithUI(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount, int maxRounds)
@@ -31,6 +33,7 @@ namespace Spellendoos
             this.maxRounds = maxRounds;
             this.rules = new YahtzeeRules();
             this.gameScore = new Dictionary<string, int>();
+            
 
             foreach (Player player in players)
             {
@@ -65,6 +68,7 @@ namespace Spellendoos
                 diceNumber++;
                 
             }
+            DisplayScoreOptions(results);
             return results;
         }
 
@@ -75,9 +79,34 @@ namespace Spellendoos
         }
 
         //Make known what options the player has to choose from
-        public void DisplayScoreOptions()
+        public void DisplayScoreOptions(int[] results)
         {
+            List<string> scoreNames = new List<string>();
 
+            scoreNames.Add("Chance");
+
+            YRules.checkOptions(results);
+            foreach (KeyValuePair<string, int> result in YRules.getScoreOptions())
+            {
+                Console.WriteLine(result.Key);
+                Console.WriteLine(result.Value.ToString());
+                foreach (string scoreName in scoreNames)
+                {
+                    if(scoreName == result.Key)
+                    {
+                        if(result.Value > 0)
+                        {
+                            //work in progress, een list opstellen die gebruikt kan worden bij YahtzeeUI
+                        }
+                    }
+                }
+            }
+
+        }
+
+        public void SetupGame()
+        {
+            
         }
 
         public override void Turn(int playerTurn)
@@ -106,16 +135,9 @@ namespace Spellendoos
                     int [] results = RollDice();
                     //Gives the current player the points that can be earned with the current dicethrow
                     
-                    //Dictionary<string, int> options = rules.checkRules(results);
+                    Dictionary<string, int> options = rules.checkOptions(results);
                     pointStorage.Clear();
-                    //foreach (KeyValuePair<string, int> option in options)
-                    //{
-                    //    Console.WriteLine(option.Key);
-                    //    Console.WriteLine(option.Value);
-                    //    pointStorage.Add(option.Value);
-                    //    optionIndex++;
-                    //}
-                    Console.WriteLine(results.ToString());
+
                     actionCount++;
                 }
                 else
@@ -133,11 +155,11 @@ namespace Spellendoos
                         Console.WriteLine("The following results came from the dice rolls:");
                         foreach (int result in results)
                         {
-                            Console.WriteLine($"Dice {diceNumber}'s result was {result}.");
+                            //give each dice an extra eye to adjust it right
                             diceNumber++;
                         }
                         Console.WriteLine("And the following options are possible:");
-                        //Dictionary<string, int> options = rules.checkRules(results);
+                        Dictionary<string, int> options = rules.checkOptions(results);
                         //optionIndex = 0;
                         pointStorage.Clear();
                         //foreach (KeyValuePair<string, int> option in options)
@@ -152,6 +174,7 @@ namespace Spellendoos
                     }
                     else if (dialogR == DialogResult.No)
                     {
+                        // Select the points you wish to keep
                         Console.WriteLine("Select the index of the score you wish to keep.");
                         string input = Console.ReadLine().ToString();
                         score = pointStorage[Int32.Parse(input)];
@@ -206,7 +229,9 @@ namespace Spellendoos
         public override void EndGame()
         {
             //Close the game.
+            //TO DO: check if game closes and gameselector starts up again
             active = false;
+            System.Windows.Forms.Application.Exit();
             GameSelector gs = new GameSelector(players);
             gs.Show();
         }

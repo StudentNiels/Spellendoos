@@ -24,7 +24,7 @@ namespace Spellendoos
         {
             InitializeComponent();
             this.Y = new YahtzeeWithUI("Yahtzee", players, 5, 6, 3, 13);
-
+            
                 //Player's names are set on the UI
                 player1Field.Text = players[0].getPlayerName(); 
                 player2Field.Text = players[1].getPlayerName();

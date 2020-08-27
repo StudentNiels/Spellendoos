@@ -35,8 +35,8 @@ namespace Spellendoos.Classes
 
             int[] thrownDie = checkThrownDie(results);
 
-            ///Kans is always an option.
-            score_options.Add("Kans", thrownDie[0] * 1 + thrownDie[1] * 2 + thrownDie[2]
+            ///Chance is always an option.
+            score_options.Add("Chance", thrownDie[0] * 1 + thrownDie[1] * 2 + thrownDie[2]
             * 3 + thrownDie[3] * 4 + thrownDie[4] * 5 + thrownDie[5] * 6);
 
             checkPairs(thrownDie);
@@ -84,26 +84,42 @@ namespace Spellendoos.Classes
             if (dieCombo[0] >= 3 || dieCombo[1] >= 3 || dieCombo[2] >= 3 || dieCombo[3] >= 3
             || dieCombo[4] >= 3 || dieCombo[5] >= 3)
             {
-                score_options.Add("Drie gelijk", (1 * dieCombo[0] + 2 * dieCombo[1] + 3 * dieCombo[2] + 4 * dieCombo[3] + 5 * dieCombo[4] + 6 * dieCombo[5]));
+                score_options.Add("Three of a kind", (1 * dieCombo[0] + 2 * dieCombo[1] + 3 * dieCombo[2] + 4 * dieCombo[3] + 5 * dieCombo[4] + 6 * dieCombo[5]));
                 ///checked if number appears more than three times and the others have the same value
                 if (dieCombo[0] >= 2 || dieCombo[1] >= 2 || dieCombo[2] >= 2 || dieCombo[3] >= 2 || dieCombo[4] >= 2 || dieCombo[5] >= 2)
                 {
                     score_options.Add("Full House", 25);
                 }
+                else
+                {
+                    score_options.Add("Full House", 0);
+                }
                 ///checked if number appears more than four times
                 if (dieCombo[0] >= 4 || dieCombo[1] >= 4 || dieCombo[2] >= 4 || dieCombo[3] >= 4 || dieCombo[4] >= 4 || dieCombo[5] >= 4)
                 {
-                    score_options.Add("Vier Gelijk", 1 * dieCombo[0] + 2 * dieCombo[1] + 3 * dieCombo[2] + 4 * dieCombo[3] + 5 * dieCombo[4] + 6 * dieCombo[5]);
+                    score_options.Add("Four of a kind", 1 * dieCombo[0] + 2 * dieCombo[1] + 3 * dieCombo[2] + 4 * dieCombo[3] + 5 * dieCombo[4] + 6 * dieCombo[5]);
+                }
+                else
+                {
+                    score_options.Add("Four of a kind", 0);
                 }
                 ///checked if number appears five times
                 if (dieCombo[0] == 5 || dieCombo[1] == 5 || dieCombo[2] == 5 || dieCombo[3] == 5 || dieCombo[4] == 5 || dieCombo[5] == 5)
                 {
                     score_options.Add("Yahtzee", 50);
+                } 
+                else 
+                {
+                    score_options.Add("Yahtzee", 0);
                 }
+            }
+            else
+            {
+                score_options.Add("Three of a kind", 0);
             }
         }
         public void checkStraat(int[] dieCombo) {
-            ///Check array of thrown die for possible straat-options
+            ///Check array of thrown die for possible straight-options
             if (dieCombo[0] == 1){
                 if (dieCombo[1] == 1)
                 {
@@ -111,11 +127,19 @@ namespace Spellendoos.Classes
                     {
                         if (dieCombo[3] == 1)
                         {
-                            score_options.Add("Kleine straat", 30);
+                            score_options.Add("Small Straight", 30);
                             if (dieCombo[4] == 1)
                             {
-                                score_options.Add("Grote straat", 40);
+                                score_options.Add("Large Straight", 40);
                             }
+                            else
+                            {
+                                score_options.Add("Large Straight", 0);
+                            }
+                        }
+                        else
+                        {
+                            score_options.Add("Small Straight", 0);
                         }
                     }
                 }
@@ -128,11 +152,19 @@ namespace Spellendoos.Classes
                     {
                         if (dieCombo[4] == 1)
                         {
-                            score_options.Add("Kleine straat", 30);
+                            score_options.Add("Small Straight", 30);
                             if (dieCombo[5] == 1)
                             {
-                                score_options.Add("Grote straat", 40);
+                                score_options.Add("Large Straight", 40);
                             }
+                            else
+                            {
+                                score_options.Add("Large Straight", 0);
+                            }
+                        }
+                        else
+                        {
+                            score_options.Add("Small Straight", 0);
                         }
                     }
                 }
@@ -145,7 +177,11 @@ namespace Spellendoos.Classes
                     {
                         if (dieCombo[5] == 1)
                         {
-                            score_options.Add("Kleine straat", 30);
+                            score_options.Add("Small Straight", 30);
+                        }
+                        else
+                        {
+                            score_options.Add("Small Straight", 0);
                         }
                     }
                 }

@@ -121,52 +121,52 @@
         <TextBlock Grid.Column="16" Grid.Row="9" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
 
         <TextBlock Grid.Column="12" Grid.Row="10" FontWeight="SemiBold" Text="Three of a kind" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="13" Grid.Row="10" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="14" Grid.Row="10" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="15" Grid.Row="10" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="16" Grid.Row="10" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="13" Grid.Row="10" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="ThreeKindPlayer1"/>
+        <TextBlock Grid.Column="14" Grid.Row="10" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="ThreeKindPlayer2"/>
+        <TextBlock Grid.Column="15" Grid.Row="10" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="ThreeKindPlayer3"/>
+        <TextBlock Grid.Column="16" Grid.Row="10" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="ThreeKindPlayer4"/>
 
         <TextBlock Grid.Column="12" Grid.Row="11" FontWeight="SemiBold" Text="Four of a kind" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="13" Grid.Row="11" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="14" Grid.Row="11" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="15" Grid.Row="11" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="16" Grid.Row="11" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="13" Grid.Row="11" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="FourKindPlayer1"/>
+        <TextBlock Grid.Column="14" Grid.Row="11" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="FourKindPlayer2"/>
+        <TextBlock Grid.Column="15" Grid.Row="11" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="FourKindPlayer3"/>
+        <TextBlock Grid.Column="16" Grid.Row="11" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="FourKindPlayer4"/>
 
         <TextBlock Grid.Column="12" Grid.Row="12" FontWeight="SemiBold" Text="Full House" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="13" Grid.Row="12" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="14" Grid.Row="12" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="15" Grid.Row="12" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="16" Grid.Row="12" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="13" Grid.Row="12" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="FullHousePlayer1"/>
+        <TextBlock Grid.Column="14" Grid.Row="12" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="FullHousePlayer2"/>
+        <TextBlock Grid.Column="15" Grid.Row="12" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="FullHousePlayer3"/>
+        <TextBlock Grid.Column="16" Grid.Row="12" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="FullHousePlayer4"/>
 
         <TextBlock Grid.Column="12" Grid.Row="13" FontWeight="SemiBold" Text="Small Straight" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="13" Grid.Row="13" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="14" Grid.Row="13" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="15" Grid.Row="13" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="16" Grid.Row="13" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="13" Grid.Row="13" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="SmallStraightPlayer1"/>
+        <TextBlock Grid.Column="14" Grid.Row="13" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="SmallStraightPlayer2"/>
+        <TextBlock Grid.Column="15" Grid.Row="13" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="SmallStraightPlayer3"/>
+        <TextBlock Grid.Column="16" Grid.Row="13" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="SmallStraightPlayer4"/>
 
-        <TextBlock Grid.Column="12" Grid.Row="14" FontWeight="SemiBold" Text="Large straight" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="13" Grid.Row="14" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="14" Grid.Row="14" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="15" Grid.Row="14" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="16" Grid.Row="14" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="12" Grid.Row="14" FontWeight="SemiBold" Text="Large Straight" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="13" Grid.Row="14" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="LargeStraightPlayer1"/>
+        <TextBlock Grid.Column="14" Grid.Row="14" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="LargeStraightPlayer2"/>
+        <TextBlock Grid.Column="15" Grid.Row="14" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="LargeStraightPlayer3"/>
+        <TextBlock Grid.Column="16" Grid.Row="14" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="LargeStraightPlayer4"/>
 
         <TextBlock Grid.Column="12" Grid.Row="15" FontWeight="SemiBold" Text="Chance" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="13" Grid.Row="15" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="14" Grid.Row="15" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="15" Grid.Row="15" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="16" Grid.Row="15" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="13" Grid.Row="15" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="ChancePlayer1"/>
+        <TextBlock Grid.Column="14" Grid.Row="15" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="ChancePlayer2"/>
+        <TextBlock Grid.Column="15" Grid.Row="15" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="ChancePlayer3"/>
+        <TextBlock Grid.Column="16" Grid.Row="15" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="ChancePlayer4"/>
 
-        <TextBlock Grid.Column="12" Grid.Row="16" FontWeight="SemiBold" Text="YAHTZEE" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="13" Grid.Row="16" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="14" Grid.Row="16" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="15" Grid.Row="16" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="16" Grid.Row="16" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="12" Grid.Row="16" FontWeight="SemiBold" Text="Yahtzee" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="13" Grid.Row="16" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="YahtzeePlayer1"/>
+        <TextBlock Grid.Column="14" Grid.Row="16" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="YahtzeePlayer2"/>
+        <TextBlock Grid.Column="15" Grid.Row="16" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="YahtzeePlayer3"/>
+        <TextBlock Grid.Column="16" Grid.Row="16" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="YahtzeePlayer4"/>
 
         <TextBlock Grid.Column="12" Grid.Row="17" FontWeight="SemiBold" Text="Total score" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="13" Grid.Row="17" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="14" Grid.Row="17" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="15" Grid.Row="17" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="16" Grid.Row="17" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="13" Grid.Row="17" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="TotalScorePlayer1"/>
+        <TextBlock Grid.Column="14" Grid.Row="17" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="TotalScorePlayer2"/>
+        <TextBlock Grid.Column="15" Grid.Row="17" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="TotalScorePlayer3"/>
+        <TextBlock Grid.Column="16" Grid.Row="17" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" Background="#FF6EB727" x:Name="TotalScorePlayer4"/>
 
         <Image Width="118" Height="118" Source="Assets/dob1.png" Grid.Column="2" Grid.Row="12" x:Name="diceImage1" Margin="5,0,5,0" Grid.RowSpan="4"/>
         <Image Width="118" Height="118" Source="Assets/dob2.png" Grid.Column="3" Grid.Row="12" x:Name="diceImage2" Margin="5,0,5,0" Grid.RowSpan="4"/>
