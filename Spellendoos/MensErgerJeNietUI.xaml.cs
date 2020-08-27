@@ -50,7 +50,17 @@ namespace Spellendoos
             players[3].setPlayerName(player4Field.Text);
 
             ///add pawns to board
-            
+            ///ObservableCollection<Pawn> pieces = new ObservableCollection<Pawn>();
+            //pieces.Add(
+            ///    new Pawn { Row = 0, Column = 0, Fill = new SolidColorBrush(Colors.BlanchedAlmond) });
+            ///pieces.Add(
+            ///    new Pawn { Row = 7, Column = 7, Fill = new SolidColorBrush(Colors.RosyBrown) });
+            ///pieces.Add(
+            ///    new Pawn { Row = 3, Column = 4, Fill = new SolidColorBrush(Colors.BlueViolet) });
+            ///pieces.Add(
+            ///    new Pawn { Row = 5, Column = 4, Fill = new SolidColorBrush(Colors.Orange) });
+
+            ///board.DataContext = pieces;
 
         }
 
