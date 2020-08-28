@@ -20,20 +20,25 @@ namespace Spellendoos
     public partial class YahtzeeUI : Window
     {
         private YahtzeeWithUI Y;
+        public List<Player> players;
         public YahtzeeUI(List<Player> players)
         {
             InitializeComponent();
             this.Y = new YahtzeeWithUI("Yahtzee", players, 5, 6, 3, 13);
-            
+            this.players = players;
+
                 //Player's names are set on the UI
                 player1Field.Text = players[0].getPlayerName(); 
                 player2Field.Text = players[1].getPlayerName();
                 player3Field.Text = players[2].getPlayerName();
                 player4Field.Text = players[3].getPlayerName();
+
+            Y.SetupGame();
         }
 
         private void YhtzRollDice_Click(object sender, RoutedEventArgs e)
         {
+
             int[] results = Y.RollDice();
 
             BitmapImage BM1 = new BitmapImage();
@@ -90,9 +95,11 @@ namespace Spellendoos
         {
             Y.setHeldDie(4);
         }
-        private void startYhtzBtn_Click(object sender, RoutedEventArgs e)
+        private void backToGameSelector(object sender, RoutedEventArgs e)
         {
-            this.Y.PlayGame();
+            GameSelector gs = new GameSelector(players);
+            this.Visibility = Visibility.Hidden;
+            gs.Show();
         }
     }
 }
