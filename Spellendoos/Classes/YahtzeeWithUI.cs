@@ -98,7 +98,13 @@ namespace Spellendoos
         {
             List<string> scoreNames = new List<string>();
 
+            scoreNames.Add("Three of a kind");
+            scoreNames.Add("Four of a kind");
+            scoreNames.Add("Full House");
+            scoreNames.Add("Small Straight");
+            scoreNames.Add("Large Straight");
             scoreNames.Add("Chance");
+            scoreNames.Add("Yahtzee");
 
             YRules.checkOptions(results);
             foreach (KeyValuePair<string, int> result in YRules.getScoreOptions())
@@ -109,6 +115,7 @@ namespace Spellendoos
                 {
                     if(scoreName == result.Key)
                     {
+
                         if(result.Value > 0)
                         {
                             //work in progress, een list opstellen die gebruikt kan worden bij YahtzeeUI

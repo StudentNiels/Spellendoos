@@ -9,12 +9,12 @@ namespace Spellendoos.Classes
         public YahtzeeRules()
         {
             this.rules = new List<string>();
-            addRule("Drie gelijke");
-            addRule("Vier gelijke");
-            addRule("Kleine straat");
-            addRule("Grote straat");
+            addRule("Three of a kind");
+            addRule("Four of a kind");
             addRule("Full House");
-            addRule("Kans");
+            addRule("Small Straight");
+            addRule("Large Straight");
+            addRule("Chance");
             addRule("Yahtzee");
             score_options = new Dictionary<string, int>();
         }
