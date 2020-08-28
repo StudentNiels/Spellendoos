@@ -40,12 +40,11 @@ namespace Spellendoos
             ///If there are no held dices, roll as normal and assign one -1 amount to it to prevent errors.
             if (heldDices == null)
             {
-                heldDices = new int[1];
-                heldDices[0] = -1;
+                heldDices = new int[diceAmount];
             }
             ///if there are held dices, check the array for which # dices are held and skip those.
             ///Check the array for which # dices are held and skip those.
-            for (int i = 0; i < diceAmount + 1; i++)
+            for (int i = 0; i < diceAmount; i++)
             {
                 if (heldDices[i] != 1)
                 {

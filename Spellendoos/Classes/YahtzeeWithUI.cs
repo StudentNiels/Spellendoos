@@ -33,7 +33,7 @@ namespace Spellendoos
             this.maxRounds = maxRounds;
             this.rules = new YahtzeeRules();
             this.gameScore = new Dictionary<string, int>();
-            this.heldDices = new int[5];
+            this.heldDices = new int[diceAmount];
 
             foreach (Player player in players)
             {
@@ -50,7 +50,10 @@ namespace Spellendoos
         public override void clearHeldDie()
         {
             //Set heldDices back to original value
-            heldDices = new int[5];
+            for (int i= 0; i < heldDices.Count(); i++) 
+            {
+                heldDices[i] = 0;
+            }
         }
 
 
