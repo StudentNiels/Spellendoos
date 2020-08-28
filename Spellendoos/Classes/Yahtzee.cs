@@ -32,17 +32,7 @@ namespace Spellendoos
             }
         }
 
-        //methods required for UI version
-        public override void setHeldDie(int dieToHold)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void clearHeldDie()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public override bool IsActive()
         {
             ///This method is simply to check whether or not the game is currently active for testing purposes.
@@ -197,6 +187,23 @@ namespace Spellendoos
         public override int GetMaxRounds()
         {
             return maxRounds;
+        }
+
+
+        ///methods required for UI version
+        public override void setHeldDie(int dieToHold)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void clearHeldDie()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void setActionCount(int newActionCount)
+        {
+            throw new NotImplementedException();
         }
     }
 }

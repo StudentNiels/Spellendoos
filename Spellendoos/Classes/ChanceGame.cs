@@ -20,11 +20,13 @@ namespace Spellendoos
         public bool active;
         ///Maximum amount of rounds in the game
         public int maxRounds;
+        ///Actions taken by the player within a turn
+        public int actionCount = 0;
         ///Rule list for the game.
         public YahtzeeRules rules;
         ///Score for the game
         public Dictionary<string, int> gameScore;
-        //Dices to be held
+        ///Dices to be held
         public int[] heldDices;
 
         public abstract void setHeldDie(int dieToHold);
@@ -38,5 +40,7 @@ namespace Spellendoos
         public abstract string GetGameName();
 
         public abstract int GetMaxRounds();
+
+        public abstract void setActionCount();
     }
 }

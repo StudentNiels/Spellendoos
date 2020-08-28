@@ -104,7 +104,8 @@ namespace Spellendoos
 
         private void EndTurn_Click(object sender, RoutedEventArgs e)
         {
-            
+            ///Set action count to 3 so the player's turn ends.
+            Y.setActionCount(3);
         }
     }
 }

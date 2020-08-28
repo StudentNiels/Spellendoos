@@ -34,7 +34,7 @@ namespace Spellendoos
             this.rules = new YahtzeeRules();
             this.gameScore = new Dictionary<string, int>();
             this.heldDices = new int[diceAmount];
-
+            this.actionCount = 0;
             foreach (Player player in players)
             {
                 gameScore.Add(player.playerName, 0);
@@ -138,8 +138,6 @@ namespace Spellendoos
             
             //Get player name so we don't have to constantly call that method
             string playerName = players[playerTurn].getPlayerName();
-            //Amount of actions player can still perform
-            int actionCount = 0;
             //Score for the player
             int score = 0;
             //int list to store the scores the player selects in.
@@ -267,6 +265,11 @@ namespace Spellendoos
         public override int GetMaxRounds()
         {
             return maxRounds;
+        }
+
+        public override void setActionCount(int newActionCount)
+        {
+            this.actionCount = newActionCount;
         }
     }
 }
