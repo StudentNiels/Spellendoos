@@ -24,6 +24,11 @@ namespace Spellendoos
         public YahtzeeRules rules;
         ///Score for the game
         public Dictionary<string, int> gameScore;
+        //Dices to be held
+        public int[] heldDices;
+
+        public abstract void setHeldDie();
+        public abstract void clearHeldDie();
         public abstract bool IsActive();
 
         public abstract void Turn(int playerTurn);

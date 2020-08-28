@@ -33,7 +33,7 @@ namespace Spellendoos
             this.maxRounds = maxRounds;
             this.rules = new YahtzeeRules();
             this.gameScore = new Dictionary<string, int>();
-            
+            this.heldDices = new int[5];
 
             foreach (Player player in players)
             {
@@ -41,6 +41,18 @@ namespace Spellendoos
             }
             
         }
+
+        public override void setHeldDie(int dieToHold)
+        {
+            heldDices[dieToHold] = 1;
+        }
+
+        public override void clearHeldDie()
+        {
+            //Set heldDices back to original value
+            heldDices = new int[5];
+        }
+
 
         public override bool IsActive()
         {
@@ -59,7 +71,7 @@ namespace Spellendoos
 
         public int[] RollDice()
         {
-            int[] results = dices.RollDices();
+            int[] results = dices.RollDices(heldDices);
             //int for displaying dice number
             int diceNumber = 1;
 
@@ -109,6 +121,8 @@ namespace Spellendoos
             
         }
 
+
+
         public override void Turn(int playerTurn)
         {
             
@@ -149,7 +163,6 @@ namespace Spellendoos
                     {
                         Console.WriteLine("Type down the indexes of the dices you wish to hold seperated by commas.");
                         string input = Console.ReadLine().ToString();
-                        int[] heldDices = input.Split(',').Select(Int32.Parse).ToArray();
                         int[] results = dices.RollDices(heldDices);
                         int diceNumber = 1;
                         Console.WriteLine("The following results came from the dice rolls:");

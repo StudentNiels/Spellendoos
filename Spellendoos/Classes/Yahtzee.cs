@@ -32,6 +32,17 @@ namespace Spellendoos
             }
         }
 
+        //methods required for UI version
+        public override void setHeldDie()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void clearHeldDie()
+        {
+            throw new NotImplementedException();
+        }
+
         public override bool IsActive()
         {
             ///This method is simply to check whether or not the game is currently active for testing purposes.
@@ -77,7 +88,7 @@ namespace Spellendoos
                     Console.WriteLine($"It's {playerName}'s turn. Press any key to roll the dice");
                     Console.ReadKey();
                     ///Roll the pre-defined dices
-                    int[] results = dices.RollDices();
+                    int[] results = dices.RollDices(heldDices);
                     ///This entire thing should be changed to show the results and options in the UI
                     diceResults.AppendLine("The following results came from the dice rolls:");
                     foreach (int result in results)
