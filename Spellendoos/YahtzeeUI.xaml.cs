@@ -95,11 +95,16 @@ namespace Spellendoos
         {
             Y.setHeldDie(4);
         }
-        private void backToGameSelector(object sender, RoutedEventArgs e)
+        private void BackToGameSelector_Click(object sender, RoutedEventArgs e)
         {
             GameSelector gs = new GameSelector(players);
             this.Visibility = Visibility.Hidden;
             gs.Show();
+        }
+
+        private void EndTurn_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -182,7 +182,8 @@
         <Button x:Name="holdBtn5" Content="hold" Grid.Column="6" Grid.Row="19" Width="118" Height="35" Click="HoldBtn5"/>
         
         <Button x:Name="yhtzRollBtn" Content="ROLL!!" Grid.Column="4" Grid.Row="21" Width="118" Height="50" Click="YhtzRollDice_Click"/>
-        <Button x:Name="startYhtzBtn" Grid.ColumnSpan="2" Content="Return" Grid.Column="15" Grid.Row="21" Grid.RowSpan="1" Click="backToGameSelector"/>
+        <Button x:Name="endTurn" Grid.ColumnSpan="2" Content="End turn" Grid.Column="11" Grid.Row="21" Grid.RowSpan="1" Click="EndTurn_Click"/>
+        <Button x:Name="startYhtzBtn" Grid.ColumnSpan="2" Content="Return" Grid.Column="15" Grid.Row="21" Grid.RowSpan="1" Click="BackToGameSelector_Click"/>
 
     </Grid>
 </Window>
