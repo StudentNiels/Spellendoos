@@ -27,7 +27,7 @@ namespace Spellendoos
         //Dices to be held
         public int[] heldDices;
 
-        public abstract void setHeldDie();
+        public abstract void setHeldDie(int dieToHold);
         public abstract void clearHeldDie();
         public abstract bool IsActive();
 

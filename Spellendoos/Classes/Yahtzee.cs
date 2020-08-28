@@ -33,7 +33,7 @@ namespace Spellendoos
         }
 
         //methods required for UI version
-        public override void setHeldDie()
+        public override void setHeldDie(int dieToHold)
         {
             throw new NotImplementedException();
         }

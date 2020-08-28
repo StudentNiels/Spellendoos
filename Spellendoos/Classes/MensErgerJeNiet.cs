@@ -124,7 +124,7 @@ namespace Spellendoos.Classes
                     }
                     Console.WriteLine("You rolled a 6, a new pawn is on the board. Press a key to roll again and move it.");
                     Console.ReadKey();
-                    int moveresult = dices.RollDices()[0];
+                    int moveresult = dices.RollDices();
                     pawnPositions[playerName][currentPawn] += moveresult;
                     Console.WriteLine($"You rolled a {moveresult}");
                     Console.WriteLine($"Pawn {currentPawn} has moved {moveresult} spaces.");

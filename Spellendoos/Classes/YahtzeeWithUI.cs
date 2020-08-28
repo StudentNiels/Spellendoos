@@ -42,7 +42,7 @@ namespace Spellendoos
             
         }
 
-        public override void setHeldDie(int dieToHold)
+        public override void setHeldDie()
         {
             heldDices[dieToHold] = 1;
         }
