@@ -39,6 +39,7 @@ namespace Spellendoos
             this.gameScore = new Dictionary<string, int>();
             this.heldDices = new int[diceAmount];
             this.actionCount = 0;
+            this.canRollDice = false;
             foreach (Player player in players)
             {
                 gameScore.Add(player.playerName, 0);
@@ -65,12 +66,10 @@ namespace Spellendoos
             //This method is simply to check whether or not the game is currently active for testing purposes.
             if(active == true)
             {
-                Console.WriteLine("Yahtzee is actief!");
                 return true;
             }
             else
             {
-                Console.WriteLine("Yahtzee is niet actief.");
                 return false;
             }
         }
@@ -89,7 +88,7 @@ namespace Spellendoos
             return results;
         }
 
-        //method to color the playername of the player who is currently rolling
+        ///method to color the playername of the player who is currently rolling
         public void playerColor(string playerName)
         {
 
@@ -120,16 +119,16 @@ namespace Spellendoos
 
         public void SetupGame(int playerTurn)
         {
-            //Get player name so we don't have to constantly call that method
+            ///Get player name so we don't have to constantly call that method
             string playerName = players[playerTurn].getPlayerName();
-            //Score for the player
+            ///Score for the player
             int score = 0;
-            //int list to store the scores the player selects in.
+            ///int list to store the scores the player selects in.
             List<int> pointStorage = new List<int>();
 
             foreach (KeyValuePair<string, int> gameScore in gameScore)
             {
-                //Show stuff
+                ///Show stuff
 
                 string TotalScore = gameScore.Key;
                 int TotalScorePoints = gameScore.Value;
@@ -139,14 +138,18 @@ namespace Spellendoos
                 if (actionCount == 0)
                 {
 
-                    //Roll the pre-defined dices
+                    ///Roll the pre-defined dices
                     int[] results = RollDice();
-                    //Gives the current player the points that can be earned with the current dicethrow
+                    ///Gives the current player the points that can be earned with the current dicethrow
 
                     Dictionary<string, int> options = rules.checkOptions(results);
                     pointStorage.Clear();
 
                     actionCount++;
+                }
+                while (actionCount < 3)
+                {
+
                 }
             }
         }
@@ -158,6 +161,7 @@ namespace Spellendoos
         /// </summary>
         public override void PlayGame()
         {
+            canRollDice = true;
             int roundCount = 1;
             int currentTurn = 0;
             while (roundCount < maxRounds + 1)
@@ -170,7 +174,7 @@ namespace Spellendoos
                 //Prevent roundcount from overflowing
                 if (roundCount < maxRounds + 1)
                 {
-                    Console.Write($"Round {roundCount} ");
+                    //Turn(currentTurn);
                     currentTurn++;
                 }
             }
@@ -208,6 +212,11 @@ namespace Spellendoos
         public override void setActionCount(int newActionCount)
         {
             this.actionCount = newActionCount;
+        }
+
+        public override bool getDiceRollAvailability()
+        {
+            return canRollDice;
         }
     }
 }

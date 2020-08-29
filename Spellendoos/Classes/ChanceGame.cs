@@ -28,6 +28,8 @@ namespace Spellendoos
         public Dictionary<string, int> gameScore;
         ///Dices to be held
         public int[] heldDices;
+        ///Bool to toggle dice rolling
+        public bool canRollDice;
 
         public abstract void setHeldDie(int dieToHold);
         public abstract void clearHeldDie();
@@ -40,6 +42,8 @@ namespace Spellendoos
 
         public abstract int GetMaxRounds();
 
-        public abstract void setActionCount();
+        public abstract void setActionCount(int newActionCount);
+
+        public abstract bool getDiceRollAvailability();
     }
 }

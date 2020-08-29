@@ -104,5 +104,10 @@ namespace Spellendoos
         {
             this.actionCount = newActionCount;
         }
+
+        public override bool getDiceRollAvailability() 
+        {
+            throw new NotImplementedException();
+        }
     }
 }

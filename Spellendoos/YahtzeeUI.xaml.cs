@@ -38,40 +38,44 @@ namespace Spellendoos
 
         private void YhtzRollDice_Click(object sender, RoutedEventArgs e)
         {
+            if (Y.getDiceRollAvailability() == true)
+            {
 
-            int[] results = Y.RollDice();
+                int[] results = Y.RollDice();
 
-            BitmapImage BM1 = new BitmapImage();
-            BM1.BeginInit();
-            BM1.UriSource = new Uri($"Assets/dob{results[0]}.png", UriKind.RelativeOrAbsolute);
-            BM1.EndInit();
-            this.diceImage1.Source = BM1;
+                BitmapImage BM1 = new BitmapImage();
+                BM1.BeginInit();
+                BM1.UriSource = new Uri($"Assets/dob{results[0]}.png", UriKind.RelativeOrAbsolute);
+                BM1.EndInit();
+                this.diceImage1.Source = BM1;
 
-            BitmapImage BM2 = new BitmapImage();
-            BM2.BeginInit();
-            BM2.UriSource = new Uri($"Assets/dob{results[1]}.png", UriKind.RelativeOrAbsolute);
-            BM2.EndInit();
-            this.diceImage2.Source = BM2;
+                BitmapImage BM2 = new BitmapImage();
+                BM2.BeginInit();
+                BM2.UriSource = new Uri($"Assets/dob{results[1]}.png", UriKind.RelativeOrAbsolute);
+                BM2.EndInit();
+                this.diceImage2.Source = BM2;
 
-            BitmapImage BM3 = new BitmapImage();
-            BM3.BeginInit();
-            BM3.UriSource = new Uri($"Assets/dob{results[2]}.png", UriKind.RelativeOrAbsolute);
-            BM3.EndInit();
-            this.diceImage3.Source = BM3;
+                BitmapImage BM3 = new BitmapImage();
+                BM3.BeginInit();
+                BM3.UriSource = new Uri($"Assets/dob{results[2]}.png", UriKind.RelativeOrAbsolute);
+                BM3.EndInit();
+                this.diceImage3.Source = BM3;
 
-            BitmapImage BM4 = new BitmapImage();
-            BM4.BeginInit();
-            BM4.UriSource = new Uri($"Assets/dob{results[3]}.png", UriKind.RelativeOrAbsolute);
-            BM4.EndInit();
-            this.diceImage4.Source = BM4;
+                BitmapImage BM4 = new BitmapImage();
+                BM4.BeginInit();
+                BM4.UriSource = new Uri($"Assets/dob{results[3]}.png", UriKind.RelativeOrAbsolute);
+                BM4.EndInit();
+                this.diceImage4.Source = BM4;
 
-            BitmapImage BM5 = new BitmapImage();
-            BM5.BeginInit();
-            BM5.UriSource = new Uri($"Assets/dob{results[4]}.png", UriKind.RelativeOrAbsolute);
-            BM5.EndInit();
-            this.diceImage5.Source = BM5;
+                BitmapImage BM5 = new BitmapImage();
+                BM5.BeginInit();
+                BM5.UriSource = new Uri($"Assets/dob{results[4]}.png", UriKind.RelativeOrAbsolute);
+                BM5.EndInit();
+                this.diceImage5.Source = BM5;
 
-            Y.getAllScores(results);
+                Y.getAllScores(results);
+                Y.actionCount++;
+            }
         }
 
         private void HoldBtn1(object sender, RoutedEventArgs e)
