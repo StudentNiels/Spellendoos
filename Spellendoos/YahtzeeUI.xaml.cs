@@ -21,26 +21,29 @@ namespace Spellendoos
     {
         private YahtzeeWithUI Y;
         public List<Player> players;
+        public List<string> scoreNames;
         public YahtzeeUI(List<Player> players)
         {
             InitializeComponent();
             this.Y = new YahtzeeWithUI("Yahtzee", players, 5, 6, 3, 13);
             this.players = players;
+            this.scoreNames = new List<string>(); ;
 
-                //Player's names are set on the UI
-                player1Field.Text = players[0].getPlayerName(); 
-                player2Field.Text = players[1].getPlayerName();
-                player3Field.Text = players[2].getPlayerName();
-                player4Field.Text = players[3].getPlayerName();
+            //Player's names are set on the UI
+            player1Field.Text = players[0].getPlayerName(); 
+            player2Field.Text = players[1].getPlayerName();
+            player3Field.Text = players[2].getPlayerName();
+            player4Field.Text = players[3].getPlayerName();
 
             setupGame();
+            Y.PlayGame();
         }
 
         private void YhtzRollDice_Click(object sender, RoutedEventArgs e)
         {
             if (Y.getDiceRollAvailability() == true)
             {
-
+                Console.WriteLine("hi");
                 int[] results = Y.RollDice();
 
                 BitmapImage BM1 = new BitmapImage();
@@ -73,9 +76,30 @@ namespace Spellendoos
                 BM5.EndInit();
                 this.diceImage5.Source = BM5;
 
-                Y.getAllScores(results);
+
+                //takes all the scoreTypes
+                foreach (string result in Y.getAllScoreTypes(results))
+                {
+                    //takes all the scoreTypes on the board
+                    foreach(string score in this.scoreNames)
+                    {
+                        //compares the scoretype rolled with the scoretype on the board
+                        if(result == score)
+                        {
+                            //TO DO - implements the correct score next to the correct scoretype.
+                            ThreeKindPlayer1.Text = Y.getAllScores(results)[0];
+                        }
+                    }
+                }
+
                 Y.actionCount++;
             }
+        }
+
+        private void insertScore()
+        {
+            //string result in Y.getAllScores(results);
+
         }
 
         private void HoldBtn1(object sender, RoutedEventArgs e)
@@ -113,17 +137,17 @@ namespace Spellendoos
            // Y.setActionCount(3);
         }
 
-        private void setupGame()
+        private List<string> setupGame()
         {
-            List<string> scoreNames = new List<string>();
+            this.scoreNames.Add("Three of a kind");
+            this.scoreNames.Add("Four of a kind");
+            this.scoreNames.Add("Full House");
+            this.scoreNames.Add("Small Straight");
+            this.scoreNames.Add("Large Straight");
+            this.scoreNames.Add("Chance");
+            this.scoreNames.Add("Yahtzee");
 
-            scoreNames.Add("Three of a kind");
-            scoreNames.Add("Four of a kind");
-            scoreNames.Add("Full House");
-            scoreNames.Add("Small Straight");
-            scoreNames.Add("Large Straight");
-            scoreNames.Add("Chance");
-            scoreNames.Add("Yahtzee");
+            return this.scoreNames;
         }
     }
 }

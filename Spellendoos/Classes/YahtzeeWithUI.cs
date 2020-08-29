@@ -19,13 +19,14 @@ namespace Spellendoos
     class YahtzeeWithUI : ChanceGame
     {
         YahtzeeRules YRules = new YahtzeeRules();
-        private List<string> allScoreTypes;
-        private List<string> allScores;
+        protected List<string> allScoreTypes;
+        protected List<string> allScores;
+
         //Yahtzee version for User Interface
         public YahtzeeWithUI(string name, List<Player> players, int diceAmount, int diceEyeAmount, int maxActionCount, int maxRounds)
         {
-            List<string> allScoreTypes = new List<string>();
-            List<int> allScores = new List<int>();
+            this.allScoreTypes = new List<string>();
+            this.allScores = new List<string>();
             this.name = name;
             this.players = players;
             //Create a dicetray with predetermined amount of dices
@@ -94,7 +95,9 @@ namespace Spellendoos
 
         }
 
-
+        /**
+         * Takes diceroll results and interprets them into point and then returns only the scoreType(Three of a kind, full house etc)
+         */
         public List<string> getAllScoreTypes(int[] results)
         {
             YRules.checkOptions(results);
@@ -102,17 +105,23 @@ namespace Spellendoos
             {
                 string scoreType = result.Key;
                 allScoreTypes.Add(scoreType);
+                Console.WriteLine(scoreType);
             }
             return allScoreTypes;
         }
 
+        /**
+         * Takes diceroll results and interprets them into point and then returns only the score(numbers)
+         */
         public List<string> getAllScores(int[] results)
         {
             YRules.checkOptions(results);
             foreach (KeyValuePair<string, int> result in YRules.getScoreOptions())
             {
+                
                 int score = result.Value;
                 allScores.Add(score.ToString());
+                Console.WriteLine(score.ToString());
             }
             return allScores;
         }
@@ -120,7 +129,7 @@ namespace Spellendoos
         public void SetupGame(int playerTurn)
         {
             ///Get player name so we don't have to constantly call that method
-            string playerName = players[playerTurn].getPlayerName();
+            
             ///Score for the player
             int score = 0;
             ///int list to store the scores the player selects in.
