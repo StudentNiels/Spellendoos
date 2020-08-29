@@ -33,7 +33,7 @@ namespace Spellendoos
                 player3Field.Text = players[2].getPlayerName();
                 player4Field.Text = players[3].getPlayerName();
 
-            Y.SetupGame();
+            setupGame();
         }
 
         private void YhtzRollDice_Click(object sender, RoutedEventArgs e)
@@ -71,6 +71,7 @@ namespace Spellendoos
             BM5.EndInit();
             this.diceImage5.Source = BM5;
 
+            Y.getAllScores(results);
         }
 
         private void HoldBtn1(object sender, RoutedEventArgs e)
@@ -105,7 +106,20 @@ namespace Spellendoos
         private void EndTurn_Click(object sender, RoutedEventArgs e)
         {
             ///Set action count to 3 so the player's turn ends.
-            Y.setActionCount(3);
+           // Y.setActionCount(3);
+        }
+
+        private void setupGame()
+        {
+            List<string> scoreNames = new List<string>();
+
+            scoreNames.Add("Three of a kind");
+            scoreNames.Add("Four of a kind");
+            scoreNames.Add("Full House");
+            scoreNames.Add("Small Straight");
+            scoreNames.Add("Large Straight");
+            scoreNames.Add("Chance");
+            scoreNames.Add("Yahtzee");
         }
     }
 }

@@ -33,7 +33,6 @@ namespace Spellendoos
         public abstract void clearHeldDie();
         public abstract bool IsActive();
 
-        public abstract void Turn(int playerTurn);
 
         public abstract void PlayGame();
         public abstract void EndGame();
