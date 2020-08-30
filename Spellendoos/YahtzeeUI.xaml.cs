@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spellendoos.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,12 +23,23 @@ namespace Spellendoos
         private YahtzeeWithUI Y;
         public List<Player> players;
         public List<string> scoreNames;
+
+        public List<TextBlock> player1Fields;
+        public List<string> player2Fields;
+        public List<string> player3Fields;
+        public List<string> player4Fields;
+
         public YahtzeeUI(List<Player> players)
         {
             InitializeComponent();
             this.Y = new YahtzeeWithUI("Yahtzee", players, 5, 6, 3, 13);
             this.players = players;
-            this.scoreNames = new List<string>(); ;
+            this.scoreNames = new List<string>();
+            this.player1Fields = new List<TextBlock>();
+            this.player2Fields = new List<string>();
+            this.player3Fields = new List<string>();
+            this.player4Fields = new List<string>();
+
 
             //Player's names are set on the UI
             player1Field.Text = players[0].getPlayerName(); 
@@ -43,9 +55,7 @@ namespace Spellendoos
         {
             if (Y.getDiceRollAvailability() == true)
             {
-                Console.WriteLine("hi");
                 int[] results = Y.RollDice();
-
                 BitmapImage BM1 = new BitmapImage();
                 BM1.BeginInit();
                 BM1.UriSource = new Uri($"Assets/dob{results[0]}.png", UriKind.RelativeOrAbsolute);
@@ -77,31 +87,46 @@ namespace Spellendoos
                 this.diceImage5.Source = BM5;
 
 
-                //takes all the scoreTypes
-                foreach (string result in Y.getAllScoreTypes(results))
+                IEnumerable<string> distinctResults = Y.getAllScoreTypes(results).Distinct();
+                IEnumerable<string> distinctScoreResults = Y.getAllScores(results).Distinct();
+                int dRAmount = distinctResults.Count();
+                int dSRAmount = distinctScoreResults.Count();
+                int times = 1;
+
+
+
+
+                foreach (string scoreN in this.scoreNames)
                 {
-                    Console.WriteLine(result + "1");
-                    //takes all the scoreTypes on the board
-                    foreach(string score in this.scoreNames)
+                    for (int i = 0; i < this.scoreNames.Count(); i++)
                     {
-                        Console.WriteLine(score + "2");
-                        //compares the scoretype rolled with the scoretype on the board
-                        if (result == score)
+                        foreach (TextBlock player1Field in player1Fields)
                         {
-                            //TO DO - implements the correct score next to the correct scoretype.
-                            ThreeKindPlayer1.Text = Y.getAllScores(results)[0];
+                            
+                            if (dRAmount > times || dSRAmount > times)
+                            {
+                                Console.Write("a");
+                                //Console.WriteLine(distinctResults.ElementAt(dRAmount) + "score N");
+                                //if (scoreN == distinctResults.ElementAt(dRAmount))
+                                //{
+                                 //   times++;
+                                //    if (distinctScoreResults.ElementAt(dSRAmount) != "0")
+                                 //   {
+                                 //       player1Field.Text = distinctScoreResults.ElementAt(dSRAmount);
+                                    
+                                 //   }
+
+                                //}
+                            }
+                            else
+                            {
+                                player1Field.Text = "0";
+                            }
                         }
                     }
                 }
-
                 Y.actionCount++;
             }
-        }
-
-        private void insertScore()
-        {
-            //string result in Y.getAllScores(results);
-
         }
 
         private void HoldBtn1(object sender, RoutedEventArgs e)
@@ -141,6 +166,83 @@ namespace Spellendoos
 
         private List<string> setupGame()
         {
+            //add corresponding fields to be used when filling in scores
+            this.player1Fields.Add(onesPlayer1);
+            this.player1Fields.Add(twosPlayer1);
+            this.player1Fields.Add(threesPlayer1);
+            this.player1Fields.Add(foursPlayer1);
+            this.player1Fields.Add(fivesPlayer1);
+            this.player1Fields.Add(sixesPlayer1);
+            this.player1Fields.Add(sumPlayer1);
+            this.player1Fields.Add(bonusPlayer1);
+            this.player1Fields.Add(ThreeKindPlayer1);
+            this.player1Fields.Add(FourKindPlayer1);
+            this.player1Fields.Add(FullHousePlayer1);
+            this.player1Fields.Add(SmallStraightPlayer1);
+            this.player1Fields.Add(LargeStraightPlayer1);
+            this.player1Fields.Add(ChancePlayer1);
+            this.player1Fields.Add(YahtzeePlayer1);
+            this.player1Fields.Add(TotalScorePlayer1);
+
+            this.player2Fields.Add("onesPlayer2");
+            this.player2Fields.Add("twosPlayer2");
+            this.player2Fields.Add("threesPlayer2");
+            this.player2Fields.Add("foursPlayer2");
+            this.player2Fields.Add("fivesPlayer2");
+            this.player2Fields.Add("sixesPlayer2");
+            this.player2Fields.Add("sumPlayer2");
+            this.player2Fields.Add("bonusPlayer2");
+            this.player2Fields.Add("ThreeKindPlayer2");
+            this.player2Fields.Add("FourKindPlayer2");
+            this.player2Fields.Add("FullHousePlayer2");
+            this.player2Fields.Add("SmallStraightPlayer2");
+            this.player2Fields.Add("LargeStraightPlayer2");
+            this.player2Fields.Add("ChancePlayer2");
+            this.player2Fields.Add("YahtzeePlayer2");
+            this.player2Fields.Add("TotalScorePlayer2");
+
+            this.player3Fields.Add("onesPlayer3");
+            this.player3Fields.Add("twosPlayer3");
+            this.player3Fields.Add("threesPlayer3");
+            this.player3Fields.Add("foursPlayer3");
+            this.player3Fields.Add("fivesPlayer3");
+            this.player3Fields.Add("sixesPlayer3");
+            this.player3Fields.Add("sumPlayer3");
+            this.player3Fields.Add("bonusPlayer3");
+            this.player3Fields.Add("ThreeKindPlayer3");
+            this.player3Fields.Add("FourKindPlayer3");
+            this.player3Fields.Add("FullHousePlayer3");
+            this.player3Fields.Add("SmallStraightPlayer3");
+            this.player3Fields.Add("LargeStraightPlayer3");
+            this.player3Fields.Add("ChancePlayer3");
+            this.player3Fields.Add("YahtzeePlayer3");
+            this.player3Fields.Add("TotalScorePlayer3");
+
+            this.player4Fields.Add("onesPlayer4");
+            this.player4Fields.Add("twosPlayer4");
+            this.player4Fields.Add("threesPlayer4");
+            this.player4Fields.Add("foursPlayer4");
+            this.player4Fields.Add("fivesPlayer4");
+            this.player4Fields.Add("sixesPlayer4");
+            this.player4Fields.Add("sumPlayer4");
+            this.player4Fields.Add("bonusPlayer4");
+            this.player4Fields.Add("ThreeKindPlayer4");
+            this.player4Fields.Add("FourKindPlayer4");
+            this.player4Fields.Add("FullHousePlayer4");
+            this.player4Fields.Add("SmallStraightPlayer4");
+            this.player4Fields.Add("LargeStraightPlayer4");
+            this.player4Fields.Add("ChancePlayer4");
+            this.player4Fields.Add("YahtzeePlayer4");
+            this.player4Fields.Add("TotalScorePlayer4");
+
+            this.scoreNames.Add("Ones");
+            this.scoreNames.Add("Twos");
+            this.scoreNames.Add("Threes");
+            this.scoreNames.Add("Fours");
+            this.scoreNames.Add("Fives");
+            this.scoreNames.Add("Sixes");
+            this.scoreNames.Add("Sum");
+            this.scoreNames.Add("Bonus");
             this.scoreNames.Add("Three of a kind");
             this.scoreNames.Add("Four of a kind");
             this.scoreNames.Add("Full House");
@@ -151,5 +253,7 @@ namespace Spellendoos
 
             return this.scoreNames;
         }
+
+
     }
 }
