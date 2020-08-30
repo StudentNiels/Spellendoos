@@ -80,11 +80,13 @@ namespace Spellendoos
                 //takes all the scoreTypes
                 foreach (string result in Y.getAllScoreTypes(results))
                 {
+                    Console.WriteLine(result + "1");
                     //takes all the scoreTypes on the board
                     foreach(string score in this.scoreNames)
                     {
+                        Console.WriteLine(score + "2");
                         //compares the scoretype rolled with the scoretype on the board
-                        if(result == score)
+                        if (result == score)
                         {
                             //TO DO - implements the correct score next to the correct scoretype.
                             ThreeKindPlayer1.Text = Y.getAllScores(results)[0];
