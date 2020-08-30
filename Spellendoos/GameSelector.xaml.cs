@@ -63,8 +63,6 @@ namespace Spellendoos
             MensErgerJeNietUI MEJNUI = new MensErgerJeNietUI("Mens erger je niet", players);
             MEJNUI.Show();
             this.Hide();
-            //MensErgerJeNiet MEJN = new MensErgerJeNiet("Mens erger je niet", players, 44);
-            //MEJN.PlayGame();
         }
 
         //return players list
