@@ -113,17 +113,12 @@ namespace Spellendoos
         /**
          * Takes diceroll results and interprets them into point and then returns only the score(numbers)
          */
-        public List<string> getAllScores(int[] results)
+        public Dictionary<string, int> getAllScores(int[] results)
         {
             YRules.checkOptions(results);
-            foreach (KeyValuePair<string, int> result in YRules.getScoreOptions())
-            {
-                
-                int score = result.Value;
-                allScores.Add(score.ToString());
-                Console.WriteLine(score.ToString());
-            }
-            return allScores;
+
+            return YRules.getScoreOptions();
+          
         }
 
         public void SetupGame(int playerTurn)

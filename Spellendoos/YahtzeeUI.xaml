@@ -71,7 +71,7 @@
         <TextBlock Grid.Column="16" Grid.Row="1" FontWeight="SemiBold" Text="Player4" FontFamily="Segoe UI" x:Name="player4Field" Background="#FF6EB727"/>
 
         <TextBlock Grid.Column="12" Grid.Row="2" FontWeight="SemiBold" Text="Ones" FontFamily="Segoe UI" TextBlock.TextAlignment="Left" Background="#FF6EB727"/>
-        <TextBlock Grid.Column="13" Grid.Row="2" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" x:Name="onesPlayer1" Background="#FF6EB727"/>
+        <TextBlock Grid.Column="13" Grid.Row="2" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" x:Name="onesPlayer1" Background="#FF6EB727" Height="24" Margin="0.4,0.4,0,0" Grid.RowSpan="2" VerticalAlignment="Top"/>
         <TextBlock Grid.Column="14" Grid.Row="2" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" x:Name="onesPlayer2" Background="#FF6EB727"/>
         <TextBlock Grid.Column="15" Grid.Row="2" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" x:Name="onesPlayer3" Background="#FF6EB727"/>
         <TextBlock Grid.Column="16" Grid.Row="2" FontWeight="SemiBold" Text="" FontFamily="Segoe UI" x:Name="onesPlayer4" Background="#FF6EB727"/>
