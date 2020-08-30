@@ -61,8 +61,10 @@ namespace Spellendoos
         private void Start_MEJN_Click(object sender, RoutedEventArgs e)
         {
             MensErgerJeNietUI MEJNUI = new MensErgerJeNietUI("Mens erger je niet", players);
-            MensErgerJeNiet MEJN = new MensErgerJeNiet("Mens erger je niet", players, 44);
             MEJNUI.Show();
+            this.Hide();
+            //MensErgerJeNiet MEJN = new MensErgerJeNiet("Mens erger je niet", players, 44);
+            //MEJN.PlayGame();
         }
 
         //return players list
