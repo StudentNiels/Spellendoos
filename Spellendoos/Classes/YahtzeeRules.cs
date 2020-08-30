@@ -24,7 +24,7 @@ namespace Spellendoos.Classes
             this.rules.Add(rule);
         }
 
-        public Dictionary<string, int> getScoreOptions() 
+        public Dictionary<string, int> getScoreOptions()
         {
             return score_options;
         }
@@ -76,10 +76,11 @@ namespace Spellendoos.Classes
                 }
             }
             return new int[] { one, two, three, four, five, six };
-            
+
         }
 
-        public void checkPairs(int[] dieCombo) {
+        public void checkPairs(int[] dieCombo)
+        {
             ///checked if number appears more than three times
             if (dieCombo[0] >= 3 || dieCombo[1] >= 3 || dieCombo[2] >= 3 || dieCombo[3] >= 3
             || dieCombo[4] >= 3 || dieCombo[5] >= 3)
@@ -107,8 +108,8 @@ namespace Spellendoos.Classes
                 if (dieCombo[0] == 5 || dieCombo[1] == 5 || dieCombo[2] == 5 || dieCombo[3] == 5 || dieCombo[4] == 5 || dieCombo[5] == 5)
                 {
                     score_options.Add("Yahtzee", 50);
-                } 
-                else 
+                }
+                else
                 {
                     score_options.Add("Yahtzee", 0);
                 }
@@ -118,9 +119,11 @@ namespace Spellendoos.Classes
                 score_options.Add("Three of a kind", 0);
             }
         }
-        public void checkStraat(int[] dieCombo) {
+        public void checkStraat(int[] dieCombo)
+        {
             ///Check array of thrown die for possible straight-options
-            if (dieCombo[0] == 1){
+            if (dieCombo[0] == 1)
+            {
                 if (dieCombo[1] == 1)
                 {
                     if (dieCombo[2] == 1)

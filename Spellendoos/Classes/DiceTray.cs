@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Spellendoos
 {
@@ -20,7 +16,7 @@ namespace Spellendoos
         ///Array for dice results
         int[] diceResults;
 
-        public DiceTray(int diceAmount, int diceEyes) 
+        public DiceTray(int diceAmount, int diceEyes)
         {
             this.diceAmount = diceAmount;
             this.diceEyes = diceEyes;
@@ -29,7 +25,7 @@ namespace Spellendoos
             this.diceResults = new int[diceAmount + 1];
             ///Create a list of dices to roll them all at once.
             dices = new List<int>();
-            for (int i = 0; i < diceAmount + 1; i++) 
+            for (int i = 0; i < diceAmount + 1; i++)
             {
                 dices.Add(diceEyes);
             }

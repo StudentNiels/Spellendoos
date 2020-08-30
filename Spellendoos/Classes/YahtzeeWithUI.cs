@@ -1,18 +1,7 @@
 ﻿using Spellendoos.Classes;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Xml.Schema;
-using System.Xml.XPath;
-using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Spellendoos
 {
@@ -45,7 +34,7 @@ namespace Spellendoos
             {
                 gameScore.Add(player.playerName, 0);
             }
-            
+
         }
 
         public override void setHeldDie(int dieToHold)
@@ -56,7 +45,7 @@ namespace Spellendoos
         public override void clearHeldDie()
         {
             //Set heldDices back to original value
-            for (int i= 0; i < heldDices.Count(); i++) 
+            for (int i = 0; i < heldDices.Count(); i++)
             {
                 heldDices[i] = 0;
             }
@@ -65,7 +54,7 @@ namespace Spellendoos
         public override bool IsActive()
         {
             //This method is simply to check whether or not the game is currently active for testing purposes.
-            if(active == true)
+            if (active == true)
             {
                 return true;
             }
@@ -84,7 +73,7 @@ namespace Spellendoos
             foreach (int result in results)
             {
                 diceNumber++;
-                
+
             }
             return results;
         }
@@ -112,7 +101,7 @@ namespace Spellendoos
             YRules.checkOptions(results);
 
             return YRules.getScoreOptions();
-          
+
         }
 
         /// <summary>
@@ -125,7 +114,7 @@ namespace Spellendoos
             int roundCount = 1;
             int currentTurn = 0;
             while (roundCount < maxRounds + 1)
-            { 
+            {
                 if (currentTurn > (players.Count - 1))
                 {
                     currentTurn = 0;

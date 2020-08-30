@@ -1,18 +1,9 @@
-﻿using Spellendoos.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Spellendoos
 {
@@ -44,7 +35,7 @@ namespace Spellendoos
             this.player4Fields = new List<TextBlock>();
 
             //Player's names are set on the UI
-            player1Field.Text = players[0].getPlayerName(); 
+            player1Field.Text = players[0].getPlayerName();
             player2Field.Text = players[1].getPlayerName();
             player3Field.Text = players[2].getPlayerName();
             player4Field.Text = players[3].getPlayerName();
@@ -54,7 +45,7 @@ namespace Spellendoos
             setupGame();
             Y.PlayGame();
         }
-        
+
         /**
          * When the roll button is pressed, there will first be a check if another roll is available.
          * The amount of eyes on a dice is linked to an image to display it to the users.
@@ -63,8 +54,9 @@ namespace Spellendoos
          */
         private void YhtzRollDice_Click(object sender, RoutedEventArgs e)
         {
-            if (Y.getDiceRollAvailability() == true && Y.actionCount <3)
+            if (Y.getDiceRollAvailability() == true && Y.actionCount < 3)
             {
+                ///Here the image for the dice is changed when rolled
                 int[] results = Y.RollDice();
                 BitmapImage BM1 = new BitmapImage();
                 BM1.BeginInit();
@@ -97,15 +89,17 @@ namespace Spellendoos
                 this.diceImage5.Source = BM5;
 
                 IEnumerable<KeyValuePair<string, int>> scores = Y.getAllScores(results).Distinct();
-                
-                foreach(var s in scores)
+
+                foreach (var s in scores)
                 {
                     TextBlock textblockToUpdate = GetMatchingTextBlock(s.Key);
                     textblockToUpdate.Text = s.Value.ToString();
                 }
-                
+
                 Y.actionCount++;
-            } else {
+            }
+            else
+            {
                 this.playerId++;
                 Y.actionCount = 0;
             }
@@ -145,9 +139,9 @@ namespace Spellendoos
 
         private void EndTurn_Click(object sender, RoutedEventArgs e)
         {
-           //Set action count to 3 so the player's turn ends.
-           Y.setActionCount(3);
-           this.playerId++;
+            //Set action count to 3 so the player's turn ends.
+            Y.setActionCount(3);
+            this.playerId++;
         }
 
         private TextBlock GetMatchingTextBlock(string scoreType)

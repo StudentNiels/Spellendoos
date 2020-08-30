@@ -1,12 +1,6 @@
 ﻿using Spellendoos.Classes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
 
 namespace Spellendoos
 {
@@ -33,7 +27,7 @@ namespace Spellendoos
             }
         }
 
-        
+
         public override bool IsActive()
         {
             ///This method is simply to check whether or not the game is currently active for testing purposes.
@@ -55,7 +49,7 @@ namespace Spellendoos
             int roundCount = 1;
             int currentTurn = 0;
             while (roundCount < maxRounds + 1)
-            { 
+            {
                 if (currentTurn > (players.Count - 1))
                 {
                     currentTurn = 0;
@@ -105,7 +99,7 @@ namespace Spellendoos
             this.actionCount = newActionCount;
         }
 
-        public override bool getDiceRollAvailability() 
+        public override bool getDiceRollAvailability()
         {
             throw new NotImplementedException();
         }

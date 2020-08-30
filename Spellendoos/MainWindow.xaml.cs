@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Linq;
 
 namespace Spellendoos
 {
@@ -34,7 +33,7 @@ namespace Spellendoos
 
             string[] playernames = new string[] { p1, p2, p3, p4 };
 
-            if (playernames.All(playername => isInvalidName(playername))) 
+            if (playernames.All(playername => isInvalidName(playername)))
             {
                 Player pl1 = new Player(p1);
                 Player pl2 = new Player(p2);
@@ -52,19 +51,20 @@ namespace Spellendoos
                 this.Visibility = Visibility.Hidden;
                 gs.Show();
             }
-            else {
+            else
+            {
                 MessageBox.Show("Niet alle namen bevatten alleen letters of nummers!");
             }
         }
 
-        public bool isInvalidName(string playername) 
+        public bool isInvalidName(string playername)
         {
             //Check whether the player name is invalid, as in it uses more than letters and characters
             if (Regex.IsMatch(playername, @"^[a-zA-Z0-9]+$"))
             {
                 return true;
             }
-            else 
+            else
             {
                 return false;
             }

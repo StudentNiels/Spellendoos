@@ -167,6 +167,9 @@
     <Resource Include="Assets\Red-pawn.png" />
     <Resource Include="Assets\score.png" />
     <Resource Include="Assets\4th_place.png" />
+    <Resource Include="Assets\green-pawn.png" />
+    <Resource Include="Assets\blue-pawn.png" />
+    <Resource Include="Assets\yellow-pawn.png" />
     <Content Include="bin\Debug\Spellendoos.pdb" />
     <Resource Include="Assets\Menu.jpg" />
   </ItemGroup>

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Spellendoos.Classes
 {
@@ -24,7 +22,7 @@ namespace Spellendoos.Classes
             this.Grid = new LinkedList<int>();
             pawnPositions = new Dictionary<string, int[]>();
             //Fill in the dictionairy
-            foreach (Player player in players) 
+            foreach (Player player in players)
             {
                 pawnPositions.Add(player.playerName, new int[4]);
             }
@@ -48,15 +46,13 @@ namespace Spellendoos.Classes
 
         public override bool IsActive()
         {
-            ///This method is simply to check whether or not the game is currently active for testing purposes.
+            ///This method is simply to check whether or not the game is currently active
             if (active == true)
             {
-                Console.WriteLine("Mens erger je niet is actief!");
                 return true;
             }
             else
             {
-                Console.WriteLine("Mens erger je niet is niet actief.");
                 return false;
             }
         }
@@ -95,7 +91,7 @@ namespace Spellendoos.Classes
                     Console.WriteLine("Better luck next time!");
                 }
             }
-            else 
+            else
             {
                 sb.AppendLine("You currently have the following pawns on these positions:");
                 foreach (int pos in playerPositions)
@@ -108,16 +104,16 @@ namespace Spellendoos.Classes
                 Console.ReadKey();
                 int result = dices.RollDices()[0];
                 ///If a player rolls a 6 and not all pawns are on the board, they put another one on it and are forced to play it.
-                if (result == 6 && playerPositions.Any(i => i == 0)) 
+                if (result == 6 && playerPositions.Any(i => i == 0))
                 {
                     int currentPawn = 0;
-                    foreach(int pawn in playerPositions)
+                    foreach (int pawn in playerPositions)
                     {
                         if (pawn == 0)
                         {
                             break;
                         }
-                        else 
+                        else
                         {
                             currentPawn++;
                         }
@@ -125,7 +121,7 @@ namespace Spellendoos.Classes
                     Console.WriteLine("You rolled a 6, a new pawn is on the board. Press a key to roll again and move it.");
                     Console.ReadKey();
                     int[] moveresult = dices.RollDices();
-                    foreach(int move in moveresult)
+                    foreach (int move in moveresult)
                     {
                         pawnPositions[playerName][currentPawn] += move;
                     }
@@ -146,17 +142,17 @@ namespace Spellendoos.Classes
             }
             ///No clue why, but stringbuilder is not working here.
             Console.WriteLine("These are all the pawns currently in the field:");
-            foreach (string name in pawnPositions.Keys) 
+            foreach (string name in pawnPositions.Keys)
             {
                 Console.WriteLine($"{name}'s pawns:");
-                foreach (int pawnPos in pawnPositions[name]) 
+                foreach (int pawnPos in pawnPositions[name])
                 {
                     if (pawnPos != 0)
                     {
                         Console.WriteLine(pawnPos.ToString());
                     }
                 }
-                if (pawnPositions[name].All(i => i > numberOfFields)) 
+                if (pawnPositions[name].All(i => i > numberOfFields))
                 {
                     Console.WriteLine($"Player {name} has won");
                     return true;
@@ -165,12 +161,12 @@ namespace Spellendoos.Classes
             return false;
         }
 
-        public void StrikeCheck(int playerTurn, int selectedPawn) 
+        public void StrikeCheck(int playerTurn, int selectedPawn)
         {
             string playerName = players[playerTurn].getPlayerName();
             int currentPos = pawnPositions[playerName][selectedPawn];
             ///Check whether or not the currently moved pawn can strike an already existing pawn.
-            foreach (string name in pawnPositions.Keys) 
+            foreach (string name in pawnPositions.Keys)
             {
                 ///For every int[] in pawnPositions except the players, check for same spaces
                 ///Though for only the player's int[], check for same spaces except for the selected pawn.
@@ -199,7 +195,7 @@ namespace Spellendoos.Classes
         {
             bool onGoing = true;
             int currentTurn = 0;
-            
+
             while (onGoing)
             {
                 if (currentTurn > (players.Count - 1))
@@ -224,7 +220,7 @@ namespace Spellendoos.Classes
             throw new NotImplementedException();
         }
 
-       
+
 
     }
 }

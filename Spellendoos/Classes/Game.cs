@@ -2,7 +2,7 @@
 
 namespace Spellendoos
 {
-    class Game 
+    class Game
     {
         public List<Player> players;
 
@@ -15,7 +15,7 @@ namespace Spellendoos
         ///get all players names
         public void GetPlayersNames(List<Player> players)
         {
-            foreach(Player p in players)
+            foreach (Player p in players)
             {
                 p.getPlayerName();
             }
