@@ -89,12 +89,6 @@ namespace Spellendoos
             return results;
         }
 
-        ///method to color the playername of the player who is currently rolling
-        public void playerColor(string playerName)
-        {
-
-        }
-
         /**
          * Takes diceroll results and interprets them into point and then returns only the scoreType(Three of a kind, full house etc)
          */
@@ -121,44 +115,6 @@ namespace Spellendoos
           
         }
 
-        public void SetupGame(int playerTurn)
-        {
-            ///Get player name so we don't have to constantly call that method
-            
-            ///Score for the player
-            int score = 0;
-            ///int list to store the scores the player selects in.
-            List<int> pointStorage = new List<int>();
-
-            foreach (KeyValuePair<string, int> gameScore in gameScore)
-            {
-                ///Show stuff
-
-                string TotalScore = gameScore.Key;
-                int TotalScorePoints = gameScore.Value;
-            }
-            while (actionCount < maxActionCount)
-            {
-                if (actionCount == 0)
-                {
-
-                    ///Roll the pre-defined dices
-                    int[] results = RollDice();
-                    ///Gives the current player the points that can be earned with the current dicethrow
-
-                    Dictionary<string, int> options = rules.checkOptions(results);
-                    pointStorage.Clear();
-
-                    actionCount++;
-                }
-                while (actionCount < 3)
-                {
-
-                }
-            }
-        }
-
-
         /// <summary>
         /// Method continues the game untill all the rounds (usually 5) are completed
         /// This method calls the turn() method to to activate gameplay
@@ -182,16 +138,7 @@ namespace Spellendoos
                     currentTurn++;
                 }
             }
-            DialogResult DialogOK = MessageBox.Show("The game is finished press OK to return to the menu.", "finish!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (DialogOK == DialogResult.OK)
-                {
-                    EndGame();
-                }
-                else if (DialogOK != DialogResult.OK)
-                {
-                    EndGame();
-                }
-            }
+        }
 
         public override void EndGame()
         {

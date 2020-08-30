@@ -43,7 +43,6 @@ namespace Spellendoos
             this.player3Fields = new List<TextBlock>();
             this.player4Fields = new List<TextBlock>();
 
-
             //Player's names are set on the UI
             player1Field.Text = players[0].getPlayerName(); 
             player2Field.Text = players[1].getPlayerName();
@@ -52,14 +51,19 @@ namespace Spellendoos
 
             this.playerId = 1;
 
-
             setupGame();
             Y.PlayGame();
         }
-
+        
+        /**
+         * When the roll button is pressed, there will first be a check if another roll is available.
+         * The amount of eyes on a dice is linked to an image to display it to the users.
+         * results of the dice throws are checked and then checked for distinction
+         * The type of score that has been rolled will be check with the corresponding textBlock in the grid of the UI
+         */
         private void YhtzRollDice_Click(object sender, RoutedEventArgs e)
         {
-            if (Y.getDiceRollAvailability() == true)
+            if (Y.getDiceRollAvailability() == true && Y.actionCount <3)
             {
                 int[] results = Y.RollDice();
                 BitmapImage BM1 = new BitmapImage();
@@ -99,7 +103,11 @@ namespace Spellendoos
                     TextBlock textblockToUpdate = GetMatchingTextBlock(s.Key);
                     textblockToUpdate.Text = s.Value.ToString();
                 }
+                
                 Y.actionCount++;
+            } else {
+                this.playerId++;
+                Y.actionCount = 0;
             }
         }
 
@@ -125,17 +133,21 @@ namespace Spellendoos
         {
             Y.setHeldDie(4);
         }
+
         private void BackToGameSelector_Click(object sender, RoutedEventArgs e)
         {
             GameSelector gs = new GameSelector(players);
-            this.Visibility = Visibility.Hidden;
+
+            this.Hide();
             gs.Show();
+
         }
 
         private void EndTurn_Click(object sender, RoutedEventArgs e)
         {
-            ///Set action count to 3 so the player's turn ends.
-           // Y.setActionCount(3);
+           //Set action count to 3 so the player's turn ends.
+           Y.setActionCount(3);
+           this.playerId++;
         }
 
         private TextBlock GetMatchingTextBlock(string scoreType)
